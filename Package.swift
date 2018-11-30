@@ -8,6 +8,6 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        Target(name: "MapCodable")
+        .target(name: "MapCodable")
     ]
 )

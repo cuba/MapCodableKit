@@ -8,9 +8,10 @@ let package = Package(
     products: [
         .library(name: "MapCodable", targets: ["MapCodable"]),
     ],
-    dependencies: [],
+    dependencies: [
+    ],
     targets: [
-        .target(name: "MapCodable"),
+        .target(name: "MapCodable", dependencies: []),
         .testTarget(name: "MapCodableTests", dependencies: ["MapCodable"]),
     ]
 )

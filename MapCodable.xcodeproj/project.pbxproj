@@ -89,18 +89,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA4CAFA421B0FD81008BB81C /* MapCodable */ = {
-			isa = PBXGroup;
-			children = (
-				DA4CAFA821B0FD81008BB81C /* Encoders */,
-				DA4CAFA521B0FD81008BB81C /* MapTransform.swift */,
-				DA4CAFA621B0FD81008BB81C /* MappingError.swift */,
-				DA4CAFA721B0FD81008BB81C /* MapCodable.swift */,
-				DA4CAFAA21B0FD81008BB81C /* Map.swift */,
-			);
-			path = MapCodable;
-			sourceTree = "<group>";
-		};
 		DA4CAFA821B0FD81008BB81C /* Encoders */ = {
 			isa = PBXGroup;
 			children = (
@@ -112,7 +100,11 @@
 		DA4CAFB021B0FFD1008BB81C /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DA4CAFA421B0FD81008BB81C /* MapCodable */,
+				DA4CAFA821B0FD81008BB81C /* Encoders */,
+				DA4CAFA521B0FD81008BB81C /* MapTransform.swift */,
+				DA4CAFA621B0FD81008BB81C /* MappingError.swift */,
+				DA4CAFA721B0FD81008BB81C /* MapCodable.swift */,
+				DA4CAFAA21B0FD81008BB81C /* Map.swift */,
 			);
 			path = Sources;
 			sourceTree = "<group>";

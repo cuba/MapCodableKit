@@ -65,7 +65,7 @@
 		DA4CAFB721B10641008BB81C /* MapDoubleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDoubleTests.swift; sourceTree = "<group>"; };
 		DA4CAFB921B1065C008BB81C /* MapBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoolTests.swift; sourceTree = "<group>"; };
 		DA4CAFBB21B108B9008BB81C /* MapCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableTests.swift; sourceTree = "<group>"; };
-		"MapCodable::MapCodable::Product" /* MapCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"MapCodable::MapCodable::Product" /* MapCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MapCodable::MapCodableTests::Product" /* MapCodableTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; path = MapCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -114,7 +114,7 @@
 			children = (
 				DA4CAFA421B0FD81008BB81C /* MapCodable */,
 			);
-			name = Sources;
+			path = Sources;
 			sourceTree = "<group>";
 		};
 		OBJ_10 /* Tests */ = {
@@ -148,15 +148,14 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
-				DA4CAFB021B0FFD1008BB81C /* Sources */,
 				OBJ_6 /* Package.swift */,
+				DA4CAFB021B0FFD1008BB81C /* Sources */,
 				OBJ_10 /* Tests */,
 				OBJ_14 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -229,7 +228,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_14 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -311,7 +310,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MapCodable;
 			};
 			name = Debug;
@@ -335,7 +334,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 4.0;
 				TARGET_NAME = MapCodable;
 			};
 			name = Release;

@@ -5,11 +5,10 @@ import PackageDescription
 
 let package = Package(
     name: "MapCodable",
-    dependencies: [
-    ],
+    dependencies: [],
     targets: [
         .target(
-            name: "MapCodable"
+            name: "MapCodable"),
         .testTarget(
             name: "MapCodableTests",
             dependencies: ["MapCodable"]),

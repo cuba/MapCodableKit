@@ -11,7 +11,7 @@ let package = Package(
     dependencies: [
     ],
     targets: [
-        .target(name: "MapCodable", path: "Sources")),
-        .testTarget(name: "MapCodableTests", dependencies: ["MapCodable"], path: "Tests")),
+        .target(name: "MapCodable", path: "Sources"),
+        .testTarget(name: "MapCodableTests", dependencies: ["MapCodable"], path: "Tests"),
     ]
 )

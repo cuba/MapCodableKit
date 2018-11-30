@@ -5,9 +5,9 @@ import PackageDescription
 
 let package = Package(
     name: "MapCodable",
+    dependencies: [
+    ],
     targets: [
         Target(name: "MapCodable")
-    ],
-    dependencies: [
     ]
 )

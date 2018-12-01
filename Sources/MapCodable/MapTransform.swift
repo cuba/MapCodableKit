@@ -8,14 +8,14 @@
 import Foundation
 
 public protocol MapDecoder {
-    associatedtype Primitive
+    associatedtype Primitive: MapPrimitive
     associatedtype Object
     
     func fromMap(value: Primitive) throws -> Object?
 }
 
 public protocol MapEncoder {
-    associatedtype Primitive
+    associatedtype Primitive: MapPrimitive
     associatedtype Object
     
     func toMap(value: Object) throws -> Primitive?

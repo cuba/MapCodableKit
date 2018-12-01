@@ -509,4 +509,50 @@ extension Map {
             throw MappingError.invalidType(key: key)
         }
     }
+    
+    /**
+     Add an array to the map. The objects will be converted by using their mapping function.
+     
+     - parameter value: The nested `MapEncodable` array that will be stored in the map.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: MapEncodable>(_ values: [String: T], forKey key: String) throws {
+        var results: [String: [String: Any]] = [:]
+        
+        for (key, encodable) in values {
+            let json = try encodable.json()
+            results[key] = json
+        }
+        
+        self.add(results as Any, forKey: key)
+    }
+    
+    /**
+     Returns a value from the map. Deserializes the object from `[[String: Any]]`, `String` or `[String]`. The object will be converted by using its mapping function.
+     
+     - parameter key: The key that that is used to store this value in the map.
+     - throws: Throws an error if the value could not be deserialized or it is nil and no default value was specified.
+     - returns: The deserialized object.
+     */
+    public func value<T: MapDecodable>(fromKey key: String, stopOnFailure: Bool = false) throws -> [String: T] {
+        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        
+        if let jsonDictionary = value as? [String: [String: Any]] {
+            var results: [String: T] = [:]
+            
+            for (key, json) in jsonDictionary {
+                do {
+                    let decodable = try T(json: json)
+                    results[key] = decodable
+                } catch {
+                    guard stopOnFailure else { continue }
+                    throw error
+                }
+            }
+            
+            return results
+        } else {
+            throw MappingError.invalidType(key: key)
+        }
+    }
 }

@@ -163,6 +163,22 @@ class MapCodableTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingMapCodableDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": CodableTestModel(id: "123"), "second": CodableTestModel(id: "234")]
+        
+        // When
+        try! map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: CodableTestModel] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
     func testGivenMap_WhenAddingMapCodable_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
         let value = CodableTestModel(id: "123")

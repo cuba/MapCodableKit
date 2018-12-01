@@ -45,6 +45,17 @@ public extension MapEncodable {
     }
     
     /**
+     Returns a map filled with the contents of this object
+     
+     - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MappingError` but since this method is implemented by the user, it may throw any error.
+     - returns: The filled map.
+     */
+    func json() throws -> [String: Any] {
+        let map = try filledMap()
+        return map.makeDictionary()
+    }
+    
+    /**
      Serializes this object into a JSON `Data` object
      
      - parameter options: The writing options.
@@ -91,6 +102,17 @@ public extension MapDecodable {
      */
     public init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let map = try Map(jsonData: jsonData, encoding: encoding)
+        try self.init(map: map)
+    }
+    
+    /**
+     Initialize this object from a JSON Object
+     - parameter jsonString: The JSON `String` that will be deserialized
+     - parameter encoding: The encoding used on the string
+     - throws: Throws an error if the json string cannot be deserialized.
+     */
+    public init(json: [String: Any]) throws {
+        let map = Map(json: json)
         try self.init(map: map)
     }
 }

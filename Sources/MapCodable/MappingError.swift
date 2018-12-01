@@ -9,12 +9,12 @@ import Foundation
 
 public enum MappingError: Error, CustomStringConvertible {
     case valueNotFound(key: String)
-    case failedToMap(key: String)
+    case failedToDecode(key: String)
     case invalidType(key: String)
     
     public var description: String {
         switch self {
-        case .failedToMap(let key)      : return "Mapping failed because value cound not be serialized for `\(key)`"
+        case .failedToDecode(let key)      : return "Mapping failed because value cound not be serialized for `\(key)`"
         case .valueNotFound(let key)    : return "Mapping failed because value cound not be found for `\(key)`"
         case .invalidType(let key)      : return "Mapping failed because type is invalid for `\(key)`"
         }

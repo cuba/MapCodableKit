@@ -31,23 +31,16 @@ public class Map {
     /**
      Initialize this map from a dictionary
      */
-    public init(values: [String: Any]) {
-        self.values = values
+    public init(json: [String: Any] = [:]) {
+        self.values = json
     }
     
     /**
      Initialize this `Map` from a `MapEncodable` object using its `fill` method.
      */
     public convenience init(_ mapEncodable: MapEncodable) throws {
-        self.init(values: [:])
+        self.init()
         try mapEncodable.fill(map: self)
-    }
-    
-    /**
-     Initialize an empty `Map`
-     */
-    public convenience init() {
-        self.init(values: [:])
     }
     
     /**
@@ -58,16 +51,16 @@ public class Map {
      */
     public convenience init(jsonString: String, encoding: String.Encoding = .utf8) throws {
         guard let data = jsonString.data(using: encoding) else {
-            self.init(values: [:])
+            self.init()
             return
         }
         
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         
-        if let params = jsonObject as? [String: Any] {
-            self.init(values: params)
+        if let json = jsonObject as? [String: Any] {
+            self.init(json: json)
         } else {
-            self.init(values: [:])
+            self.init()
         }
     }
     
@@ -80,10 +73,10 @@ public class Map {
     public convenience init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
         
-        if let params = jsonObject as? [String: Any] {
-            self.init(values: params)
+        if let json = jsonObject as? [String: Any] {
+            self.init(json: json)
         } else {
-            self.init(values: [:])
+            self.init()
         }
     }
     
@@ -103,7 +96,7 @@ public class Map {
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
         
         if let paramsArray = jsonObject as? [[String: Any]] {
-            return paramsArray.map({ Map(values: $0) })
+            return paramsArray.map({ Map(json: $0) })
         } else {
             return []
         }
@@ -247,7 +240,7 @@ extension Map {
         guard let element = value as? T.Primitive else { throw MappingError.invalidType(key: key) }
         
         guard let object = try decoder.fromMap(value: element) else {
-            throw MappingError.failedToMap(key: key)
+            throw MappingError.failedToDecode(key: key)
         }
         
         return object
@@ -326,7 +319,7 @@ extension Map {
     public func value<T: RawRepresentable>(fromKey key: String) throws -> T {
         guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let rawValue = value as? T.RawValue else { throw MappingError.invalidType(key: key) }
-        guard let object = T(rawValue: rawValue) else { throw MappingError.failedToMap(key: key) }
+        guard let object = T(rawValue: rawValue) else { throw MappingError.failedToDecode(key: key) }
         return object
     }
     
@@ -457,8 +450,8 @@ extension Map {
      */
     public func add<T: MapEncodable>(_ encodable: T?, forKey key: String) throws {
         guard let encodable = encodable else { return }
-        let map = try Map(encodable)
-        self.add(map.values as Any, forKey: key)
+        let json = try encodable.json()
+        self.add(json as Any, forKey: key)
     }
     
     /**
@@ -471,12 +464,8 @@ extension Map {
     public func value<T: MapDecodable>(fromKey key: String) throws -> T {
         guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         
-        if let params = value as? [String: Any] {
-            let map = Map(values: params)
-            return try T(map: map)
-        } else if let string = value as? String {
-            let map = try Map(jsonString: string)
-            return try T(map: map)
+        if let json = value as? [String: Any] {
+            return try T(json: json)
         } else {
             throw MappingError.invalidType(key: key)
         }
@@ -490,7 +479,7 @@ extension Map {
      */
     public func add<T: MapEncodable>(_ encodableArray: [T], forKey key: String) throws {
         let values = try encodableArray.map({ (encodable: T) -> [String: Any] in
-            let map = try Map(encodable)
+            let map = try encodable.filledMap()
             return map.values
         })
         
@@ -504,21 +493,17 @@ extension Map {
      - throws: Throws an error if the value could not be deserialized or it is nil and no default value was specified.
      - returns: The deserialized object.
      */
-    public func value<T: MapDecodable>(fromKey key: String) throws -> [T] {
+    public func value<T: MapDecodable>(fromKey key: String, stopOnFailure: Bool = false) throws -> [T] {
         guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         
         if let paramsArray = value as? [[String: Any]] {
-            return try paramsArray.map({
-                let map = Map(values: $0)
-                return try T(map: map)
-            })
-        } else if let string = value as? String {
-            let maps = try Map.parseArray(jsonString: string)
-            return try maps.map({ try T(map: $0) })
-        } else if let stringsArray = value as? [String] {
-            return try stringsArray.map({
-                let map = try Map(jsonString: $0)
-                return try T(map: map)
+            return try paramsArray.compactMap({
+                do {
+                    return try T(json: $0)
+                } catch {
+                    guard stopOnFailure else { return nil }
+                    throw error
+                }
             })
         } else {
             throw MappingError.invalidType(key: key)

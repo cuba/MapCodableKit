@@ -3,6 +3,8 @@
 MapCodable
 ============
 
+A powerful JSON serialization framework for swift 4.0
+
 - [Features](#features)
 - [Usage](#usage)
 - [Supported Types](#supported-types)
@@ -17,6 +19,7 @@ MapCodable
 - [x] Easy integration
 - [x] Handles common object types
 - [x] Easily extensible
+- [x] Uses swift 4.0
 
 ## Usage
 

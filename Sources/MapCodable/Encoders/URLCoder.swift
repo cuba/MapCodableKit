@@ -9,6 +9,8 @@ import Foundation
 
 public class URLCoder: MapCoder {
     
+    public init() {}
+    
     public func toMap(value: URL) -> String? {
         return value.absoluteString
     }

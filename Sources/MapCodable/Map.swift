@@ -317,43 +317,6 @@ extension Map {
     }
     
     /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add<T: RawRepresentable>(_ value: [T]?, forKey key: String) {
-        guard let value = value else { return }
-        let rawValues = value.map({ $0.rawValue })
-        self.add(rawValues as Any, forKey: key)
-    }
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add<T: RawRepresentable>(_ value: [String: T]?, forKey key: String) {
-        guard let value = value else { return }
-        var rawValues: [String: T.RawValue] = [:]
-        value.forEach({ rawValues[$0] = $1.rawValue })
-        self.add(rawValues as Any, forKey: key)
-    }
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add<T: RawRepresentable>(_ value: Set<T>?, forKey key: String) {
-        guard let value = value else { return }
-        let rawValues = value.map({ $0.rawValue })
-        add(rawValues, forKey: key)
-    }
-    
-    /**
      Returns a value from the map
      
      - parameter key: The key that that is used to store this value in the map.
@@ -368,6 +331,18 @@ extension Map {
     }
     
     /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: [T]?, forKey key: String) {
+        guard let value = value else { return }
+        let rawValues = value.map({ $0.rawValue })
+        self.add(rawValues as Any, forKey: key)
+    }
+    
+    /**
      Returns a value from the map
      
      - parameter key: The key that that is used to store this value in the map.
@@ -379,6 +354,19 @@ extension Map {
         guard let rawValues = value as? [T.RawValue] else { throw MappingError.invalidType(key: key) }
         let objects = rawValues.compactMap({ T(rawValue: $0) })
         return objects
+    }
+    
+    /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: [String: T]?, forKey key: String) {
+        guard let value = value else { return }
+        var rawValues: [String: T.RawValue] = [:]
+        value.forEach({ rawValues[$0] = $1.rawValue })
+        self.add(rawValues as Any, forKey: key)
     }
     
     /**
@@ -399,6 +387,18 @@ extension Map {
         }
         
         return result
+    }
+    
+    /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: Set<T>?, forKey key: String) {
+        guard let value = value else { return }
+        let rawValues = value.map({ $0.rawValue })
+        add(rawValues, forKey: key)
     }
     
     /**

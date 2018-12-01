@@ -14,9 +14,9 @@ public enum MappingError: Error, CustomStringConvertible {
     
     public var description: String {
         switch self {
-        case .failedToMap(let key)    : return "Mapping failed because value cound not be serialized for `\(key)`"
-        case .valueNotFound(let key)        : return "Mapping failed because value cound not be found for `\(key)`"
-        case .invalidType(let key)          : return "Mapping failed because type is invalid for `\(key)`"
+        case .failedToMap(let key)      : return "Mapping failed because value cound not be serialized for `\(key)`"
+        case .valueNotFound(let key)    : return "Mapping failed because value cound not be found for `\(key)`"
+        case .invalidType(let key)      : return "Mapping failed because type is invalid for `\(key)`"
         }
     }
 }

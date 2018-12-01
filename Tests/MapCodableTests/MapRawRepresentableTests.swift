@@ -52,6 +52,55 @@ class MapRawRepresentableTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingRawRepresentableArray_ReturnsValue() {
+        // Given
+        let value = [TestEnum.first, TestEnum.second, TestEnum.first]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [TestEnum] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingRawRepresentableSet_ReturnsValue() {
+        // Given
+        let values = [TestEnum.first, TestEnum.second, TestEnum.first]
+        let set = Set(values)
+        
+        // When
+        map.add(set, forKey: "value")
+        
+        // Then
+        do {
+            let result: Set<TestEnum> = try map.value(fromKey: "value")
+            XCTAssertEqual(set, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingRawRepresentableDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": TestEnum.first, "second": TestEnum.second, "third": TestEnum.first]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: TestEnum] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
     func testGivenMap_WhenAddingRawRepresentable_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
         let value = TestEnum.first

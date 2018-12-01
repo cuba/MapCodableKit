@@ -317,6 +317,43 @@ extension Map {
     }
     
     /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: [T]?, forKey key: String) {
+        guard let value = value else { return }
+        let rawValues = value.map({ $0.rawValue })
+        self.add(rawValues as Any, forKey: key)
+    }
+    
+    /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: [String: T]?, forKey key: String) {
+        guard let value = value else { return }
+        var rawValues: [String: T.RawValue] = [:]
+        value.forEach({ rawValues[$0] = $1.rawValue })
+        self.add(rawValues as Any, forKey: key)
+    }
+    
+    /**
+     Add a value to the map
+     
+     - parameter value: The value that will be stored in the map. Will be converted to its RawType.
+     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
+     */
+    public func add<T: RawRepresentable>(_ value: Set<T>?, forKey key: String) {
+        guard let value = value else { return }
+        let rawValues = value.map({ $0.rawValue })
+        add(rawValues, forKey: key)
+    }
+    
+    /**
      Returns a value from the map
      
      - parameter key: The key that that is used to store this value in the map.
@@ -328,6 +365,52 @@ extension Map {
         guard let rawValue = value as? T.RawValue else { throw MappingError.invalidType(key: key) }
         guard let object = T(rawValue: rawValue) else { throw MappingError.failedToMap(key: key) }
         return object
+    }
+    
+    /**
+     Returns a value from the map
+     
+     - parameter key: The key that that is used to store this value in the map.
+     - throws: Throws an error if the value is invalid or it is nil. Filters out any enums that don't serialize properly instead of failing.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(fromKey key: String) throws -> [T] {
+        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let rawValues = value as? [T.RawValue] else { throw MappingError.invalidType(key: key) }
+        let objects = rawValues.compactMap({ T(rawValue: $0) })
+        return objects
+    }
+    
+    /**
+     Returns a value from the map
+     
+     - parameter key: The key that that is used to store this value in the map.
+     - throws: Throws an error if the value is invalid or it is nil. Filters out any enums that don't serialize properly instead of failing.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(fromKey key: String) throws -> [String: T] {
+        guard let values: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let rawValues = values as? [String: T.RawValue] else { throw MappingError.invalidType(key: key) }
+        var result: [String: T] = [:]
+        
+        for (key, rawValue) in rawValues {
+            guard let value = T(rawValue: rawValue) else { continue }
+            result[key] = value
+        }
+        
+        return result
+    }
+    
+    /**
+     Returns a value from the map
+     
+     - parameter key: The key that that is used to store this value in the map.
+     - throws: Throws an error if the value is invalid or it is nil. Filters out any enums that don't serialize properly instead of failing.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(fromKey key: String) throws -> Set<T> {
+        let objects: [T] = try value(fromKey: key)
+        return Set(objects)
     }
 }
 
@@ -398,11 +481,6 @@ extension Map {
             throw MappingError.invalidType(key: key)
         }
     }
-}
-
-// MARK: MapCodable Array
-
-extension Map {
     
     /**
      Add an array to the map. The objects will be converted by using their mapping function.

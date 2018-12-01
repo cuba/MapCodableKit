@@ -8,7 +8,7 @@
 import Foundation
 
 public class Map {
-    private(set) var values: [String: Any]
+    private(set) public var values: [String: Any]
     
     /**
      Initialize this map from a dictionary

@@ -4,8 +4,9 @@ MapCodable
 ============
 
 - [Features](#features)
-- [Installation](#installation)
 - [Usage](#usage)
+- [Supported Types](#supported_types)
+- [Installation](#installation)
 - [Credits](#credits)
 - [License](#license)
 
@@ -16,6 +17,103 @@ MapCodable
 - [x] Easy integration
 - [x] Handles common object types
 - [x] Easily extensible
+
+## Usage
+
+### Mapping to `JSON`
+
+To be able to map your object to json, your object needs to implement the `MapEncodable` protocol
+
+```swift
+struct MyModel: MapEncodable {
+    let id: String
+    let name: String
+
+    init(id: String, name: String) {
+        self.id = id
+        self.name = name
+    }
+
+    func fill(map: Map) {
+        map.add(id, forKey: "id")
+        map.add(name, forKey: "name")
+    }
+}
+```
+
+Then you can get any json data like this
+
+```swift
+// Initialize your object
+let myModel = MyModel(id: "123", name: "Jim Halpert")
+
+// To get a json string (i.e. `String`)
+let jsonString = try myModel.jsonString(options: [.prettyPrinted], encoding: .utf8)
+
+// To get a json data (i.e. `Data`)
+let jsonString = try myModel.jsonData(options: [.prettyPrinted])
+
+
+// To get a json object (i.e. `[String: Any]`)
+let jsonString = try myModel.json()
+```
+
+### Mapping from `JSON`
+
+To be able to map your object to json, your object needs to implement the `MapDecodable` protocol
+
+```swift
+struct MyModel: MapDecodable {
+    let id: String
+    let name: String
+
+    init(map: Map) throws {
+        self.id     = try map.value(fromKey: "id")
+        self.name   = try map.value(fromKey: "name")
+    }
+}
+```
+
+Then you can initialize your object like this:
+
+```swift
+let myModel = MyModel(id: "123", name: "Jim Halpert")
+
+// Initialize from a json string (i.e. `String`)
+let jsonString = ...get your `json` string from somewhere like the network
+let myModel = try MyModel(jsonString: jsonString, encoding: .utf8)
+
+// Intialize from json data (i.e. `Data`)
+let jsonData = ...get your `JSON` data from somewhere like the network
+let myModel = try MyModel(jsonData: hsonData, encoding: .utf8)
+
+// Initialize from a json object (i.e. `[String: Any]`)
+let json = ["id": "234", "name": "Pam Beezley"]
+let jsonString = try MyModel(json: json)
+```
+
+### Mapping Both Ways
+
+To map your object both ways, just implement both `MapDecodable` and `MapEncodable`.  As a convenience you can also use `MapCodable`
+
+### Serializing a custom object
+
+Sometimes you need to serialize a custom object.  For this you can use `MapEncoder` and `MapDecoder` (`MapCoder` for both).  A simple exaple of this is the built in  `URLCoder`
+
+```swift
+public class URLCoder: MapCoder {
+
+    public init() {}
+
+    public func toMap(value: URL) -> String? {
+        return value.absoluteString
+    }
+
+    public func fromMap(value: String) throws -> URL? {
+        return URL(string: value)
+    }
+}
+```
 
 ## Supported Types
 
@@ -76,102 +174,6 @@ Arrays are supported for the following types:
 ### Package Manager
 
 Package manager is a powerful packaging tool built into xcode.  For the full documentation on how to use package manager, click [here](https://swift.org/package-manager/)
-
-## Usage
-
-### Mapping to `JSON`
-
-To be able to map your object to json, your object needs to implement the `MapEncodable` protocol
-
-```swift
-struct MyModel: MapEncodable {
-    let id: String
-    let name: String
-    
-    init(id: String, name: String) {
-        self.id = id
-        self.name = name
-    }
-
-    func fill(map: Map) {
-        map.add(id, forKey: "id")
-        map.add(name, forKey: "name")
-    }
-}
-```
-
-Then you can get any json data like this
-
-```swift
-// Initialize your object
-let myModel = MyModel(id: "123", name: "Jim Halpert")
-
-// To get a json string (i.e. `String`)
-let jsonString = try myModel.jsonString(options: [.prettyPrinted], encoding: .utf8)
-
-// To get a json data (i.e. `Data`)
-let jsonString = try myModel.jsonData(options: [.prettyPrinted])
-
-
-// To get a json object (i.e. `[String: Any]`)
-let jsonString = try myModel.json()
-```
-
-### Mapping from `JSON`
-
-To be able to map your object to json, your object needs to implement the `MapDecodable` protocol
-
-```swift
-struct MyModel: MapDecodable {
-    let id: String
-    let name: String
-
-    init(map: Map) throws {
-        self.id     = try map.value(fromKey: "id")
-        self.name   = try map.value(fromKey: "name")
-    }
-```
-
-Then you can initialize your object like this:
-
-```swift
-let myModel = MyModel(id: "123", name: "Jim Halpert")
-
-// Initialize from a json string (i.e. `String`)
-let jsonString = ...get your `json` string from somewhere like the network
-let myModel = try MyModel(jsonString: jsonString, encoding: .utf8)
-
-// Intialize from json data (i.e. `Data`)
-let jsonData = ...get your `JSON` data from somewhere like the network
-let myModel = try MyModel(jsonData: hsonData, encoding: .utf8)
-
-// Initialize from a json object (i.e. `[String: Any]`)
-let json = ["id": "234", "name": "Pam Beezley"]
-let jsonString = try MyModel(json: json)
-```
-
-### Mapping Both Ways
-
-To map your object both ways, just implement both `MapDecodable` and `MapEncodable`.  As a convenience you can also use `MapCodable`
-
-### Serializing a custom object
-
-Sometimes you need to serialize a custom object.  For this you can use `MapEncoder` and `MapDecoder` (`MapCoder` for both).  A simple exaple of this is the built in  `URLCoder`
-
-```swift
-public class URLCoder: MapCoder {
-
-    public init() {}
-
-    public func toMap(value: URL) -> String? {
-        return value.absoluteString
-    }
-
-    public func fromMap(value: String) throws -> URL? {
-        return URL(string: value)
-    }
-}
-```
 
 ## Dependencies
 

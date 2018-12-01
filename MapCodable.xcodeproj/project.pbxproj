@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		DA4CB1E121B356A5008BB81C /* MapPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */; };
 		OBJ_31 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
 		OBJ_32 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
 		OBJ_33 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
@@ -54,6 +55,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPrimitive.swift; sourceTree = "<group>"; };
 		"MapCodable::MapCodable::Product" /* MapCodable.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MapCodable::MapCodableTests::Product" /* MapCodableTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
@@ -119,7 +121,7 @@
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 /*  */ = {
+		OBJ_5 = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
@@ -127,7 +129,6 @@
 				OBJ_15 /* Tests */,
 				OBJ_23 /* Products */,
 			);
-			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
@@ -146,6 +147,7 @@
 				OBJ_12 /* MapCodable.swift */,
 				OBJ_13 /* MapTransform.swift */,
 				OBJ_14 /* MappingError.swift */,
+				DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */,
 			);
 			path = MapCodable;
 			sourceTree = "<group>";
@@ -223,7 +225,7 @@
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5 /*  */;
+			mainGroup = OBJ_5;
 			productRefGroup = OBJ_23 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -241,6 +243,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
+				DA4CB1E121B356A5008BB81C /* MapPrimitive.swift in Sources */,
 				OBJ_31 /* URLCoder.swift in Sources */,
 				OBJ_32 /* Map.swift in Sources */,
 				OBJ_33 /* MapCodable.swift in Sources */,

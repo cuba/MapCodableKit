@@ -34,14 +34,24 @@ class MapCodableTests: XCTestCase {
         let int: Int
         let bool: Bool
         let double: Double
+        let strings: [String]
+        let ints: [Int]
+        let bools: [Bool]
+        let doubles: [Double]
         let codable: TestCodable
         let mapCodable: TestCodable
         
         init() {
             self.string = "Pam Beesly"
-            self.int = 122
+            self.int = 8
             self.bool = false
-            self.double = 122.50
+            self.double = 8.9
+            
+            self.strings = ["Jim Halpert", "Dwight Schrute", "Michael Scott"]
+            self.ints = [2, 6, 8]
+            self.bools = [true, false, true]
+            self.doubles = [2.5, 6.8, 8.9]
+            
             self.codable = TestCodable()
             self.mapCodable = TestCodable()
         }
@@ -51,6 +61,12 @@ class MapCodableTests: XCTestCase {
             int         = try map.value(fromKey: "int")
             bool        = try map.value(fromKey: "bool")
             double      = try map.value(fromKey: "double")
+            
+            strings     = try map.value(fromKey: "strings")
+            ints        = try map.value(fromKey: "ints")
+            bools       = try map.value(fromKey: "bools")
+            doubles     = try map.value(fromKey: "doubles")
+            
             mapCodable  = try map.value(fromKey: "map_codable")
             codable     = try map.decodable(fromKey: "codable")
         }
@@ -60,6 +76,12 @@ class MapCodableTests: XCTestCase {
             map.add(int, forKey: "int")
             map.add(bool, forKey: "bool")
             map.add(double, forKey: "double")
+            
+            map.add(strings, forKey: "strings")
+            map.add(ints, forKey: "ints")
+            map.add(bools, forKey: "bools")
+            map.add(doubles, forKey: "doubles")
+            
             try map.add(mapCodable, forKey: "map_codable")
             try map.add(encodable: codable, forKey: "codable")
         }

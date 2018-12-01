@@ -317,35 +317,6 @@ extension Map {
     }
 }
 
-// MARK: [MapPrimitive]
-
-extension Map {
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add<T: MapPrimitive>(_ value: [T]?, forKey key: String) {
-        guard let value = value else { return }
-        self.add(value as Any, forKey: key)
-    }
-    
-    /**
-     Returns a value from the map
-     
-     - parameter key: The key that that is used to store this value in the map.
-     - throws: Throws an error if the value could not be deserialized or it is nil.
-     - returns: The deserialized object.
-     */
-    public func value<T: MapPrimitive>(fromKey key: String) throws -> [T] {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? [T] else { throw MappingError.invalidType(key: key) }
-        return object
-    }
-}
-
 // MARK: RawRepresentable
 
 extension Map {

@@ -7,8 +7,26 @@
 
 import Foundation
 
+public protocol MapPrimitive {}
+
+extension String: MapPrimitive {}
+extension Double: MapPrimitive {}
+extension Int: MapPrimitive {}
+extension Int8: MapPrimitive {}
+extension Int16: MapPrimitive {}
+extension Int32: MapPrimitive {}
+extension Int64: MapPrimitive {}
+extension UInt: MapPrimitive {}
+extension UInt8: MapPrimitive {}
+extension UInt16: MapPrimitive {}
+extension UInt32: MapPrimitive {}
+extension UInt64: MapPrimitive {}
+extension Bool: MapPrimitive {}
+extension Array: MapPrimitive where Element: MapPrimitive {}
+extension Dictionary: MapPrimitive where Key: StringProtocol, Value: MapPrimitive {}
+
 public class Map {
-    private(set) public var values: [String: Any]
+    private var values: [String: Any]
     
     /**
      Initialize this map from a dictionary
@@ -92,6 +110,15 @@ public class Map {
     }
     
     /**
+     Returns the dictionary representation of this map
+     
+     - returns: A dictionary object representing this map.
+     */
+    public func makeDictionary() -> [String: Any] {
+        return values
+    }
+    
+    /**
      Serializes this object into a JSON `Data` object
      
      - parameter options: The writing options.
@@ -99,7 +126,7 @@ public class Map {
      - returns: The serialized object.
      */
     public func jsonData(options: JSONSerialization.WritingOptions = []) throws -> Data {
-        return try JSONSerialization.data(withJSONObject: values, options: options)
+        return try JSONSerialization.data(withJSONObject: makeDictionary(), options: options)
     }
     
     /**
@@ -156,6 +183,16 @@ public class Map {
 public extension Sequence where Iterator.Element == Map {
     
     /**
+     Returns an array representation of all these maps.
+     
+     - returns: An array of all the dictionary objects representing the maps.
+     */
+    func makeDictionaries() -> [[String: Any]] {
+        let array = self.map({ $0.makeDictionary() })
+        return array
+    }
+    
+    /**
      Serializes an `Array` of `Map` objects into a JSON `Data` object
      
      - parameter options: The writing options.
@@ -163,7 +200,7 @@ public extension Sequence where Iterator.Element == Map {
      - returns: The serialized object.
      */
     func jsonData(options: JSONSerialization.WritingOptions = []) throws -> Data {
-        let array = self.map({ $0.values })
+        let array = makeDictionaries()
         return try JSONSerialization.data(withJSONObject: array, options: options)
     }
     
@@ -217,17 +254,22 @@ extension Map {
     }
 }
 
-// MARK: String
+// MARK: MapPrimitive
 
 extension Map {
     
     /**
-     Add a value to the map
+     Add a MapPrimitive value to the map. MapPrimitive values includes:
+     * `String`
+     * `Int`
+     * `Bool`
+     * `Double`
+     * `[T]` where T also conforms to `MapPrimitive`
      
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add(_ value: String?, forKey key: String) {
+    public func add<T: MapPrimitive>(_ value: T?, forKey key: String) {
         guard let value = value else { return }
         self.add(value as Any, forKey: key)
     }
@@ -239,96 +281,9 @@ extension Map {
      - throws: Throws an error if the value could not be deserialized or it is nil.
      - returns: The deserialized object.
      */
-    public func value(fromKey key: String) throws -> String {
+    public func value<T: MapPrimitive>(fromKey key: String) throws -> T {
         guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? String else { throw MappingError.invalidType(key: key) }
-        return object
-    }
-}
-
-// MARK: Int
-
-extension Map {
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add(_ value: Int?, forKey key: String) {
-        guard let value = value else { return }
-        self.add(value as Any, forKey: key)
-    }
-    
-    /**
-     Returns a value from the map.
-     
-     - parameter key: The key that that is used to store this value in the map.
-     - throws: Throws an error if the value is nil.
-     - returns: The deserialized object or the default value specified
-     */
-    public func value(fromKey key: String) throws -> Int {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? Int else { throw MappingError.invalidType(key: key) }
-        return object
-    }
-}
-
-// MARK: Bool
-
-extension Map {
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add(_ value: Bool?, forKey key: String) {
-        guard let value = value else { return }
-        self.add(value as Any, forKey: key)
-    }
-    
-    /**
-     Returns a value from the map.
-     
-     - parameter key: The key that that is used to store this value in the map.
-     - throws: Throws an error if the value is nil.
-     - returns: The deserialized object or the default value specified
-     */
-    public func value(fromKey key: String) throws -> Bool {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? Bool else { throw MappingError.invalidType(key: key) }
-        return object
-    }
-}
-
-// MARK: Double
-
-extension Map {
-    
-    /**
-     Add a value to the map
-     
-     - parameter value: The value that will be stored in the map
-     - parameter key: The key that will be used to store this value and that can be used to later retrive this value
-     */
-    public func add(_ value: Double?, forKey key: String) {
-        guard let value = value else { return }
-        self.add(value as Any, forKey: key)
-    }
-    
-    /**
-     Returns a value from the map.
-     
-     - parameter key: The key that that is used to store this value in the map.
-     - throws: Throws an error if the value is nil.
-     - returns: The deserialized object or the default value specified
-     */
-    public func value(fromKey key: String) throws -> Double {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? Double else { throw MappingError.invalidType(key: key) }
+        guard let object = value as? T else { throw MappingError.invalidType(key: key) }
         return object
     }
 }
@@ -363,7 +318,7 @@ extension Map {
     }
 }
 
-// MARK: [String: String]
+// MARK: [String: MapPrimitive]
 
 extension Map {
     
@@ -373,7 +328,7 @@ extension Map {
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add(_ value: [String: String]?, forKey key: String) {
+    public func add(_ value: [String: Map]?, forKey key: String) {
         guard let value = value else { return }
         self.add(value as Any, forKey: key)
     }
@@ -477,7 +432,7 @@ extension Map {
             return map.values
         })
         
-        self.values[key] = values
+        self.add(values as Any, forKey: key)
     }
     
     /**

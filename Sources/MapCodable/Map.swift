@@ -26,12 +26,12 @@ extension Array: MapPrimitive where Element: MapPrimitive {}
 extension Dictionary: MapPrimitive where Key: StringProtocol, Value: MapPrimitive {}
 
 public class Map {
-    private var values: [String: Any]
+    private var values: [String: Any?]
     
     /**
      Initialize this map from a dictionary
      */
-    public init(json: [String: Any] = [:]) {
+    public init(json: [String: Any?] = [:]) {
         self.values = json
     }
     
@@ -73,7 +73,7 @@ public class Map {
     public convenience init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
         
-        if let json = jsonObject as? [String: Any] {
+        if let json = jsonObject as? [String: Any?] {
             self.init(json: json)
         } else {
             self.init()
@@ -95,7 +95,7 @@ public class Map {
         
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
         
-        if let paramsArray = jsonObject as? [[String: Any]] {
+        if let paramsArray = jsonObject as? [[String: Any?]] {
             return paramsArray.map({ Map(json: $0) })
         } else {
             return []
@@ -107,7 +107,7 @@ public class Map {
      
      - returns: A dictionary object representing this map.
      */
-    public func makeDictionary() -> [String: Any] {
+    public func makeDictionary() -> [String: Any?] {
         return values
     }
     
@@ -180,7 +180,7 @@ public extension Sequence where Iterator.Element == Map {
      
      - returns: An array of all the dictionary objects representing the maps.
      */
-    func makeDictionaries() -> [[String: Any]] {
+    func makeDictionaries() -> [[String: Any?]] {
         let array = self.map({ $0.makeDictionary() })
         return array
     }
@@ -478,7 +478,7 @@ extension Map {
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
     public func add<T: MapEncodable>(_ encodableArray: [T], forKey key: String) throws {
-        let values = try encodableArray.map({ (encodable: T) -> [String: Any] in
+        let values = try encodableArray.map({ (encodable: T) -> [String: Any?] in
             let map = try encodable.filledMap()
             return map.values
         })
@@ -517,7 +517,7 @@ extension Map {
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
     public func add<T: MapEncodable>(_ values: [String: T], forKey key: String) throws {
-        var results: [String: [String: Any]] = [:]
+        var results: [String: [String: Any?]] = [:]
         
         for (key, encodable) in values {
             let json = try encodable.json()

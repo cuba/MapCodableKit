@@ -50,7 +50,7 @@ public extension MapEncodable {
      - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MappingError` but since this method is implemented by the user, it may throw any error.
      - returns: The filled map.
      */
-    func json() throws -> [String: Any] {
+    func json() throws -> [String: Any?] {
         let map = try filledMap()
         return map.makeDictionary()
     }

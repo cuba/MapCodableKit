@@ -14,7 +14,7 @@ public protocol MapEncodable {
      
      - parameter map: A map that needs to be filled with this object. In default implementations, this map is empty.
      */
-    func fill(map: Map)
+    func fill(map: Map) throws
 }
 
 public protocol MapDecodable {
@@ -38,9 +38,9 @@ public extension MapEncodable {
      - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MappingError` but since this method is implemented by the user, it may throw any error.
      - returns: The filled map.
      */
-    func filledMap() -> Map {
+    func filledMap() throws -> Map {
         let map = Map()
-        self.fill(map: map)
+        try self.fill(map: map)
         return map
     }
     
@@ -52,7 +52,7 @@ public extension MapEncodable {
      - returns: The serialized object.
      */
     public func jsonData(options: JSONSerialization.WritingOptions = []) throws -> Data {
-        let map = filledMap()
+        let map = try filledMap()
         return try map.jsonData(options: options)
     }
     
@@ -65,7 +65,7 @@ public extension MapEncodable {
      - returns: The serialized object.
      */
     public func jsonString(options: JSONSerialization.WritingOptions = [], encoding: String.Encoding = .utf8) throws -> String? {
-        let map = filledMap()
+        let map = try filledMap()
         return try map.jsonString(options: options, encoding: encoding)
     }
 }

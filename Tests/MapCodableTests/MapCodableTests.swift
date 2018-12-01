@@ -55,13 +55,13 @@ class MapCodableTests: XCTestCase {
             codable     = try map.decodable(fromKey: "codable")
         }
         
-        func fill(map: Map) {
+        func fill(map: Map) throws {
             map.add(string, forKey: "string")
             map.add(int, forKey: "int")
             map.add(bool, forKey: "bool")
             map.add(double, forKey: "double")
-            map.add(mapCodable, forKey: "map_codable")
-            try! map.add(encodable: codable, forKey: "codable")
+            try map.add(mapCodable, forKey: "map_codable")
+            try map.add(encodable: codable, forKey: "codable")
         }
         
         public static func == (lhs: TestMapCodable, rhs: TestMapCodable) -> Bool {
@@ -80,7 +80,7 @@ class MapCodableTests: XCTestCase {
         let value = TestMapCodable()
         
         // When
-        map.add(value, forKey: "value")
+        try! map.add(value, forKey: "value")
         
         // Then
         do {
@@ -96,7 +96,7 @@ class MapCodableTests: XCTestCase {
         let value = TestMapCodable()
         
         // When
-        map.add(value, forKey: "value")
+        try! map.add(value, forKey: "value")
         
         // Then
         do {
@@ -119,7 +119,7 @@ class MapCodableTests: XCTestCase {
         let value = TestMapCodable()
         
         // When
-        map.add(value, forKey: "value")
+        try! map.add(value, forKey: "value")
         
         // Then
         do {

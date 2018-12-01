@@ -20,9 +20,9 @@ public class Map {
     /**
      Initialize this `Map` from a `MapEncodable` object using its `fill` method.
      */
-    public convenience init(_ mapEncodable: MapEncodable) {
+    public convenience init(_ mapEncodable: MapEncodable) throws {
         self.init(values: [:])
-        mapEncodable.fill(map: self)
+        try mapEncodable.fill(map: self)
     }
     
     /**
@@ -192,10 +192,10 @@ extension Map {
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      - parameter encoder: The transform that will be used to serialize the object.
      */
-    public func add<T: MapEncoder>(_ value: T.Object?, forKey key: String, using encoder: T) {
+    public func add<T: MapEncoder>(_ value: T.Object?, forKey key: String, using encoder: T) throws {
         guard let value = value else { return }
-        guard let encoded = encoder.toMap(value: value) else { return }
-        values[key] = encoded
+        guard let encoded = try encoder.toMap(value: value) else { return }
+        self.add(encoded as Any, forKey: key)
     }
     
     /**
@@ -229,7 +229,7 @@ extension Map {
      */
     public func add(_ value: String?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value
+        self.add(value as Any, forKey: key)
     }
     
     /**
@@ -258,7 +258,7 @@ extension Map {
      */
     public func add(_ value: Int?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value
+        self.add(value as Any, forKey: key)
     }
     
     /**
@@ -287,7 +287,7 @@ extension Map {
      */
     public func add(_ value: Bool?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value
+        self.add(value as Any, forKey: key)
     }
     
     /**
@@ -316,7 +316,7 @@ extension Map {
      */
     public func add(_ value: Double?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value
+        self.add(value as Any, forKey: key)
     }
     
     /**
@@ -345,7 +345,7 @@ extension Map {
      */
     public func add<T: RawRepresentable>(_ value: T?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value.rawValue
+        self.add(value.rawValue as Any, forKey: key)
     }
     
     /**
@@ -375,7 +375,7 @@ extension Map {
      */
     public func add(_ value: [String: String]?, forKey key: String) {
         guard let value = value else { return }
-        values[key] = value
+        self.add(value as Any, forKey: key)
     }
     
     /**
@@ -405,9 +405,8 @@ extension Map {
     public func add<T: Encodable>(encodable: T?, forKey key: String) throws {
         guard let encodable = encodable else { return }
         let data = try JSONEncoder().encode(encodable)
-        let seralizedObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        
-        values[key] = seralizedObject
+        let serializedObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
+        self.add(serializedObject as Any, forKey: key)
     }
     
     /**
@@ -434,10 +433,10 @@ extension Map {
      - parameter value: the nested `MapEncodable` object that will be stored in the map.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: MapEncodable>(_ encodable: T?, forKey key: String) {
+    public func add<T: MapEncodable>(_ encodable: T?, forKey key: String) throws {
         guard let encodable = encodable else { return }
-        let map = Map(encodable)
-        values[key] = map.values
+        let map = try Map(encodable)
+        self.add(map.values as Any, forKey: key)
     }
     
     /**
@@ -472,9 +471,9 @@ extension Map {
      - parameter value: The nested `MapEncodable` array that will be stored in the map.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: MapEncodable>(_ encodableArray: [T], forKey key: String) {
-        let values = encodableArray.map({ (encodable: T) -> [String: Any] in
-            let map = Map(encodable)
+    public func add<T: MapEncodable>(_ encodableArray: [T], forKey key: String) throws {
+        let values = try encodableArray.map({ (encodable: T) -> [String: Any] in
+            let map = try Map(encodable)
             return map.values
         })
         

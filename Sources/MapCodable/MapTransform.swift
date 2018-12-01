@@ -18,7 +18,7 @@ public protocol MapEncoder {
     associatedtype Primitive
     associatedtype Object
     
-    func toMap(value: Object) -> Primitive?
+    func toMap(value: Object) throws -> Primitive?
 }
 
 public protocol MapCoder: MapEncoder, MapDecoder {

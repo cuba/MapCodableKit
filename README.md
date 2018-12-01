@@ -54,11 +54,11 @@ let myModel = MyModel(id: "123", name: "Jim Halpert")
 let jsonString = try myModel.jsonString(options: [.prettyPrinted], encoding: .utf8)
 
 // To get a json data (i.e. `Data`)
-let jsonString = try myModel.jsonData(options: [.prettyPrinted])
+let jsonData = try myModel.jsonData(options: [.prettyPrinted])
 
 
 // To get a json object (i.e. `[String: Any]`)
-let jsonString = try myModel.json()
+let json = try myModel.json()
 ```
 
 ### Mapping from `JSON`

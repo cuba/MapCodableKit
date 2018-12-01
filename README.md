@@ -5,7 +5,7 @@ MapCodable
 
 - [Features](#features)
 - [Usage](#usage)
-- [Supported Types](#supportedtypes)
+- [Supported Types](#supported-types)
 - [Installation](#installation)
 - [Credits](#credits)
 - [License](#license)

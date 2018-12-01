@@ -88,7 +88,6 @@ public class Map {
      - throws: Throws an error if the json string cannot be deserialized.
      */
     public static func parseArray(jsonString: String, encoding: String.Encoding = .utf8) throws -> [Map] {
-        print(jsonString)
         guard let data = jsonString.data(using: encoding) else {
             return []
         }

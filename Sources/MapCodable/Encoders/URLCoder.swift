@@ -7,13 +7,13 @@
 
 import Foundation
 
-class URLCoder: MapCoder {
+public class URLCoder: MapCoder {
     
-    func toMap(value: URL) -> String? {
+    public func toMap(value: URL) -> String? {
         return value.absoluteString
     }
     
-    func fromMap(value: String) throws -> URL? {
+    public func fromMap(value: String) throws -> URL? {
         return URL(string: value)
     }
 }

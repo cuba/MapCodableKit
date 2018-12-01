@@ -227,21 +227,18 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodable_SerializesAndDeserializesJSON() {
         // Given
-        let value = GiantCodableTestModel(id: "123")
+        let testModel = GiantCodableTestModel(id: "123")
         
-        // When
-        try! map.add(value, forKey: "contents")
-        
-        // Then
         do {
-            guard let jsonString = try map.jsonString(options: [.prettyPrinted]) else {
+            // When
+            guard let jsonString = try testModel.jsonString(options: [.prettyPrinted], encoding: .utf8) else {
                 XCTFail("Should have succeeded to create json")
                 return
             }
             
-            let newMap = try Map(jsonString: jsonString)
-            let result: GiantCodableTestModel = try newMap.value(fromKey: "contents")
-            XCTAssertEqual(value, result)
+            // Then
+            let result = try GiantCodableTestModel(jsonString: jsonString, encoding: .utf8)
+            XCTAssertEqual(testModel, result)
         } catch {
             XCTFail("Should have succeeded to create json")
         }

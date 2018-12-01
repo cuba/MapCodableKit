@@ -17,7 +17,7 @@ class MapStringTests: XCTestCase {
 
     func testGivenMap_WhenAddingString_ReturnsValue() {
         // Given
-        let value = "Some String"
+        let value = "Pam Beesly"
         
         // When
         map.add(value, forKey: "value")
@@ -25,6 +25,38 @@ class MapStringTests: XCTestCase {
         // Then
         do {
             let result: String = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingStringArray_ReturnsValue() {
+        // Given
+        let value = ["Jim Halpert", "Dwight Schrute", "Micheal Scott"]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingBoolDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": "Jim Halpert", "second": "Dwight Schrute", "third": "Michael Scott"]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: String] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")

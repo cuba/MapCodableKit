@@ -32,6 +32,38 @@ class MapBoolTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingBoolArray_ReturnsValue() {
+        // Given
+        let value = [true, false, true]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [Bool] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingBoolDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": true, "second": false, "third": true]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: Bool] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
     func testGivenMap_WhenAddingBool_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
         let value = true

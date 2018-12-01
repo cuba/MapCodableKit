@@ -32,6 +32,38 @@ class MapIntTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingIntArray_ReturnsValue() {
+        // Given
+        let value = [1, 4, -10]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [Int] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingIntDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": 1, "second": 4, "third": -10]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: Int] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
     func testGivenMap_WhenAddingInt_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
         let value = 1

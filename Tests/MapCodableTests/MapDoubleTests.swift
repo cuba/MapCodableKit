@@ -32,6 +32,38 @@ class MapDoubleTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingDoubleArray_ReturnsValue() {
+        // Given
+        let value = [1.2, 3.6, 6.8]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [Double] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingDoubleDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": 1.2, "second": 3.6, "third": 6.8]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [String: Double] = try map.value(fromKey: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
     func testGivenMap_WhenAddingDouble_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
         let value = 1.0

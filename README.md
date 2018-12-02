@@ -118,6 +118,26 @@ public class URLCoder: MapCoder {
 }
 ```
 
+### Generics
+
+You can also use generics if you chose.  Here is an example of a generic used for serializing a response:
+
+```swift
+struct ListBody<T: MapEncodable>: MapEncodable {
+    let key: String
+    let objects: [T]
+
+    init(key: String, objects: [T]) {
+        self.key = key
+        self.objects = objects
+    }
+
+    func fill(map: Map) throws {
+        try map.add(objects, forKey: key)
+    }
+}
+```
+
 ## Supported Types
 
 ### Primitives 

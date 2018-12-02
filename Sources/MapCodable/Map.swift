@@ -127,7 +127,7 @@ public class Map {
     private func add(_ value: Any?, forKey key: MapKey) {
         var keyParts = key.split(separator: ".")
         let firstKey = keyParts.removeFirst()
-        var objectToStore: Any = value
+        var objectToStore: Any? = value
         
         for keyPart in keyParts {
             objectToStore = [keyPart: objectToStore]

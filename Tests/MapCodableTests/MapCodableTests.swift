@@ -9,7 +9,7 @@ import XCTest
 import MapCodable
 
 class MapCodableTests: XCTestCase {
-    struct CodableTestModel: Codable, MapCodable, Equatable {
+    struct MockUser: Codable, MapCodable, Equatable {
         let id: String
         let name: String
         
@@ -28,7 +28,7 @@ class MapCodableTests: XCTestCase {
             map.add(name, forKey: "name")
         }
         
-        public static func == (lhs: CodableTestModel, rhs: CodableTestModel) -> Bool {
+        public static func == (lhs: MockUser, rhs: MockUser) -> Bool {
             return lhs.id == rhs.id && lhs.name == rhs.name
         }
     }
@@ -46,9 +46,9 @@ class MapCodableTests: XCTestCase {
         
         let stringsDictionary: [String: String]
         
-        let codable: CodableTestModel
-        let mapCodable: CodableTestModel
-        let mapCodables: [CodableTestModel]
+        let codable: MockUser
+        let mapCodable: MockUser
+        let mapCodables: [MockUser]
         let url: URL
         
         init(id: String) {
@@ -64,9 +64,9 @@ class MapCodableTests: XCTestCase {
             
             self.stringsDictionary = ["name": "Kevin Malone"]
             
-            self.codable = CodableTestModel(id: "123")
-            self.mapCodable = CodableTestModel(id: "234")
-            self.mapCodables = [CodableTestModel(id: "123"), CodableTestModel(id: "234")]
+            self.codable = MockUser(id: "123")
+            self.mapCodable = MockUser(id: "234")
+            self.mapCodables = [MockUser(id: "123"), MockUser(id: "234")]
             self.url = URL(string: "https://example.com")!
         }
         
@@ -133,14 +133,14 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodable_ReturnsValue() {
         // Given
-        let value = CodableTestModel(id: "123")
+        let value = MockUser(id: "123")
         
         // When
         try! map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: CodableTestModel = try map.value(fromKey: "value")
+            let result: MockUser = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -149,14 +149,14 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodableArray_ReturnsValue() {
         // Given
-        let value = [CodableTestModel(id: "123"), CodableTestModel(id: "234")]
+        let value = [MockUser(id: "123"), MockUser(id: "234")]
         
         // When
         try! map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [CodableTestModel] = try map.value(fromKey: "value")
+            let result: [MockUser] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -165,14 +165,14 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodableDictionary_ReturnsValue() {
         // Given
-        let value = ["first": CodableTestModel(id: "123"), "second": CodableTestModel(id: "234")]
+        let value = ["first": MockUser(id: "123"), "second": MockUser(id: "234")]
         
         // When
         try! map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [String: CodableTestModel] = try map.value(fromKey: "value")
+            let result: [String: MockUser] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -181,14 +181,14 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodable_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
-        let value = CodableTestModel(id: "123")
+        let value = MockUser(id: "123")
         
         // When
         try! map.add(value, forKey: "value")
         
         // Then
         do {
-            let _: CodableTestModel = try map.value(fromKey: "not_value")
+            let _: MockUser = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
             switch error {
@@ -204,7 +204,7 @@ class MapCodableTests: XCTestCase {
     
     func testGivenMap_WhenAddingMapCodable_ThrowsCorrectErrorWhenTypeWrong() {
         // Given
-        let value = CodableTestModel(id: "123")
+        let value = MockUser(id: "123")
         
         // When
         try! map.add(value, forKey: "value")
@@ -225,7 +225,7 @@ class MapCodableTests: XCTestCase {
         }
     }
     
-    func testGivenMap_WhenAddingMapCodable_SerializesAndDeserializesJSON() {
+    func testGivenModel_SerializesToJSON() {
         // Given
         let testModel = GiantCodableTestModel(id: "123")
         
@@ -239,6 +239,27 @@ class MapCodableTests: XCTestCase {
             // Then
             let result = try GiantCodableTestModel(jsonString: jsonString, encoding: .utf8)
             XCTAssertEqual(testModel, result)
+        } catch {
+            XCTFail("Should have succeeded to create json")
+        }
+    }
+    
+    func testGivenModel_DeserializesJSON() {
+        // Given
+        let jsonString = """
+            {
+                "id": "123",
+                "name": "Jim Halpert",
+            }
+        """
+        
+        do {
+            // When
+            let object = try MockUser(jsonString: jsonString, encoding: .utf8)
+            
+            // Then
+            XCTAssertEqual(object.id, "123")
+            XCTAssertEqual(object.name, "Jim Halpert")
         } catch {
             XCTFail("Should have succeeded to create json")
         }

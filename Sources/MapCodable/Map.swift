@@ -124,7 +124,7 @@ public class Map {
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    private func add(_ value: Any, forKey key: MapKey) {
+    private func add(_ value: Any?, forKey key: MapKey) {
         var keyParts = key.split(separator: ".")
         let firstKey = keyParts.removeFirst()
         var objectToStore: Any = value
@@ -144,10 +144,10 @@ public class Map {
      */
     private func value(fromKey key: MapKey) -> Any? {
         let keyParts = key.split(separator: ".")
-        var currentValue: Any = values
+        var currentValue: Any? = values
         
         for keyPart in keyParts {
-            guard let dictionary = currentValue as? [String: Any] else { return nil }
+            guard let dictionary = currentValue as? [String: Any?] else { return nil }
             guard let value = dictionary[String(keyPart)] else { return nil }
             currentValue = value
         }

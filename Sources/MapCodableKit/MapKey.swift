@@ -12,7 +12,7 @@ public protocol MapKey {
     func parseKeyParts() throws -> [KeyPart]
 }
 
-public enum KeyPart {
+public enum KeyPart: MapKey {
     case object(key: String)
     case array(key: String)
     
@@ -33,10 +33,14 @@ public enum KeyPart {
             return "\(key)[]"
         }
     }
+    
+    public func parseKeyParts() throws -> [KeyPart] {
+        return [self]
+    }
 }
 
 extension String: MapKey {
-    private static let arrayPattern = "^(\\w+)\\[(\\d*)\\]$"
+    private static let arrayPattern = "^(\\w+)\\[(0)\\]$"
     private static let objectPattern = "^(\\w+)$"
     
     public func parseKeyParts() throws -> [KeyPart] {

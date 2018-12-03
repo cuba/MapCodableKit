@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "DA3E505521B44731001450EC"
-               BuildableName = "MapCodable.framework"
-               BlueprintName = "MapCodable iOS"
-               ReferencedContainer = "container:MapCodable.xcodeproj">
+               BlueprintIdentifier = "DA3E508021B4AB70001450EC"
+               BuildableName = "MapCodableKit_iOS.framework"
+               BlueprintName = "MapCodableKit iOS"
+               ReferencedContainer = "container:MapCodableKit.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -32,10 +32,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3E505521B44731001450EC"
-            BuildableName = "MapCodable.framework"
-            BlueprintName = "MapCodable iOS"
-            ReferencedContainer = "container:MapCodable.xcodeproj">
+            BlueprintIdentifier = "DA3E508021B4AB70001450EC"
+            BuildableName = "MapCodableKit_iOS.framework"
+            BlueprintName = "MapCodableKit iOS"
+            ReferencedContainer = "container:MapCodableKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -54,10 +54,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3E505521B44731001450EC"
-            BuildableName = "MapCodable.framework"
-            BlueprintName = "MapCodable iOS"
-            ReferencedContainer = "container:MapCodable.xcodeproj">
+            BlueprintIdentifier = "DA3E508021B4AB70001450EC"
+            BuildableName = "MapCodableKit_iOS.framework"
+            BlueprintName = "MapCodableKit iOS"
+            ReferencedContainer = "container:MapCodableKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -72,10 +72,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "DA3E505521B44731001450EC"
-            BuildableName = "MapCodable.framework"
-            BlueprintName = "MapCodable iOS"
-            ReferencedContainer = "container:MapCodable.xcodeproj">
+            BlueprintIdentifier = "DA3E508021B4AB70001450EC"
+            BuildableName = "MapCodableKit_iOS.framework"
+            BlueprintName = "MapCodableKit iOS"
+            ReferencedContainer = "container:MapCodableKit.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

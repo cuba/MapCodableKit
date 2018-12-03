@@ -1,78 +1,79 @@
 //
-//  MapTests.swift
+//  MapIntTests.swift
 //  MapCodableTests
 //
 //  Created by Jacob Sikorski on 2018-11-30.
 //
 
 import XCTest
-import MapCodable
+import MapCodableKit
 
-class MapStringTests: XCTestCase {
+class MapIntTests: XCTestCase {
+
     var map = Map()
     
     override func setUp() {
         self.map = Map()
     }
 
-    func testGivenMap_WhenAddingString_ReturnsValue() {
+    func testGivenMap_WhenAddingInt_ReturnsValue() {
         // Given
-        let value = "Pam Beesly"
+        let value = 1
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: String = try map.value(fromKey: "value")
+            let result: Int = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingStringArray_ReturnsValue() {
+    func testGivenMap_WhenAddingIntArray_ReturnsValue() {
         // Given
-        let value = ["Jim Halpert", "Dwight Schrute", "Micheal Scott"]
+        let value = [1, 4, -10]
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [String] = try map.value(fromKey: "value")
+            let result: [Int] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingBoolDictionary_ReturnsValue() {
+    func testGivenMap_WhenAddingIntDictionary_ReturnsValue() {
         // Given
-        let value = ["first": "Jim Halpert", "second": "Dwight Schrute", "third": "Michael Scott"]
+        let value = ["first": 1, "second": 4, "third": -10]
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [String: String] = try map.value(fromKey: "value")
+            let result: [String: Int] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingString_ThrowsCorrectErrorWhenKeyIsWrong() {
+    func testGivenMap_WhenAddingInt_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
-        let value = "Some String"
+        let value = 1
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let _: String = try map.value(fromKey: "not_value")
+            let _: Int = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
             switch error {
@@ -86,16 +87,16 @@ class MapStringTests: XCTestCase {
         }
     }
     
-    func testGivenMap_WhenAddingString_ThrowsCorrectErrorWhenTypeWrong() {
+    func testGivenMap_WhenAddingInt_ThrowsCorrectErrorWhenTypeWrong() {
         // Given
-        let value = "Some String"
+        let value = 1
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let _: Int = try map.value(fromKey: "value")
+            let _: String = try map.value(fromKey: "value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
             switch error {

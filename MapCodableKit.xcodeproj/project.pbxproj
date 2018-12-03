@@ -7,177 +7,172 @@
 	objects = {
 
 /* Begin PBXAggregateTarget section */
-		"MapCodable::MapCodablePackageTests::ProductTarget" /* MapCodablePackageTests */ = {
+		"MapCodableKit::MapCodableKitPackageTests::ProductTarget" /* MapCodableKitPackageTests */ = {
 			isa = PBXAggregateTarget;
-			buildConfigurationList = OBJ_44 /* Build configuration list for PBXAggregateTarget "MapCodablePackageTests" */;
+			buildConfigurationList = OBJ_46 /* Build configuration list for PBXAggregateTarget "MapCodableKitPackageTests" */;
 			buildPhases = (
 			);
 			dependencies = (
-				OBJ_47 /* PBXTargetDependency */,
+				OBJ_49 /* PBXTargetDependency */,
 			);
-			name = MapCodablePackageTests;
-			productName = MapCodablePackageTests;
+			name = MapCodableKitPackageTests;
+			productName = MapCodableKitPackageTests;
 		};
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
-		DA3E505A21B44731001450EC /* MapCodable_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3E505821B44731001450EC /* MapCodable_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		DA3E505F21B44AC5001450EC /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
-		DA3E506021B44AC7001450EC /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
-		DA3E506121B44ACB001450EC /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
-		DA3E506221B44ACE001450EC /* MapTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* MapTransform.swift */; };
-		DA3E506321B44AD1001450EC /* MapPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */; };
-		DA3E506421B44AD3001450EC /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* MappingError.swift */; };
-		DA4CB1E121B356A5008BB81C /* MapPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */; };
-		OBJ_31 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
-		OBJ_32 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
-		OBJ_33 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
-		OBJ_34 /* MapTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* MapTransform.swift */; };
-		OBJ_35 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* MappingError.swift */; };
-		OBJ_42 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
-		OBJ_53 /* MapBoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_17 /* MapBoolTests.swift */; };
-		OBJ_54 /* MapCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* MapCodableTests.swift */; };
-		OBJ_55 /* MapDoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* MapDoubleTests.swift */; };
-		OBJ_56 /* MapIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* MapIntTests.swift */; };
-		OBJ_57 /* MapRawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* MapRawRepresentableTests.swift */; };
-		OBJ_58 /* MapStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* MapStringTests.swift */; };
-		OBJ_60 /* MapCodable.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MapCodable::MapCodable::Product" /* MapCodable.framework */; };
+		DA3E508521B4AB70001450EC /* MapCodableKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		OBJ_32 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
+		OBJ_33 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
+		OBJ_34 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
+		OBJ_35 /* MapPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* MapPrimitive.swift */; };
+		OBJ_36 /* MapTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* MapTransform.swift */; };
+		OBJ_37 /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MappingError.swift */; };
+		OBJ_44 /* Package.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_6 /* Package.swift */; };
+		OBJ_55 /* MapBoolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_18 /* MapBoolTests.swift */; };
+		OBJ_56 /* MapCodableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_19 /* MapCodableTests.swift */; };
+		OBJ_57 /* MapDoubleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_20 /* MapDoubleTests.swift */; };
+		OBJ_58 /* MapIntTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_21 /* MapIntTests.swift */; };
+		OBJ_59 /* MapRawRepresentableTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_22 /* MapRawRepresentableTests.swift */; };
+		OBJ_60 /* MapStringTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_23 /* MapStringTests.swift */; };
+		OBJ_62 /* MapCodableKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = "MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		DA4CAFCA21B1A143008BB81C /* PBXContainerItemProxy */ = {
+		DA3E507A21B4AB32001450EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "MapCodable::MapCodable";
-			remoteInfo = MapCodable;
+			remoteGlobalIDString = "MapCodableKit::MapCodableKit";
+			remoteInfo = MapCodableKit;
 		};
-		DA4CAFCB21B1A144008BB81C /* PBXContainerItemProxy */ = {
+		DA3E507B21B4AB32001450EC /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = OBJ_1 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = "MapCodable::MapCodableTests";
-			remoteInfo = MapCodableTests;
+			remoteGlobalIDString = "MapCodableKit::MapCodableKitTests";
+			remoteInfo = MapCodableKitTests;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		DA3E505621B44731001450EC /* MapCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		DA3E505821B44731001450EC /* MapCodable_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapCodable_iOS.h; sourceTree = "<group>"; };
-		DA3E505921B44731001450EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPrimitive.swift; sourceTree = "<group>"; };
-		"MapCodable::MapCodable::Product" /* MapCodable.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapCodable.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		"MapCodable::MapCodableTests::Product" /* MapCodableTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3E508121B4AB70001450EC /* MapCodableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapCodableKit_iOS.h; sourceTree = "<group>"; };
+		DA3E508421B4AB70001450EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
 		OBJ_12 /* MapCodable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodable.swift; sourceTree = "<group>"; };
-		OBJ_13 /* MapTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTransform.swift; sourceTree = "<group>"; };
-		OBJ_14 /* MappingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
-		OBJ_17 /* MapBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoolTests.swift; sourceTree = "<group>"; };
-		OBJ_18 /* MapCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableTests.swift; sourceTree = "<group>"; };
-		OBJ_19 /* MapDoubleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDoubleTests.swift; sourceTree = "<group>"; };
-		OBJ_20 /* MapIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIntTests.swift; sourceTree = "<group>"; };
-		OBJ_21 /* MapRawRepresentableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRawRepresentableTests.swift; sourceTree = "<group>"; };
-		OBJ_22 /* MapStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStringTests.swift; sourceTree = "<group>"; };
+		OBJ_13 /* MapPrimitive.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPrimitive.swift; sourceTree = "<group>"; };
+		OBJ_14 /* MapTransform.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapTransform.swift; sourceTree = "<group>"; };
+		OBJ_15 /* MappingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MappingError.swift; sourceTree = "<group>"; };
+		OBJ_18 /* MapBoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapBoolTests.swift; sourceTree = "<group>"; };
+		OBJ_19 /* MapCodableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableTests.swift; sourceTree = "<group>"; };
+		OBJ_20 /* MapDoubleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapDoubleTests.swift; sourceTree = "<group>"; };
+		OBJ_21 /* MapIntTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapIntTests.swift; sourceTree = "<group>"; };
+		OBJ_22 /* MapRawRepresentableTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapRawRepresentableTests.swift; sourceTree = "<group>"; };
+		OBJ_23 /* MapStringTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapStringTests.swift; sourceTree = "<group>"; };
 		OBJ_6 /* Package.swift */ = {isa = PBXFileReference; explicitFileType = sourcecode.swift; path = Package.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		DA3E505321B44731001450EC /* Frameworks */ = {
+		DA3E507E21B4AB70001450EC /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_36 /* Frameworks */ = {
+		OBJ_38 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_59 /* Frameworks */ = {
+		OBJ_61 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_60 /* MapCodable.framework in Frameworks */,
+				OBJ_62 /* MapCodableKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		DA3E505721B44731001450EC /* MapCodable iOS */ = {
+		DA3E508221B4AB70001450EC /* MapCodableKit iOS */ = {
 			isa = PBXGroup;
 			children = (
-				DA3E505821B44731001450EC /* MapCodable_iOS.h */,
-				DA3E505921B44731001450EC /* Info.plist */,
+				DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */,
+				DA3E508421B4AB70001450EC /* Info.plist */,
 			);
-			path = "MapCodable iOS";
+			path = "MapCodableKit iOS";
 			sourceTree = "<group>";
 		};
-		OBJ_15 /* Tests */ = {
+		OBJ_16 /* Tests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_16 /* MapCodableTests */,
+				OBJ_17 /* MapCodableKitTests */,
 			);
 			path = Tests;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_16 /* MapCodableTests */ = {
+		OBJ_17 /* MapCodableKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				OBJ_17 /* MapBoolTests.swift */,
-				OBJ_18 /* MapCodableTests.swift */,
-				OBJ_19 /* MapDoubleTests.swift */,
-				OBJ_20 /* MapIntTests.swift */,
-				OBJ_21 /* MapRawRepresentableTests.swift */,
-				OBJ_22 /* MapStringTests.swift */,
+				OBJ_18 /* MapBoolTests.swift */,
+				OBJ_19 /* MapCodableTests.swift */,
+				OBJ_20 /* MapDoubleTests.swift */,
+				OBJ_21 /* MapIntTests.swift */,
+				OBJ_22 /* MapRawRepresentableTests.swift */,
+				OBJ_23 /* MapStringTests.swift */,
 			);
-			path = MapCodableTests;
+			path = MapCodableKitTests;
 			sourceTree = "<group>";
 		};
-		OBJ_23 /* Products */ = {
+		OBJ_24 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				"MapCodable::MapCodable::Product" /* MapCodable.framework */,
-				"MapCodable::MapCodableTests::Product" /* MapCodableTests.xctest */,
-				DA3E505621B44731001450EC /* MapCodable.framework */,
+				"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */,
+				"MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */,
+				DA3E508121B4AB70001450EC /* MapCodableKit.framework */,
 			);
 			name = Products;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		OBJ_5 = {
+		OBJ_5 /*  */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_6 /* Package.swift */,
 				OBJ_7 /* Sources */,
-				OBJ_15 /* Tests */,
-				OBJ_23 /* Products */,
+				OBJ_16 /* Tests */,
+				OBJ_24 /* Products */,
 			);
+			name = "";
 			sourceTree = "<group>";
 		};
 		OBJ_7 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
-				DA3E505721B44731001450EC /* MapCodable iOS */,
-				OBJ_8 /* MapCodable */,
+				OBJ_8 /* MapCodableKit */,
+				DA3E508221B4AB70001450EC /* MapCodableKit iOS */,
 			);
 			path = Sources;
 			sourceTree = SOURCE_ROOT;
 		};
-		OBJ_8 /* MapCodable */ = {
+		OBJ_8 /* MapCodableKit */ = {
 			isa = PBXGroup;
 			children = (
 				OBJ_9 /* Encoders */,
 				OBJ_11 /* Map.swift */,
 				OBJ_12 /* MapCodable.swift */,
-				OBJ_13 /* MapTransform.swift */,
-				OBJ_14 /* MappingError.swift */,
-				DA4CB1E021B356A5008BB81C /* MapPrimitive.swift */,
+				OBJ_13 /* MapPrimitive.swift */,
+				OBJ_14 /* MapTransform.swift */,
+				OBJ_15 /* MappingError.swift */,
 			);
-			path = MapCodable;
+			path = MapCodableKit;
 			sourceTree = "<group>";
 		};
 		OBJ_9 /* Encoders */ = {
@@ -191,80 +186,80 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		DA3E505121B44731001450EC /* Headers */ = {
+		DA3E507C21B4AB70001450EC /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3E505A21B44731001450EC /* MapCodable_iOS.h in Headers */,
+				DA3E508521B4AB70001450EC /* MapCodableKit_iOS.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		DA3E505521B44731001450EC /* MapCodable iOS */ = {
+		DA3E508021B4AB70001450EC /* MapCodableKit iOS */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = DA3E505D21B44731001450EC /* Build configuration list for PBXNativeTarget "MapCodable iOS" */;
+			buildConfigurationList = DA3E508821B4AB70001450EC /* Build configuration list for PBXNativeTarget "MapCodableKit iOS" */;
 			buildPhases = (
-				DA3E505121B44731001450EC /* Headers */,
-				DA3E505221B44731001450EC /* Sources */,
-				DA3E505321B44731001450EC /* Frameworks */,
-				DA3E505421B44731001450EC /* Resources */,
+				DA3E507C21B4AB70001450EC /* Headers */,
+				DA3E507D21B4AB70001450EC /* Sources */,
+				DA3E507E21B4AB70001450EC /* Frameworks */,
+				DA3E507F21B4AB70001450EC /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = "MapCodable iOS";
-			productName = "MapCodable iOS";
-			productReference = DA3E505621B44731001450EC /* MapCodable.framework */;
+			name = "MapCodableKit iOS";
+			productName = "MapCodableKit iOS";
+			productReference = DA3E508121B4AB70001450EC /* MapCodableKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"MapCodable::MapCodable" /* MapCodable */ = {
+		"MapCodableKit::MapCodableKit" /* MapCodableKit */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_27 /* Build configuration list for PBXNativeTarget "MapCodable" */;
+			buildConfigurationList = OBJ_28 /* Build configuration list for PBXNativeTarget "MapCodableKit" */;
 			buildPhases = (
-				OBJ_30 /* Sources */,
-				OBJ_36 /* Frameworks */,
+				OBJ_31 /* Sources */,
+				OBJ_38 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MapCodable;
-			productName = MapCodable;
-			productReference = "MapCodable::MapCodable::Product" /* MapCodable.framework */;
+			name = MapCodableKit;
+			productName = MapCodableKit;
+			productReference = "MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		"MapCodable::MapCodableTests" /* MapCodableTests */ = {
+		"MapCodableKit::MapCodableKitTests" /* MapCodableKitTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_49 /* Build configuration list for PBXNativeTarget "MapCodableTests" */;
+			buildConfigurationList = OBJ_51 /* Build configuration list for PBXNativeTarget "MapCodableKitTests" */;
 			buildPhases = (
-				OBJ_52 /* Sources */,
-				OBJ_59 /* Frameworks */,
+				OBJ_54 /* Sources */,
+				OBJ_61 /* Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				OBJ_61 /* PBXTargetDependency */,
+				OBJ_63 /* PBXTargetDependency */,
 			);
-			name = MapCodableTests;
-			productName = MapCodableTests;
-			productReference = "MapCodable::MapCodableTests::Product" /* MapCodableTests.xctest */;
+			name = MapCodableKitTests;
+			productName = MapCodableKitTests;
+			productReference = "MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		"MapCodable::SwiftPMPackageDescription" /* MapCodablePackageDescription */ = {
+		"MapCodableKit::SwiftPMPackageDescription" /* MapCodableKitPackageDescription */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = OBJ_38 /* Build configuration list for PBXNativeTarget "MapCodablePackageDescription" */;
+			buildConfigurationList = OBJ_40 /* Build configuration list for PBXNativeTarget "MapCodableKitPackageDescription" */;
 			buildPhases = (
-				OBJ_41 /* Sources */,
+				OBJ_43 /* Sources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = MapCodablePackageDescription;
-			productName = MapCodablePackageDescription;
+			name = MapCodableKitPackageDescription;
+			productName = MapCodableKitPackageDescription;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -275,35 +270,35 @@
 			attributes = {
 				LastUpgradeCheck = 9999;
 				TargetAttributes = {
-					DA3E505521B44731001450EC = {
+					DA3E508021B4AB70001450EC = {
 						CreatedOnToolsVersion = 10.0;
 						ProvisioningStyle = Manual;
 					};
 				};
 			};
-			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "MapCodable" */;
+			buildConfigurationList = OBJ_2 /* Build configuration list for PBXProject "MapCodableKit" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = OBJ_5;
-			productRefGroup = OBJ_23 /* Products */;
+			mainGroup = OBJ_5 /*  */;
+			productRefGroup = OBJ_24 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				"MapCodable::MapCodable" /* MapCodable */,
-				"MapCodable::SwiftPMPackageDescription" /* MapCodablePackageDescription */,
-				"MapCodable::MapCodablePackageTests::ProductTarget" /* MapCodablePackageTests */,
-				"MapCodable::MapCodableTests" /* MapCodableTests */,
-				DA3E505521B44731001450EC /* MapCodable iOS */,
+				"MapCodableKit::MapCodableKit" /* MapCodableKit */,
+				"MapCodableKit::SwiftPMPackageDescription" /* MapCodableKitPackageDescription */,
+				"MapCodableKit::MapCodableKitPackageTests::ProductTarget" /* MapCodableKitPackageTests */,
+				"MapCodableKit::MapCodableKitTests" /* MapCodableKitTests */,
+				DA3E508021B4AB70001450EC /* MapCodableKit iOS */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		DA3E505421B44731001450EC /* Resources */ = {
+		DA3E507F21B4AB70001450EC /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -313,70 +308,64 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		DA3E505221B44731001450EC /* Sources */ = {
+		DA3E507D21B4AB70001450EC /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3E506021B44AC7001450EC /* Map.swift in Sources */,
-				DA3E506421B44AD3001450EC /* MappingError.swift in Sources */,
-				DA3E506121B44ACB001450EC /* URLCoder.swift in Sources */,
-				DA3E506321B44AD1001450EC /* MapPrimitive.swift in Sources */,
-				DA3E505F21B44AC5001450EC /* MapCodable.swift in Sources */,
-				DA3E506221B44ACE001450EC /* MapTransform.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_30 /* Sources */ = {
+		OBJ_31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				DA4CB1E121B356A5008BB81C /* MapPrimitive.swift in Sources */,
-				OBJ_31 /* URLCoder.swift in Sources */,
-				OBJ_32 /* Map.swift in Sources */,
-				OBJ_33 /* MapCodable.swift in Sources */,
-				OBJ_34 /* MapTransform.swift in Sources */,
-				OBJ_35 /* MappingError.swift in Sources */,
+				OBJ_32 /* URLCoder.swift in Sources */,
+				OBJ_33 /* Map.swift in Sources */,
+				OBJ_34 /* MapCodable.swift in Sources */,
+				OBJ_35 /* MapPrimitive.swift in Sources */,
+				OBJ_36 /* MapTransform.swift in Sources */,
+				OBJ_37 /* MappingError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_41 /* Sources */ = {
+		OBJ_43 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_42 /* Package.swift in Sources */,
+				OBJ_44 /* Package.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		OBJ_52 /* Sources */ = {
+		OBJ_54 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 0;
 			files = (
-				OBJ_53 /* MapBoolTests.swift in Sources */,
-				OBJ_54 /* MapCodableTests.swift in Sources */,
-				OBJ_55 /* MapDoubleTests.swift in Sources */,
-				OBJ_56 /* MapIntTests.swift in Sources */,
-				OBJ_57 /* MapRawRepresentableTests.swift in Sources */,
-				OBJ_58 /* MapStringTests.swift in Sources */,
+				OBJ_55 /* MapBoolTests.swift in Sources */,
+				OBJ_56 /* MapCodableTests.swift in Sources */,
+				OBJ_57 /* MapDoubleTests.swift in Sources */,
+				OBJ_58 /* MapIntTests.swift in Sources */,
+				OBJ_59 /* MapRawRepresentableTests.swift in Sources */,
+				OBJ_60 /* MapStringTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		OBJ_47 /* PBXTargetDependency */ = {
+		OBJ_49 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "MapCodable::MapCodableTests" /* MapCodableTests */;
-			targetProxy = DA4CAFCB21B1A144008BB81C /* PBXContainerItemProxy */;
+			target = "MapCodableKit::MapCodableKitTests" /* MapCodableKitTests */;
+			targetProxy = DA3E507B21B4AB32001450EC /* PBXContainerItemProxy */;
 		};
-		OBJ_61 /* PBXTargetDependency */ = {
+		OBJ_63 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = "MapCodable::MapCodable" /* MapCodable */;
-			targetProxy = DA4CAFCA21B1A143008BB81C /* PBXContainerItemProxy */;
+			target = "MapCodableKit::MapCodableKit" /* MapCodableKit */;
+			targetProxy = DA3E507A21B4AB32001450EC /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		DA3E505B21B44731001450EC /* Debug */ = {
+		DA3E508621B4AB70001450EC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -427,14 +416,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Sources/MapCodable iOS/Info.plist";
+				INFOPLIST_FILE = "Sources/MapCodableKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacobsikorski.MapCodable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobsikorski.MapCodableKit;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
@@ -442,14 +430,12 @@
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Debug;
 		};
-		DA3E505C21B44731001450EC /* Release */ = {
+		DA3E508721B4AB70001450EC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -500,29 +486,26 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				INFOPLIST_FILE = "Sources/MapCodable iOS/Info.plist";
+				INFOPLIST_FILE = "Sources/MapCodableKit iOS/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				PRODUCT_BUNDLE_IDENTIFIER = com.jacobsikorski.MapCodable;
+				PRODUCT_BUNDLE_IDENTIFIER = com.jacobsikorski.MapCodableKit;
 				PRODUCT_NAME = "$(PROJECT_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TVOS_DEPLOYMENT_TARGET = 9.0;
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
-				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
 			name = Release;
 		};
-		OBJ_28 /* Debug */ = {
+		OBJ_29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ENABLE_TESTABILITY = YES;
@@ -531,44 +514,20 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MapCodable.xcodeproj/MapCodable_Info.plist;
+				INFOPLIST_FILE = MapCodableKit.xcodeproj/MapCodableKit_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = MapCodable;
+				PRODUCT_BUNDLE_IDENTIFIER = MapCodableKit;
 				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = MapCodable;
+				SWIFT_VERSION = 4.0;
+				TARGET_NAME = MapCodableKit;
 			};
 			name = Debug;
-		};
-		OBJ_29 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ENABLE_TESTABILITY = YES;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
-				);
-				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MapCodable.xcodeproj/MapCodable_Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
-				OTHER_CFLAGS = "$(inherited)";
-				OTHER_LDFLAGS = "$(inherited)";
-				OTHER_SWIFT_FLAGS = "$(inherited)";
-				PRODUCT_BUNDLE_IDENTIFIER = MapCodable;
-				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.2;
-				TARGET_NAME = MapCodable;
-			};
-			name = Release;
 		};
 		OBJ_3 /* Debug */ = {
 			isa = XCBuildConfiguration;
@@ -584,7 +543,6 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_SWIFT_FLAGS = "-DXcode";
@@ -597,14 +555,29 @@
 			};
 			name = Debug;
 		};
-		OBJ_39 /* Debug */ = {
+		OBJ_30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				LD = /usr/bin/true;
-				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				ENABLE_TESTABILITY = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
+				);
+				HEADER_SEARCH_PATHS = "$(inherited)";
+				INFOPLIST_FILE = MapCodableKit.xcodeproj/MapCodableKit_Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) $(TOOLCHAIN_DIR)/usr/lib/swift/macosx";
+				OTHER_CFLAGS = "$(inherited)";
+				OTHER_LDFLAGS = "$(inherited)";
+				OTHER_SWIFT_FLAGS = "$(inherited)";
+				PRODUCT_BUNDLE_IDENTIFIER = MapCodableKit;
+				PRODUCT_MODULE_NAME = "$(TARGET_NAME:c99extidentifier)";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
+				TARGET_NAME = MapCodableKit;
 			};
-			name = Debug;
+			name = Release;
 		};
 		OBJ_4 /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -615,7 +588,6 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_OPTIMIZATION_LEVEL = s;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
 				OTHER_SWIFT_FLAGS = "-DXcode";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -627,7 +599,16 @@
 			};
 			name = Release;
 		};
-		OBJ_40 /* Release */ = {
+		OBJ_41 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				LD = /usr/bin/true;
+				OTHER_SWIFT_FLAGS = "-swift-version 4 -I $(TOOLCHAIN_DIR)/usr/lib/swift/pm/4 -target x86_64-apple-macosx10.10 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.14.sdk";
+				SWIFT_VERSION = 4.0;
+			};
+			name = Debug;
+		};
+		OBJ_42 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				LD = /usr/bin/true;
@@ -636,19 +617,19 @@
 			};
 			name = Release;
 		};
-		OBJ_45 /* Debug */ = {
+		OBJ_47 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Debug;
 		};
-		OBJ_46 /* Release */ = {
+		OBJ_48 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 			};
 			name = Release;
 		};
-		OBJ_50 /* Debug */ = {
+		OBJ_52 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -658,18 +639,18 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MapCodable.xcodeproj/MapCodableTests_Info.plist;
+				INFOPLIST_FILE = MapCodableKit.xcodeproj/MapCodableKitTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = MapCodableTests;
+				TARGET_NAME = MapCodableKitTests;
 			};
 			name = Debug;
 		};
-		OBJ_51 /* Release */ = {
+		OBJ_53 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
@@ -679,30 +660,30 @@
 					"$(PLATFORM_DIR)/Developer/Library/Frameworks",
 				);
 				HEADER_SEARCH_PATHS = "$(inherited)";
-				INFOPLIST_FILE = MapCodable.xcodeproj/MapCodableTests_Info.plist;
+				INFOPLIST_FILE = MapCodableKit.xcodeproj/MapCodableKitTests_Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @loader_path/../Frameworks @loader_path/Frameworks";
 				OTHER_CFLAGS = "$(inherited)";
 				OTHER_LDFLAGS = "$(inherited)";
 				OTHER_SWIFT_FLAGS = "$(inherited)";
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
 				SWIFT_VERSION = 4.0;
-				TARGET_NAME = MapCodableTests;
+				TARGET_NAME = MapCodableKitTests;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DA3E505D21B44731001450EC /* Build configuration list for PBXNativeTarget "MapCodable iOS" */ = {
+		DA3E508821B4AB70001450EC /* Build configuration list for PBXNativeTarget "MapCodableKit iOS" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DA3E505B21B44731001450EC /* Debug */,
-				DA3E505C21B44731001450EC /* Release */,
+				DA3E508621B4AB70001450EC /* Debug */,
+				DA3E508721B4AB70001450EC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_2 /* Build configuration list for PBXProject "MapCodable" */ = {
+		OBJ_2 /* Build configuration list for PBXProject "MapCodableKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				OBJ_3 /* Debug */,
@@ -711,38 +692,38 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_27 /* Build configuration list for PBXNativeTarget "MapCodable" */ = {
+		OBJ_28 /* Build configuration list for PBXNativeTarget "MapCodableKit" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_28 /* Debug */,
-				OBJ_29 /* Release */,
+				OBJ_29 /* Debug */,
+				OBJ_30 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_38 /* Build configuration list for PBXNativeTarget "MapCodablePackageDescription" */ = {
+		OBJ_40 /* Build configuration list for PBXNativeTarget "MapCodableKitPackageDescription" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_39 /* Debug */,
-				OBJ_40 /* Release */,
+				OBJ_41 /* Debug */,
+				OBJ_42 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_44 /* Build configuration list for PBXAggregateTarget "MapCodablePackageTests" */ = {
+		OBJ_46 /* Build configuration list for PBXAggregateTarget "MapCodableKitPackageTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_45 /* Debug */,
-				OBJ_46 /* Release */,
+				OBJ_47 /* Debug */,
+				OBJ_48 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		OBJ_49 /* Build configuration list for PBXNativeTarget "MapCodableTests" */ = {
+		OBJ_51 /* Build configuration list for PBXNativeTarget "MapCodableKitTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				OBJ_50 /* Debug */,
-				OBJ_51 /* Release */,
+				OBJ_52 /* Debug */,
+				OBJ_53 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

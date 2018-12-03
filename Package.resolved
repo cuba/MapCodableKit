@@ -1,0 +1,16 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "IkigaJSON",
+        "repositoryURL": "https://github.com/Ikiga/IkigaJSON.git",
+        "state": {
+          "branch": null,
+          "revision": "bc326d101e746235f9c24f5fea703311b2d736bb",
+          "version": "1.0.3"
+        }
+      }
+    ]
+  },
+  "version": 1
+}

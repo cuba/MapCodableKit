@@ -1,14 +1,18 @@
 //
-//  MapDoubleTests.swift
+//  MapRawRepresentableTests.swift
 //  MapCodableTests
 //
 //  Created by Jacob Sikorski on 2018-11-30.
 //
 
 import XCTest
-import MapCodable
+import MapCodableKit
 
-class MapDoubleTests: XCTestCase {
+class MapRawRepresentableTests: XCTestCase {
+    enum TestEnum: Int {
+        case first = 0
+        case second
+    }
     
     var map = Map()
     
@@ -16,64 +20,97 @@ class MapDoubleTests: XCTestCase {
         self.map = Map()
     }
     
-    func testGivenMap_WhenAddingDouble_ReturnsValue() {
+    func testGivenMap_WhenAddingRawRepresentable_ReturnsValue() {
         // Given
-        let value = 1.0
+        let value = TestEnum.first
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: Double = try map.value(fromKey: "value")
+            let result: TestEnum = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingDoubleArray_ReturnsValue() {
+    func testGivenMap_WhenAddingRawRepresentable_ReturnsRawValue() {
         // Given
-        let value = [1.2, 3.6, 6.8]
+        let value = TestEnum.first
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [Double] = try map.value(fromKey: "value")
+            let result: Int = try map.value(fromKey: "value")
+            XCTAssertEqual(value.rawValue, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingRawRepresentableArray_ReturnsValue() {
+        // Given
+        let value = [TestEnum.first, TestEnum.second, TestEnum.first]
+        
+        // When
+        map.add(value, forKey: "value")
+        
+        // Then
+        do {
+            let result: [TestEnum] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingDoubleDictionary_ReturnsValue() {
+    func testGivenMap_WhenAddingRawRepresentableSet_ReturnsValue() {
         // Given
-        let value = ["first": 1.2, "second": 3.6, "third": 6.8]
+        let values = [TestEnum.first, TestEnum.second, TestEnum.first]
+        let set = Set(values)
+        
+        // When
+        map.add(set, forKey: "value")
+        
+        // Then
+        do {
+            let result: Set<TestEnum> = try map.value(fromKey: "value")
+            XCTAssertEqual(set, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenAddingRawRepresentableDictionary_ReturnsValue() {
+        // Given
+        let value = ["first": TestEnum.first, "second": TestEnum.second, "third": TestEnum.first]
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let result: [String: Double] = try map.value(fromKey: "value")
+            let result: [String: TestEnum] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
         }
     }
     
-    func testGivenMap_WhenAddingDouble_ThrowsCorrectErrorWhenKeyIsWrong() {
+    func testGivenMap_WhenAddingRawRepresentable_ThrowsCorrectErrorWhenKeyIsWrong() {
         // Given
-        let value = 1.0
+        let value = TestEnum.first
         
         // When
         map.add(value, forKey: "value")
         
         // Then
         do {
-            let _: Double = try map.value(fromKey: "not_value")
+            let _: TestEnum = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
             switch error {
@@ -87,9 +124,9 @@ class MapDoubleTests: XCTestCase {
         }
     }
     
-    func testGivenMap_WhenAddingDouble_ThrowsCorrectErrorWhenTypeWrong() {
+    func testGivenMap_WhenAddingRawRepresentable_ThrowsCorrectErrorWhenTypeWrong() {
         // Given
-        let value = 1.0
+        let value = TestEnum.first
         
         // When
         map.add(value, forKey: "value")

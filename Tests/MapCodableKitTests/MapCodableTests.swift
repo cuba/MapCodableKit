@@ -6,7 +6,7 @@
 //
 
 import XCTest
-import MapCodable
+import MapCodableKit
 
 class MapCodableTests: XCTestCase {
     struct MockUser: Codable, MapCodable, Equatable {

@@ -4,14 +4,14 @@
 import PackageDescription
 
 let package = Package(
-    name: "MapCodable",
+    name: "MapCodableKit",
     products: [
-        .library(name: "MapCodable", targets: ["MapCodable"]),
+        .library(name: "MapCodableKit", targets: ["MapCodableKit"]),
     ],
     dependencies: [
     ],
     targets: [
-        .target(name: "MapCodable", path: "Sources"),
-        .testTarget(name: "MapCodableTests", dependencies: ["MapCodable"], path: "Tests"),
+        .target(name: "MapCodableKit", path: "Sources"),
+        .testTarget(name: "MapCodableKitTests", dependencies: ["MapCodableKit"], path: "Tests"),
     ]
 )

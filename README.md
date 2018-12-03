@@ -1,6 +1,6 @@
 
 
-MapCodable
+MapCodableKit
 ============
 
 A powerful JSON serialization framework for swift 4.0
@@ -22,6 +22,13 @@ A powerful JSON serialization framework for swift 4.0
 - [x] Uses swift 4.0
 
 ## Usage
+
+### Import `MapCodableKit`
+
+Add the following to the top of any swift file using `MapCodableKit`
+```swift
+import MapCodableKit 
+```
 
 ### Mapping to `JSON`
 
@@ -142,7 +149,7 @@ struct ListBody<T: MapEncodable>: MapEncodable {
 
 ### Primitives 
 
-MapCodable supports any `MapPrimitive` variables.  `MapPrimitive` are any json primitives such as:
+MapCodableKit supports any `MapPrimitive` variables.  `MapPrimitive` are any json primitives such as:
 - `String`
 - `Double`
 - `Bool`
@@ -176,21 +183,27 @@ Your models may contains nested `MapCodable` objects, Sets, Arrays or Dictionari
 Sets are supported for the following types:
 - `MapPrimitive` (strings, integers, booleans, doubles etc ...)
 - `RawRepresentable` (enums)
-- `MapCodable` (nested objects)
+- `MapEncodable` (read only nested objects)
+- `MapDecodable` (write only nested objects)
+- `MapCodable` (read and write nested objects)
 
 ### Arrays
 
 Arrays are supported for the following types:
 - `MapPrimitive` (strings, integers, booleans, doubles etc ...)
 - `RawRepresentable` (enums)
-- `MapCodable` (nested objects)
+- `MapEncodable` (read only nested objects)
+- `MapDecodable` (write only nested objects)
+- `MapCodable` (read and write nested objects)
 
 ### Dictionaries (with `String` keys)
 
 Arrays are supported for the following types:
 - `MapPrimitive` (strings, integers, booleans, doubles etc ...)
 - `RawRepresentable` (enums)
-- `MapCodable` (nested objects)
+- `MapEncodable` (read only nested objects)
+- `MapDecodable` (write only nested objects)
+- `MapCodable` (read and write nested objects)
 
 ## Installation
 
@@ -198,17 +211,36 @@ Arrays are supported for the following types:
 
 Package manager is a powerful packaging tool built into xcode.  For the full documentation on how to use package manager, click [here](https://swift.org/package-manager/)
 
+### Carthage
+
+[Carthage](https://github.com/cuba/NetworkKit) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+
+You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
+
+```bash
+$ brew update
+$ brew install carthage
+```
+
+To integrate NetworkKit into your Xcode project using Carthage, specify it in your `Cartfile`:
+
+```ogdl
+github "cuba/MapCodableKit" ~> 1.0
+```
+
+Run `carthage update` to build the framework and drag the built `NetworkKit.framework` into your Xcode project.
+
 ## Dependencies
 
 `Framework` is the only dependency 😁
 
 ## Credits
 
-`MapCodable` is owned and maintained by Jacob Sikorski.
+`MapCodableKit` is owned and maintained by Jacob Sikorski.
 
-`MapCodable` is largely inspired by [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper).
+`MapCodableKit` is largely inspired by [ObjectMapper](https://github.com/Hearst-DD/ObjectMapper).
 
 ## License
 
-`MapCodable` is released under the MIT license. [See LICENSE](https://github.com/cuba/MapCodable/blob/master/LICENSE) for details
+`MapCodable` is released under the MIT license. [See LICENSE](https://github.com/cuba/MapCodableKit/blob/master/LICENSE) for details
 

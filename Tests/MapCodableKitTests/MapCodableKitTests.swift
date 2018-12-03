@@ -10,7 +10,27 @@ import MapCodableKit
 
 class MapCodableKitTests: XCTestCase {
     
-    func testGivenValidJson_GetsNestedKey() {
+    struct TestMapKey: MapKey {
+        let parts: [KeyPart]
+        
+        init(parts: [KeyPart]) {
+            self.parts = parts
+        }
+        
+        var rawValue: String {
+            let partStrings: [String] = parts.map({ (part: KeyPart) -> String in
+                return part.rawValue
+            })
+            
+            return partStrings.joined(separator: ".")
+        }
+        
+        func parseKeyParts() throws -> [KeyPart] {
+            return parts
+        }
+    }
+    
+    func testGivenValidJson_GetsNestedObject() {
         // Given
         let jsonString = """
             {
@@ -35,6 +55,32 @@ class MapCodableKitTests: XCTestCase {
         }
     }
     
+    func testGivenValidJson_GetsNestedArrayKey() {
+        // Given
+        let jsonString = """
+            {
+                "profiles": [
+                    {
+                        "id": "123",
+                        "name": "Kevin Malone"
+                    }
+                ]
+            }
+        """
+        
+        do {
+            // When
+            let map = try Map(jsonString: jsonString)
+            let idKey = TestMapKey(parts: [.array(key: "profiles"), .object(key: "id")])
+            let id: String = try map.value(fromKey: idKey)
+            
+            // Then
+            XCTAssertEqual(id, "123")
+        } catch {
+            XCTFail("Should have succeeded to create json")
+        }
+    }
+    
     func testGivenValue_SetsNestedKey() {
         // Given
         let id = "123"
@@ -43,8 +89,8 @@ class MapCodableKitTests: XCTestCase {
         
         do {
             // When
-            map.add(id, forKey: "profile.id")
-            map.add(name, forKey: "profile.name")
+            try map.add(id, forKey: "profile.id")
+            try map.add(name, forKey: "profile.name")
             let idResult: String = try map.value(fromKey: "profile.id")
             let nameResult: String = try map.value(fromKey: "profile.name")
             

@@ -122,15 +122,22 @@ public class Map {
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    private func add(_ value: Any?, forKey key: MapKey) {
-        var parts = key.parts
+    private func add(_ value: Any?, forKey key: MapKey) throws {
+        var parts = try key.parseKeyParts()
+        
+        guard parts.count > 0 else {
+            throw MappingError.invalidKey(key: key)
+        }
+        
         let firstPart = parts.removeFirst()
+        let existingValue = tree[firstPart.key] as? [String: Any?]
+        let newValue = wrap(value, in: existingValue, with: parts)
         
         switch firstPart {
         case .object(let key):
-            let existingValue = tree[key] as? [String: Any?]
-            let newValue = wrap(value, in: existingValue, with: parts)
             tree[key] = newValue
+        case .array(let key):
+            tree[key] = [newValue]
         }
     }
     
@@ -140,16 +147,20 @@ public class Map {
      - parameter key: The key that that is used to store this value in the map.
      - returns: The stored object.
      */
-    private func value(fromKey key: MapKey) -> Any? {
-        let parts = key.parts
+    private func value(fromKey key: MapKey) throws -> Any? {
+        let parts = try key.parseKeyParts()
         var currentValue: Any? = tree
         
         for part in parts {
+            guard let dictionary = currentValue as? [String: Any?] else { return nil }
+            guard let value = dictionary[part.key] else { return nil }
+            
             switch part {
-            case .object(let key):
-                guard let dictionary = currentValue as? [String: Any?] else { return nil }
-                guard let value = dictionary[key] else { return nil }
+            case .object:
                 currentValue = value
+            case .array:
+                guard let array = value as? [[String: Any?]] else { return nil }
+                currentValue = array.first
             }
         }
         
@@ -161,19 +172,18 @@ public class Map {
         
         guard !parts.isEmpty else { return value }
         let currentPart = parts.removeFirst()
+        let nextDictionary = existingDictionary?[currentPart.key] as? [String: Any?]
+        let newValue = wrap(value, in: nextDictionary, with: parts)
+        var currentDictionary = existingDictionary ?? [:]
         
         switch currentPart {
         case .object(let key):
-            let currentDictionary = existingDictionary?[key] as? [String: Any?]
-            let newValue = wrap(value, in: currentDictionary, with: parts)
-            
-            if var existingDictionary = existingDictionary {
-                existingDictionary[key] = newValue
-                return existingDictionary
-            } else {
-                return [key: newValue]
-            }
+            currentDictionary[key] = newValue
+        case .array(let key):
+            currentDictionary[key] = [newValue]
         }
+        
+        return currentDictionary
     }
 }
 
@@ -229,7 +239,7 @@ extension Map {
     public func add<T: MapEncoder>(_ value: T.Object?, forKey key: MapKey, using encoder: T) throws {
         guard let value = value else { return }
         guard let encoded = try encoder.toMap(value: value) else { return }
-        self.add(encoded as Any, forKey: key)
+        try self.add(encoded as Any, forKey: key)
     }
     
     /**
@@ -240,7 +250,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecoder>(fromKey key: MapKey, using decoder: T) throws -> T.Object {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let element = value as? T.Primitive else { throw MappingError.invalidType(key: key) }
         
         guard let object = try decoder.fromMap(value: element) else {
@@ -266,9 +276,9 @@ extension Map {
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: MapPrimitive>(_ value: T?, forKey key: MapKey) {
+    public func add<T: MapPrimitive>(_ value: T?, forKey key: MapKey) throws {
         guard let value = value else { return }
-        self.add(value as Any, forKey: key)
+        try self.add(value as Any, forKey: key)
     }
     
     /**
@@ -279,7 +289,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let object = value as? T else { throw MappingError.invalidType(key: key) }
         return object
     }
@@ -292,7 +302,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(fromKey key: MapKey) throws -> Set<T> {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let object = value as? [T] else { throw MappingError.invalidType(key: key) }
         return Set(object)
     }
@@ -308,9 +318,9 @@ extension Map {
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: RawRepresentable>(_ value: T?, forKey key: MapKey) {
+    public func add<T: RawRepresentable>(_ value: T?, forKey key: MapKey) throws {
         guard let value = value else { return }
-        self.add(value.rawValue as Any, forKey: key)
+        try self.add(value.rawValue as Any, forKey: key)
     }
     
     /**
@@ -321,7 +331,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let rawValue = value as? T.RawValue else { throw MappingError.invalidType(key: key) }
         guard let object = T(rawValue: rawValue) else { throw MappingError.failedToDecode(key: key) }
         return object
@@ -333,10 +343,10 @@ extension Map {
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: RawRepresentable>(_ value: [T]?, forKey key: MapKey) {
+    public func add<T: RawRepresentable>(_ value: [T]?, forKey key: MapKey) throws {
         guard let value = value else { return }
         let rawValues = value.map({ $0.rawValue })
-        self.add(rawValues as Any, forKey: key)
+        try self.add(rawValues as Any, forKey: key)
     }
     
     /**
@@ -347,7 +357,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> [T] {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let rawValues = value as? [T.RawValue] else { throw MappingError.invalidType(key: key) }
         let objects = rawValues.compactMap({ T(rawValue: $0) })
         return objects
@@ -359,11 +369,11 @@ extension Map {
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: RawRepresentable>(_ value: [String: T]?, forKey key: MapKey) {
+    public func add<T: RawRepresentable>(_ value: [String: T]?, forKey key: MapKey) throws {
         guard let value = value else { return }
         var rawValues: [String: T.RawValue] = [:]
         value.forEach({ rawValues[$0] = $1.rawValue })
-        self.add(rawValues as Any, forKey: key)
+        try self.add(rawValues as Any, forKey: key)
     }
     
     /**
@@ -374,7 +384,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> [String: T] {
-        guard let values: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let values: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         guard let rawValues = values as? [String: T.RawValue] else { throw MappingError.invalidType(key: key) }
         var result: [String: T] = [:]
         
@@ -392,10 +402,10 @@ extension Map {
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    public func add<T: RawRepresentable>(_ value: Set<T>?, forKey key: MapKey) {
+    public func add<T: RawRepresentable>(_ value: Set<T>?, forKey key: MapKey) throws {
         guard let value = value else { return }
         let rawValues = value.map({ $0.rawValue })
-        add(rawValues, forKey: key)
+        try add(rawValues, forKey: key)
     }
     
     /**
@@ -425,7 +435,7 @@ extension Map {
         guard let encodable = encodable else { return }
         let data = try JSONEncoder().encode(encodable)
         let serializedObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
-        self.add(serializedObject as Any, forKey: key)
+        try self.add(serializedObject as Any, forKey: key)
     }
     
     /**
@@ -436,7 +446,7 @@ extension Map {
      - returns: The decoded object.
      */
     public func decodable<T: Decodable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
         return try JSONDecoder().decode(T.self, from: data)
     }
@@ -455,7 +465,7 @@ extension Map {
     public func add<T: MapEncodable>(_ encodable: T?, forKey key: MapKey) throws {
         guard let encodable = encodable else { return }
         let json = try encodable.json()
-        self.add(json as Any, forKey: key)
+        try self.add(json as Any, forKey: key)
     }
     
     /**
@@ -466,7 +476,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         
         if let json = value as? [String: Any] {
             return try T(json: json)
@@ -487,7 +497,7 @@ extension Map {
             return map.tree
         })
         
-        self.add(values as Any, forKey: key)
+        try self.add(values as Any, forKey: key)
     }
     
     /**
@@ -498,7 +508,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey, stopOnFailure: Bool = false) throws -> [T] {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         
         if let paramsArray = value as? [[String: Any]] {
             return try paramsArray.compactMap({
@@ -528,7 +538,7 @@ extension Map {
             results[key] = json
         }
         
-        self.add(results as Any, forKey: key)
+        try self.add(results as Any, forKey: key)
     }
     
     /**
@@ -539,7 +549,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey, stopOnFailure: Bool = false) throws -> [String: T] {
-        guard let value: Any = self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
         
         if let jsonDictionary = value as? [String: [String: Any]] {
             var results: [String: T] = [:]

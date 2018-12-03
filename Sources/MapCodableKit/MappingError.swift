@@ -11,12 +11,14 @@ public enum MappingError: Error, CustomStringConvertible {
     case valueNotFound(key: MapKey)
     case failedToDecode(key: MapKey)
     case invalidType(key: MapKey)
+    case invalidKey(key: MapKey)
     
     public var description: String {
         switch self {
-        case .failedToDecode(let key)   : return "Mapping failed because value cound not be serialized for `\(key.rawValue)`"
-        case .valueNotFound(let key)    : return "Mapping failed because value cound not be found for `\(key.rawValue)`"
-        case .invalidType(let key)      : return "Mapping failed because type is invalid for `\(key.rawValue)`"
+        case .failedToDecode(let key)   : return "Mapping failed because value cound not be serialized for `\(key.rawValue)`."
+        case .valueNotFound(let key)    : return "Mapping failed because value cound not be found for `\(key.rawValue)`."
+        case .invalidType(let key)      : return "Mapping failed because type is invalid for `\(key.rawValue)`."
+        case .invalidKey(let key)       : return "Mapping failed because the key `\(key.rawValue)` is invalid."
         }
     }
 }

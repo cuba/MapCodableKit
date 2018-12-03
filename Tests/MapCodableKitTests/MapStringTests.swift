@@ -19,11 +19,11 @@ class MapStringTests: XCTestCase {
         // Given
         let value = "Pam Beesly"
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: String = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -35,11 +35,11 @@ class MapStringTests: XCTestCase {
         // Given
         let value = ["Jim Halpert", "Dwight Schrute", "Micheal Scott"]
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: [String] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -51,11 +51,11 @@ class MapStringTests: XCTestCase {
         // Given
         let value = ["first": "Jim Halpert", "second": "Dwight Schrute", "third": "Michael Scott"]
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: [String: String] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -67,11 +67,11 @@ class MapStringTests: XCTestCase {
         // Given
         let value = "Some String"
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let _: String = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
@@ -90,11 +90,11 @@ class MapStringTests: XCTestCase {
         // Given
         let value = "Some String"
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let _: Int = try map.value(fromKey: "value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {

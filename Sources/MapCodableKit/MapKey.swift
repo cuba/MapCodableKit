@@ -8,27 +8,85 @@
 import Foundation
 
 public protocol MapKey {
-    var parts: [KeyPart] { get }
     var rawValue: String { get }
+    func parseKeyParts() throws -> [KeyPart]
 }
 
 public enum KeyPart {
     case object(key: String)
+    case array(key: String)
     
-    var rawValue: String {
+    public var key: String {
         switch self {
-        case .object(let key): return key
+        case .object(let key):
+            return key
+        case .array(let key):
+            return key
+        }
+    }
+    
+    public var rawValue: String {
+        switch self {
+        case .object(let key):
+            return key
+        case .array(let key):
+            return "\(key)[]"
         }
     }
 }
 
 extension String: MapKey {
-    public var parts: [KeyPart] {
-        let parts = self.split(separator: ".")
-        return parts.map({ KeyPart.object(key: String($0)) })
+    private static let arrayPattern = "^(\\w+)\\[(\\d*)\\]$"
+    private static let objectPattern = "^(\\w+)$"
+    
+    public func parseKeyParts() throws -> [KeyPart] {
+        let partStrings = self.split(separator: ".").map({ String($0) })
+        var parts: [KeyPart] = []
+        
+        for partString in partStrings {
+            guard let part = try partString.parseKeyPart() else {
+                throw MappingError.invalidKey(key: self)
+            }
+            
+            parts.append(part)
+        }
+        
+        return parts
     }
     
     public var rawValue: String {
         return self
+    }
+    
+    func parseKeyPart() throws -> KeyPart? {
+        if let part = try self.parseObjectPart() {
+            return part
+        } else if let part = try self.parseArrayPart() {
+            return part
+        } else {
+            return nil
+        }
+    }
+    
+    private func parseArrayPart() throws -> KeyPart? {
+        let result = try self.matches(for: String.arrayPattern)
+        
+        if let key = result[self]?.first {
+            let part = KeyPart.array(key: key)
+            return part
+        } else {
+            return nil
+        }
+    }
+    
+    private func parseObjectPart() throws -> KeyPart? {
+        let result = try self.matches(for: String.objectPattern)
+        
+        if let key = result[self]?.first {
+            let part = KeyPart.object(key: key)
+            return part
+        } else {
+            return nil
+        }
     }
 }

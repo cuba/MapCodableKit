@@ -24,11 +24,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = TestEnum.first
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: TestEnum = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -40,11 +40,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = TestEnum.first
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: Int = try map.value(fromKey: "value")
             XCTAssertEqual(value.rawValue, result)
         } catch {
@@ -56,11 +56,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = [TestEnum.first, TestEnum.second, TestEnum.first]
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: [TestEnum] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -73,11 +73,11 @@ class MapRawRepresentableTests: XCTestCase {
         let values = [TestEnum.first, TestEnum.second, TestEnum.first]
         let set = Set(values)
         
-        // When
-        map.add(set, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(set, forKey: "value")
+            
+            // Then
             let result: Set<TestEnum> = try map.value(fromKey: "value")
             XCTAssertEqual(set, result)
         } catch {
@@ -89,11 +89,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = ["first": TestEnum.first, "second": TestEnum.second, "third": TestEnum.first]
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let result: [String: TestEnum] = try map.value(fromKey: "value")
             XCTAssertEqual(value, result)
         } catch {
@@ -105,11 +105,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = TestEnum.first
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let _: TestEnum = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {
@@ -128,11 +128,11 @@ class MapRawRepresentableTests: XCTestCase {
         // Given
         let value = TestEnum.first
         
-        // When
-        map.add(value, forKey: "value")
-        
-        // Then
         do {
+            // When
+            try map.add(value, forKey: "value")
+            
+            // Then
             let _: String = try map.value(fromKey: "value")
             XCTFail("Should have failed to map value")
         } catch let error as MappingError {

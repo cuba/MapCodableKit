@@ -24,6 +24,13 @@
 		DA3E508521B4AB70001450EC /* MapCodableKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3E508A21B4AF58001450EC /* MapCodableKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508921B4AF58001450EC /* MapCodableKitTests.swift */; };
 		DA3E508C21B4BDFD001450EC /* MapKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508B21B4BDFD001450EC /* MapKey.swift */; };
+		DA3E508F21B4BEA1001450EC /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
+		DA3E509021B4BEA3001450EC /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
+		DA3E509121B4BEA5001450EC /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
+		DA3E509221B4BEA7001450EC /* MapKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508B21B4BDFD001450EC /* MapKey.swift */; };
+		DA3E509321B4BEAA001450EC /* MapTransform.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_14 /* MapTransform.swift */; };
+		DA3E509421B4BEAC001450EC /* MapPrimitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_13 /* MapPrimitive.swift */; };
+		DA3E509521B4BEAF001450EC /* MappingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MappingError.swift */; };
 		OBJ_32 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
 		OBJ_33 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
 		OBJ_34 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
@@ -319,6 +326,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA3E509421B4BEAC001450EC /* MapPrimitive.swift in Sources */,
+				DA3E509321B4BEAA001450EC /* MapTransform.swift in Sources */,
+				DA3E509021B4BEA3001450EC /* Map.swift in Sources */,
+				DA3E508F21B4BEA1001450EC /* URLCoder.swift in Sources */,
+				DA3E509521B4BEAF001450EC /* MappingError.swift in Sources */,
+				DA3E509221B4BEA7001450EC /* MapKey.swift in Sources */,
+				DA3E509121B4BEA5001450EC /* MapCodable.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

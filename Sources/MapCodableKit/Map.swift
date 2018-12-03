@@ -125,15 +125,12 @@ public class Map {
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
     private func add(_ value: Any?, forKey key: MapKey) {
-        var keyParts = key.split(separator: ".")
+        var keyParts = key.split(separator: ".").map({ String($0) })
         let firstKey = keyParts.removeFirst()
-        var objectToStore: Any? = value
         
-        for keyPart in keyParts {
-            objectToStore = [keyPart: objectToStore]
-        }
-        
-        values[String(firstKey)] = objectToStore
+        let existingValue = values[firstKey] as? [String: Any?]
+        let newValue = wrap(value, in: existingValue, with: keyParts)
+        values[firstKey] = newValue
     }
     
     /**
@@ -153,6 +150,22 @@ public class Map {
         }
         
         return currentValue
+    }
+    
+    private func wrap(_ value: Any?, in existingDictionary: [String: Any?]?, with keyParts: [String]) -> Any? {
+        var keyParts = keyParts
+        
+        guard !keyParts.isEmpty else { return value }
+        let currentKey = keyParts.removeFirst()
+        let currentDictionary = existingDictionary?[currentKey] as? [String: Any?]
+        let newValue = wrap(value, in: currentDictionary, with: keyParts)
+        
+        if var existingDictionary = existingDictionary {
+            existingDictionary[currentKey] = newValue
+            return existingDictionary
+        } else {
+            return [currentKey: newValue]
+        }
     }
 }
 

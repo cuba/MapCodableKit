@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		DA3E508521B4AB70001450EC /* MapCodableKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		DA3E508A21B4AF58001450EC /* MapCodableKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508921B4AF58001450EC /* MapCodableKitTests.swift */; };
 		OBJ_32 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
 		OBJ_33 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
 		OBJ_34 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
@@ -59,6 +60,7 @@
 		DA3E508121B4AB70001450EC /* MapCodableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapCodableKit_iOS.h; sourceTree = "<group>"; };
 		DA3E508421B4AB70001450EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DA3E508921B4AF58001450EC /* MapCodableKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableKitTests.swift; sourceTree = "<group>"; };
 		"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
@@ -122,6 +124,7 @@
 		OBJ_17 /* MapCodableKitTests */ = {
 			isa = PBXGroup;
 			children = (
+				DA3E508921B4AF58001450EC /* MapCodableKitTests.swift */,
 				OBJ_18 /* MapBoolTests.swift */,
 				OBJ_19 /* MapCodableTests.swift */,
 				OBJ_20 /* MapDoubleTests.swift */,
@@ -342,6 +345,7 @@
 			files = (
 				OBJ_55 /* MapBoolTests.swift in Sources */,
 				OBJ_56 /* MapCodableTests.swift in Sources */,
+				DA3E508A21B4AF58001450EC /* MapCodableKitTests.swift in Sources */,
 				OBJ_57 /* MapDoubleTests.swift in Sources */,
 				OBJ_58 /* MapIntTests.swift in Sources */,
 				OBJ_59 /* MapRawRepresentableTests.swift in Sources */,

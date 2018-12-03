@@ -264,4 +264,26 @@ class MapCodableTests: XCTestCase {
             XCTFail("Should have succeeded to create json")
         }
     }
+    
+    func testGivenValidJsonArray_GetsNestedObjects() {
+        // Given
+        let jsonString = """
+            [
+                {
+                    "id": "123",
+                    "name": "Kevin Malone"
+                }
+            ]
+        """
+        
+        do {
+            // When
+            let profiles = try MockUser.parseArray(jsonString: jsonString, encoding: .utf8, failOnError: true)
+            
+            // Then
+            XCTAssertEqual(profiles.count, 1)
+        } catch {
+            XCTFail("Should have succeeded to create json")
+        }
+    }
 }

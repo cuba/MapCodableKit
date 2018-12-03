@@ -74,7 +74,18 @@ public class Map {
             return []
         }
         
-        let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
+        return try self.parseArray(jsonData: data)
+    }
+    
+    /**
+     Create a `Map` `Array` from a JSON `Data`
+     
+     - parameter jsonData: The JSON `Data` that will be deserialized
+     - parameter encoding: The encoding used on the string
+     - throws: Throws an error if the json string cannot be deserialized.
+     */
+    public static func parseArray(jsonData: Data) throws -> [Map] {
+        let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [.allowFragments])
         
         if let paramsArray = jsonObject as? [[String: Any?]] {
             return paramsArray.map({ Map(json: $0) })

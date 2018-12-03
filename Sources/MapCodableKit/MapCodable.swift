@@ -115,4 +115,72 @@ public extension MapDecodable {
         let map = Map(json: json)
         try self.init(map: map)
     }
+    
+    /**
+     Initialize an array of this object from a JSON `String`
+     - parameter jsonString: The JSON `String` that will be deserialized
+     - parameter encoding: The encoding used on the string
+     - parameter failOnError: When true, throws an exception if any object fails to parse. Otherwise the object is just removedfrom the list.
+     - throws: Throws an error if the json string cannot be deserialized.
+     */
+    static func parseArray(jsonString: String, encoding: String.Encoding = .utf8, failOnError: Bool = false) throws -> [Self] {
+        let maps = try Map.parseArray(jsonString: jsonString, encoding: encoding)
+        
+        let result: [Self] = try maps.compactMap() {
+            do {
+                return try Self(map: $0)
+            } catch {
+                guard failOnError else { return nil }
+                throw error
+            }
+        }
+        
+        return result
+    }
+    
+    /**
+     Initialize an array of this object from a JSON `Data`
+     - parameter jsonString: The JSON `String` that will be deserialized
+     - parameter encoding: The encoding used on the string
+     - throws: Throws an error if the json string cannot be deserialized.
+     */
+    static func parseArray(jsonData: Data, failOnError: Bool = false) throws -> [Self]{
+        let maps = try Map.parseArray(jsonData: jsonData)
+        
+        let result: [Self] = try maps.compactMap() {
+            do {
+                return try Self(map: $0)
+            } catch {
+                guard failOnError else { return nil }
+                throw error
+            }
+        }
+        
+        return result
+    }
+    
+    /**
+     Initialize an array of this object from a JSON `Data`
+     - parameter jsonString: The JSON `String` that will be deserialized
+     - parameter encoding: The encoding used on the string
+     - throws: Throws an error if the json string cannot be deserialized.
+     */
+    static func parseArray(json: [[String: Any]], failOnError: Bool = false) throws -> [Self]{
+        let maps = json.map({ Map(json: $0) })
+        
+        let result: [Self] = try maps.compactMap() {
+            do {
+                return try Self(map: $0)
+            } catch {
+                guard failOnError else { return nil }
+                throw error
+            }
+        }
+        
+        return result
+    }
+}
+
+extension Array {
+    
 }

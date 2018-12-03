@@ -145,6 +145,18 @@ struct ListBody<T: MapEncodable>: MapEncodable {
 }
 ```
 
+### Nested objects
+
+You can get or set an object nested in a dictionary or an array.  
+
+For a nested object in a dictionary, just seperate your keys using a `.`. For example the key `abc.def` will return an object with the key `def` in a parent object.  
+
+You may also get the first object in an array. For example, the key `def[0]` will return the first object in an array `def`.
+
+You may chain as many of these as you would like.  For example, `abc.def[0]` will return the first object in an array `def` which is itself nested in the object `abc`.
+
+**Note**: only the first object `0` is supported for now.  using any value other than `0` will give you a `MappingError` when trying to save to write the value.  
+
 ## Supported Types
 
 ### Primitives 
@@ -165,6 +177,8 @@ MapCodableKit supports any `MapPrimitive` variables.  `MapPrimitive` are any jso
 - `UInt64`
 - `Array` of `MapPrimitive` objects
 - `Dictionary` of `MapPrimitive` objects (i.e. `[Key: MapPrimitive]`)
+
+**Note**: if you request a `String` for any value that does not parse to a string it will fail serialization. This includes nested objects and arrays since they entire `JSON` structure is already parsed.
 
 ### Enums (`RawRepresentable`)
 
@@ -213,7 +227,7 @@ Package manager is a powerful packaging tool built into xcode.  For the full doc
 
 ### Carthage
 
-[Carthage](https://github.com/cuba/NetworkKit) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager that builds your dependencies and provides you with binary frameworks.
 
 You can install Carthage with [Homebrew](http://brew.sh/) using the following command:
 
@@ -222,13 +236,13 @@ $ brew update
 $ brew install carthage
 ```
 
-To integrate NetworkKit into your Xcode project using Carthage, specify it in your `Cartfile`:
+To integrate `MapCodableKit` into your Xcode project using Carthage, specify it in your `Cartfile`:
 
 ```ogdl
-github "cuba/MapCodableKit" ~> 1.0
+github "cuba/MapCodableKit" ~> 1.1
 ```
 
-Run `carthage update` to build the framework and drag the built `NetworkKit.framework` into your Xcode project.
+Run `carthage update` to build the framework and drag the built `MapCodableKit.framework` into your Xcode project.
 
 ## Dependencies
 
@@ -242,5 +256,5 @@ Run `carthage update` to build the framework and drag the built `NetworkKit.fram
 
 ## License
 
-`MapCodable` is released under the MIT license. [See LICENSE](https://github.com/cuba/MapCodableKit/blob/master/LICENSE) for details
+`MapCodableKit` is released under the MIT license. [See LICENSE](https://github.com/cuba/MapCodableKit/blob/master/LICENSE) for details
 

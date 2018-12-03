@@ -34,13 +34,13 @@ extension String: MapKey {
 }
 
 public class Map {
-    private var values: [String: Any?]
+    private var tree: [String: Any?]
     
     /**
      Initialize this map from a dictionary
      */
     public init(json: [String: Any?] = [:]) {
-        self.values = json
+        self.tree = json
     }
     
     /**
@@ -115,7 +115,7 @@ public class Map {
      - returns: A dictionary object representing this map.
      */
     public func makeDictionary() -> [String: Any?] {
-        return values
+        return tree
     }
     
     /**
@@ -154,9 +154,9 @@ public class Map {
         
         switch firstPart {
         case .object(let key):
-            let existingValue = values[key] as? [String: Any?]
+            let existingValue = tree[key] as? [String: Any?]
             let newValue = wrap(value, in: existingValue, with: parts)
-            values[key] = newValue
+            tree[key] = newValue
         }
     }
     
@@ -168,7 +168,7 @@ public class Map {
      */
     private func value(fromKey key: MapKey) -> Any? {
         let parts = key.parts
-        var currentValue: Any? = values
+        var currentValue: Any? = tree
         
         for part in parts {
             switch part {
@@ -510,7 +510,7 @@ extension Map {
     public func add<T: MapEncodable>(_ encodableArray: [T], forKey key: MapKey) throws {
         let values = try encodableArray.map({ (encodable: T) -> [String: Any?] in
             let map = try encodable.filledMap()
-            return map.values
+            return map.tree
         })
         
         self.add(values as Any, forKey: key)

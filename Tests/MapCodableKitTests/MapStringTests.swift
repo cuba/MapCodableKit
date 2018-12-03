@@ -77,7 +77,7 @@ class MapStringTests: XCTestCase {
         } catch let error as MappingError {
             switch error {
             case .valueNotFound(let key):
-                XCTAssertEqual("not_value", key)
+                XCTAssertEqual("not_value", key.rawValue)
             default:
                 XCTFail("Invalid MappingError type thrown")
             }
@@ -100,7 +100,7 @@ class MapStringTests: XCTestCase {
         } catch let error as MappingError {
             switch error {
             case .invalidType(let key):
-                XCTAssertEqual("value", key)
+                XCTAssertEqual("value", key.rawValue)
             default:
                 XCTFail("Invalid MappingError type thrown")
             }

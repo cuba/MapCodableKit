@@ -71,7 +71,7 @@ class MapCodableKitTests: XCTestCase {
             // When
             let _ = try Map(jsonString: jsonString)
             XCTFail("Should have failed to map json")
-        } catch let error {
+        } catch {
             // Success
         }
     }

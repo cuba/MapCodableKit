@@ -7,15 +7,39 @@
 
 import Foundation
 
-public typealias MapKey = String
+public protocol MapKey {
+    var parts: [KeyPart] { get }
+    var rawValue: String { get }
+}
+
+public enum KeyPart {
+    case object(key: String)
+    
+    var rawValue: String {
+        switch self {
+        case .object(let key): return key
+        }
+    }
+}
+
+extension String: MapKey {
+    public var parts: [KeyPart] {
+        let parts = self.split(separator: ".")
+        return parts.map({ KeyPart.object(key: String($0)) })
+    }
+    
+    public var rawValue: String {
+        return self
+    }
+}
 
 public class Map {
-    private var values: [MapKey: Any?]
+    private var values: [String: Any?]
     
     /**
      Initialize this map from a dictionary
      */
-    public init(json: [MapKey: Any?] = [:]) {
+    public init(json: [String: Any?] = [:]) {
         self.values = json
     }
     
@@ -41,7 +65,7 @@ public class Map {
         
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [])
         
-        if let json = jsonObject as? [MapKey: Any] {
+        if let json = jsonObject as? [String: Any] {
             self.init(json: json)
         } else {
             self.init()
@@ -57,7 +81,7 @@ public class Map {
     public convenience init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
         
-        if let json = jsonObject as? [MapKey: Any?] {
+        if let json = jsonObject as? [String: Any?] {
             self.init(json: json)
         } else {
             self.init()
@@ -78,7 +102,7 @@ public class Map {
         
         let jsonObject = try JSONSerialization.jsonObject(with: data, options: [.allowFragments])
         
-        if let paramsArray = jsonObject as? [[MapKey: Any?]] {
+        if let paramsArray = jsonObject as? [[String: Any?]] {
             return paramsArray.map({ Map(json: $0) })
         } else {
             return []
@@ -90,7 +114,7 @@ public class Map {
      
      - returns: A dictionary object representing this map.
      */
-    public func makeDictionary() -> [MapKey: Any?] {
+    public func makeDictionary() -> [String: Any?] {
         return values
     }
     
@@ -125,12 +149,15 @@ public class Map {
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
     private func add(_ value: Any?, forKey key: MapKey) {
-        var keyParts = key.split(separator: ".").map({ String($0) })
-        let firstKey = keyParts.removeFirst()
+        var parts = key.parts
+        let firstPart = parts.removeFirst()
         
-        let existingValue = values[firstKey] as? [String: Any?]
-        let newValue = wrap(value, in: existingValue, with: keyParts)
-        values[firstKey] = newValue
+        switch firstPart {
+        case .object(let key):
+            let existingValue = values[key] as? [String: Any?]
+            let newValue = wrap(value, in: existingValue, with: parts)
+            values[key] = newValue
+        }
     }
     
     /**
@@ -140,31 +167,38 @@ public class Map {
      - returns: The stored object.
      */
     private func value(fromKey key: MapKey) -> Any? {
-        let keyParts = key.split(separator: ".")
+        let parts = key.parts
         var currentValue: Any? = values
         
-        for keyPart in keyParts {
-            guard let dictionary = currentValue as? [String: Any?] else { return nil }
-            guard let value = dictionary[String(keyPart)] else { return nil }
-            currentValue = value
+        for part in parts {
+            switch part {
+            case .object(let key):
+                guard let dictionary = currentValue as? [String: Any?] else { return nil }
+                guard let value = dictionary[key] else { return nil }
+                currentValue = value
+            }
         }
         
         return currentValue
     }
     
-    private func wrap(_ value: Any?, in existingDictionary: [String: Any?]?, with keyParts: [String]) -> Any? {
-        var keyParts = keyParts
+    private func wrap(_ value: Any?, in existingDictionary: [String: Any?]?, with parts: [KeyPart]) -> Any? {
+        var parts = parts
         
-        guard !keyParts.isEmpty else { return value }
-        let currentKey = keyParts.removeFirst()
-        let currentDictionary = existingDictionary?[currentKey] as? [String: Any?]
-        let newValue = wrap(value, in: currentDictionary, with: keyParts)
+        guard !parts.isEmpty else { return value }
+        let currentPart = parts.removeFirst()
         
-        if var existingDictionary = existingDictionary {
-            existingDictionary[currentKey] = newValue
-            return existingDictionary
-        } else {
-            return [currentKey: newValue]
+        switch currentPart {
+        case .object(let key):
+            let currentDictionary = existingDictionary?[key] as? [String: Any?]
+            let newValue = wrap(value, in: currentDictionary, with: parts)
+            
+            if var existingDictionary = existingDictionary {
+                existingDictionary[key] = newValue
+                return existingDictionary
+            } else {
+                return [key: newValue]
+            }
         }
     }
 }

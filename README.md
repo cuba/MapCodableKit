@@ -1,5 +1,7 @@
-
-
+[![Swift 4.2](https://img.shields.io/badge/swift-4.2-brightgreen.svg?style=for-the-badge)](https://swift.org)
+[![Vapor 3](https://img.shields.io/badge/vapor-3-brightgreen.svg?style=for-the-badge)](https://vapor.codes)
+![iOS](https://img.shields.io/badge/iOS-brightgreen.svg?style=for-the-badge)
+[![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/cuba/MapCodableKit/blob/master/LICENSE)
 
 
 MapCodableKit

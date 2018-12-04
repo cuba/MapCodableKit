@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>MapDecodable Protocol Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Protocol/MapDecodable" class="dashAnchor"></a>
+    <a title="MapDecodable Protocol Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        MapDecodable Protocol Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Map.html">Map</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/URLCoder.html">URLCoder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/KeyPart.html">KeyPart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MappingError.html">MappingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0aB0P">MapCodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0A5CoderP">MapCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapDecodable.html">MapDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapDecoder.html">MapDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapEncodable.html">MapEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapEncoder.html">MapEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapKey.html">MapKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>MapDecodable</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapDecodable</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodableP3mapxAA0A0C_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(map:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodableP3mapxAA0A0C_tKcfc">init(map:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes the object with the contents of a map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="nf">init</span><span class="p">(</span><span class="nv">map</span><span class="p">:</span> <span class="kt"><a href="../Classes/Map.html">Map</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>map</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A filled map that represents the content of this object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE10jsonString8encodingxSS_SS10FoundationE8EncodingVtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(jsonString:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE10jsonString8encodingxSS_SS10FoundationE8EncodingVtKcfc">init(jsonString:encoding:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this object from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jsonString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE8jsonData8encodingx10Foundation0F0V_SSAFE8EncodingVtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(jsonData:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE8jsonData8encodingx10Foundation0F0V_SSAFE8EncodingVtKcfc">init(jsonData:encoding:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this object from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE4jsonxSDySSypG_tKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE4jsonxSDySSypG_tKcfc">init(json:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this object from a JSON Object</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">])</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE10parseArray10jsonString8encoding11failOnErrorSayxGSS_SS10FoundationE8EncodingVSbtKFZ"></a>
+                    <a name="//apple_ref/swift/Method/parseArray(jsonString:encoding:failOnError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE10parseArray10jsonString8encoding11failOnErrorSayxGSS_SS10FoundationE8EncodingVSbtKFZ">parseArray(jsonString:encoding:failOnError:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize an array of this object from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseArray</span><span class="p">(</span><span class="nv">jsonString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">,</span> <span class="nv">failOnError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="k">Self</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>failOnError</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>When true, throws an exception if any object fails to parse. Otherwise the object is just removedfrom the list.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE10parseArray8jsonData11failOnErrorSayxG10Foundation0H0V_SbtKFZ"></a>
+                    <a name="//apple_ref/swift/Method/parseArray(jsonData:failOnError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE10parseArray8jsonData11failOnErrorSayxG10Foundation0H0V_SbtKFZ">parseArray(jsonData:failOnError:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize an array of this object from a JSON <code>Data</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseArray</span><span class="p">(</span><span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">failOnError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="k">Self</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A9DecodablePAAE10parseArray4json11failOnErrorSayxGSaySDySSypGG_SbtKFZ"></a>
+                    <a name="//apple_ref/swift/Method/parseArray(json:failOnError:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A9DecodablePAAE10parseArray4json11failOnErrorSayxGSaySDySSypGG_SbtKFZ">parseArray(json:failOnError:)</a>
+                    </code>
+                      <span class="declaration-note">
+                        Extension method
+                      </span>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize an array of this object from a JSON <code>Data</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseArray</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="p">[[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">]],</span> <span class="nv">failOnError</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="k">Self</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-12-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

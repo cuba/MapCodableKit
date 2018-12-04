@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Map Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/Map" class="dashAnchor"></a>
+    <a title="Map Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (52% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        Map Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/Map.html">Map</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/URLCoder.html">URLCoder</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/KeyPart.html">KeyPart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MappingError.html">MappingError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Sequence.html">Sequence</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0aB0P">MapCodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0A5CoderP">MapCoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapDecodable.html">MapDecodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapDecoder.html">MapDecoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapEncodable.html">MapEncodable</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapEncoder.html">MapEncoder</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols/MapKey.html">MapKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>Map</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">Map</span></code></pre>
+
+                </div>
+              </div>
+            <p>Undocumented</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C4jsonACSDySSypSgG_tcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(json:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C4jsonACSDySSypSgG_tcfc">init(json:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this map from a dictionary</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">json</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?]</span> <span class="o">=</span> <span class="p">[:])</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0CyAcA0A9Encodable_pKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0CyAcA0A9Encodable_pKcfc">init(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this <code>Map</code> from a <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> object using its <code>fill</code> method.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="n">_</span> <span class="nv">mapEncodable</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C10jsonString8encodingACSS_SS10FoundationE8EncodingVtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(jsonString:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C10jsonString8encodingACSS_SS10FoundationE8EncodingVtKcfc">init(jsonString:encoding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this object from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jsonString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C8jsonData8encodingAC10Foundation0E0V_SSAFE8EncodingVtKcfc"></a>
+                    <a name="//apple_ref/swift/Method/init(jsonData:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C8jsonData8encodingAC10Foundation0E0V_SSAFE8EncodingVtKcfc">init(jsonData:encoding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initialize this object from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">convenience</span> <span class="nf">init</span><span class="p">(</span><span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C10parseArray10jsonString8encodingSayACGSS_SS10FoundationE8EncodingVtKFZ"></a>
+                    <a name="//apple_ref/swift/Method/parseArray(jsonString:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C10parseArray10jsonString8encodingSayACGSS_SS10FoundationE8EncodingVtKFZ">parseArray(jsonString:encoding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Map</code> <code>Array</code> from a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseArray</span><span class="p">(</span><span class="nv">jsonString</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Map</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonString</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C10parseArray8jsonDataSayACG10Foundation0G0V_tKFZ"></a>
+                    <a name="//apple_ref/swift/Method/parseArray(jsonData:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C10parseArray8jsonDataSayACG10Foundation0G0V_tKFZ">parseArray(jsonData:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Create a <code>Map</code> <code>Array</code> from a JSON <code>Data</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the json string cannot be deserialized.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">static</span> <span class="kd">func</span> <span class="nf">parseArray</span><span class="p">(</span><span class="nv">jsonData</span><span class="p">:</span> <span class="kt">Data</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">Map</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>jsonData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON <code>Data</code> that will be deserialized</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoding used on the string</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C14makeDictionarySDySSypSgGyF"></a>
+                    <a name="//apple_ref/swift/Method/makeDictionary()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C14makeDictionarySDySSypSgGyF">makeDictionary()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns the dictionary representation of this map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">makeDictionary</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">?]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>A dictionary object representing this map.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C8jsonData7options10Foundation0E0VSo20NSJSONWritingOptionsV_tKF"></a>
+                    <a name="//apple_ref/swift/Method/jsonData(options:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C8jsonData7options10Foundation0E0VSo20NSJSONWritingOptionsV_tKF">jsonData(options:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Serializes this object into a JSON <code>Data</code> object</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if this object failed to serialize.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">jsonData</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">WritingOptions</span> <span class="o">=</span> <span class="p">[])</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Data</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The writing options.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The serialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C10jsonString7options8encodingSSSgSo20NSJSONWritingOptionsV_SS10FoundationE8EncodingVtKF"></a>
+                    <a name="//apple_ref/swift/Method/jsonString(options:encoding:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C10jsonString7options8encodingSSSgSo20NSJSONWritingOptionsV_SS10FoundationE8EncodingVtKF">jsonString(options:encoding:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Serializes this object into a JSON <code>String</code></p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if this object failed to serialize.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">jsonString</span><span class="p">(</span><span class="nv">options</span><span class="p">:</span> <span class="kt">JSONSerialization</span><span class="o">.</span><span class="kt">WritingOptions</span> <span class="o">=</span> <span class="p">[],</span> <span class="nv">encoding</span><span class="p">:</span> <span class="kt">String</span><span class="o">.</span><span class="kt">Encoding</span> <span class="o">=</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">String</span><span class="p">?</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>options</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The writing options.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoding</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The string encoding that should be used.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The serialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MapEncodable"></a>
+                <a name="//apple_ref/swift/Section/MapEncodable" class="dashAnchor"></a>
+                <a href="#/MapEncodable">
+                  <h3 class="section-name">MapEncodable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKey5usingy6ObjectQzSg_AA0aF0_pxtKAA0A7EncoderRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKey5usingy6ObjectQzSg_AA0aF0_pxtKAA0A7EncoderRzlF">add(_:forKey:using:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map using a transform</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncoder.html">MapEncoder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The transform that will be used to serialize the object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKey5using6ObjectQzAA0aF0_p_xtKAA0A7DecoderRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey5using6ObjectQzAA0aF0_p_xtKAA0A7DecoderRzlF">value(fromKey:using:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map. The object will be converted by using its mapping function.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or if it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecoder.html">MapDecoder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MapPrimitive"></a>
+                <a name="//apple_ref/swift/Section/MapPrimitive" class="dashAnchor"></a>
+                <a href="#/MapPrimitive">
+                  <h3 class="section-name">MapPrimitive</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9PrimitiveRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9PrimitiveRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a MapPrimitive value to the map. MapPrimitive values includes:</p>
+
+<ul>
+<li><code>String</code></li>
+<li><code>Int</code></li>
+<li><code>Bool</code></li>
+<li><code>Double</code></li>
+<li><p><code>[T]</code> where T also conforms to <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code></p></li>
+</ul>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9PrimitiveRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9PrimitiveRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKAA0A9PrimitiveRzSHRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKAA0A9PrimitiveRzSHRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/RawRepresentable"></a>
+                <a name="//apple_ref/swift/Section/RawRepresentable" class="dashAnchor"></a>
+                <a href="#/RawRepresentable">
+                  <h3 class="section-name">RawRepresentable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map. Will be converted to its RawType.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySayxGSg_AA0aF0_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySayxGSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">]?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map. Will be converted to its RawType.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeySayxGAA0aF0_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeySayxGAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value is invalid or it is nil. Filters out any enums that don&rsquo;t serialize properly instead of failing.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySDySSxGSg_AA0aF0_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySDySSxGSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map. Will be converted to its RawType.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeySDySSxGAA0aF0_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeySDySSxGAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value is invalid or it is nil. Filters out any enums that don&rsquo;t serialize properly instead of failing.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyShyxGSg_AA0aF0_ptKSHRzSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyShyxGSg_AA0aF0_ptKSHRzSYRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in the map. Will be converted to its RawType.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKSHRzSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKSHRzSYRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value is invalid or it is nil. Filters out any enums that don&rsquo;t serialize properly instead of failing.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Codable"></a>
+                <a name="//apple_ref/swift/Section/Codable" class="dashAnchor"></a>
+                <a href="#/Codable">
+                  <h3 class="section-name">Codable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add9encodable6forKeyyxSg_AA0aG0_ptKSERzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(encodable:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add9encodable6forKeyyxSg_AA0aG0_ptKSERzlF">add(encodable:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map. The object will be converted by using its mapping function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the nested <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> object that will be stored in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C9decodable7fromKeyxAA0aF0_p_tKSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/decodable(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C9decodable7fromKeyxAA0aF0_p_tKSeRzlF">decodable(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a <code>Decodable</code> value from the map.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be decoded or if it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">decodable</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The decoded object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MapCodable"></a>
+                <a name="//apple_ref/swift/Section/MapCodable" class="dashAnchor"></a>
+                <a href="#/MapCodable">
+                  <h3 class="section-name">MapCodable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map. The object will be converted by using its mapping function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the nested <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> object that will be stored in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9DecodableRzlF">value(fromKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map. The object will be converted by using its mapping function.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or if it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySayxG_AA0aF0_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySayxG_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add an array to the map. The objects will be converted by using their mapping function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodableArray</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The nested <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> array that will be stored in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSayxGAA0aF0_p_SbtKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:stopOnFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSayxGAA0aF0_p_SbtKAA0A9DecodableRzlF">value(fromKey:stopOnFailure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map. Deserializes the object from <code>[[String: Any]]</code>, <code>String</code> or <code>[String]</code>. The object will be converted by using its mapping function.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or it is nil and no default value was specified.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySDySSxG_AA0aF0_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySDySSxG_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add an array to the map. The objects will be converted by using their mapping function.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">],</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The nested <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> array that will be stored in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSDySSxGAA0aF0_p_SbtKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(fromKey:stopOnFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSDySSxGAA0aF0_p_SbtKAA0A9DecodableRzlF">value(fromKey:stopOnFailure:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map. Deserializes the object from <code>[[String: Any]]</code>, <code>String</code> or <code>[String]</code>. The object will be converted by using its mapping function.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or it is nil and no default value was specified.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">T</span><span class="p">]</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The deserialized object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2018-12-04)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -1,9 +1,11 @@
 
 
+
+
 MapCodableKit
 ============
 
-A powerful JSON serialization framework for swift 4.0
+A powerful JSON serialization framework for swift 4.2 which works on iOS and server side frameworks like Vapor 3.
 
 - [Features](#features)
 - [Usage](#usage)
@@ -19,9 +21,11 @@ A powerful JSON serialization framework for swift 4.0
 - [x] Easy integration
 - [x] Handles common object types
 - [x] Easily extensible
-- [x] Uses swift 4.0
+- [x] Uses swift 4.2
 
 ## Usage
+
+For the full documentation, click here: https://cuba.github.io/MapCodableKit/
 
 ### Import `MapCodableKit`
 

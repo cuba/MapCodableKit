@@ -10,7 +10,7 @@ A powerful JSON serialization framework for swift 4.2 which works on iOS and ser
 ![SPM](https://img.shields.io/badge/SPM-compatible-green.svg?style=for-the-badge)
 [![GitHub](https://img.shields.io/github/license/mashape/apistatus.svg?style=for-the-badge)](https://github.com/cuba/MapCodableKit/blob/master/LICENSE)
 
-![Build](https://travis-ci.org/cuba/MapCodableKit.svg?branch=master&style=for-the-badge)
+[![Build](https://img.shields.io/travis/cuba/MapCodableKit/master.svg?style=for-the-badge)](https://travis-ci.org/cuba/MapCodableKit)
 
 - [Features](#features)
 - [Usage](#usage)

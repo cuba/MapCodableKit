@@ -3,8 +3,8 @@ MapCodableKit
 
 A powerful JSON serialization framework for swift 4.2 which works on iOS and server side frameworks like Vapor 3.
 
-[![Swift 4.2](https://img.shields.io/badge/swift-4.2-brightgreen.svg?style=for-the-badge)](https://swift.org)
-[![Vapor 3](https://img.shields.io/badge/vapor-3-brightgreen.svg?style=for-the-badge)](https://vapor.codes)
+[![Swift 4.2](https://img.shields.io/badge/swift-4.2-lightgrey.svg?style=for-the-badge)](https://swift.org)
+[![Vapor 3](https://img.shields.io/badge/vapor-3-lightgrey.svg?style=for-the-badge)](https://vapor.codes)
 ![iOS 8](https://img.shields.io/badge/iOS-8-lightgrey.svg?style=for-the-badge)
 ![Carthage](https://img.shields.io/badge/carthage-compatible-green.svg?style=for-the-badge)
 ![SPM](https://img.shields.io/badge/SPM-compatible-green.svg?style=for-the-badge)

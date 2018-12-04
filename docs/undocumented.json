@@ -29,27 +29,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
-      "line": 11,
-      "symbol": "String.matches(for:options:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
-      "line": 33,
-      "symbol": "String.substring(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
-      "line": 38,
-      "symbol": "String.substring(in:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
       "line": null,
       "symbol": "Map",
@@ -201,13 +180,6 @@
       "line": 61,
       "symbol": "String.rawValue",
       "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
-      "line": 65,
-      "symbol": "String.parseKeyPart()",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {

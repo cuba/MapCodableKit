@@ -1,0 +1,9 @@
+author: "Jacob Sikorski"
+github_url: https://github.com/cuba/MapCodableKit
+swift_version: 4.2
+module: MapCodableKit
+min_acl: internal
+xcodebuild_arguments:
+  - "-scheme"
+  - "MapCodableKit Package"
+  

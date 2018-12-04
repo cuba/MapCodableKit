@@ -1,0 +1,320 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
+      "line": 10,
+      "symbol": "URLCoder",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
+      "line": 12,
+      "symbol": "URLCoder.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
+      "line": 14,
+      "symbol": "URLCoder.toMap(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
+      "line": 18,
+      "symbol": "URLCoder.fromMap(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
+      "line": 11,
+      "symbol": "String.matches(for:options:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
+      "line": 33,
+      "symbol": "String.substring(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Extensions/String+Extensions.swift",
+      "line": 38,
+      "symbol": "String.substring(in:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": null,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": null,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": null,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": null,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": null,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Map.swift",
+      "line": 10,
+      "symbol": "Map",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCodable.swift",
+      "line": null,
+      "symbol": "MapDecodable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCodable.swift",
+      "line": null,
+      "symbol": "MapEncodable",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCodable.swift",
+      "line": 10,
+      "symbol": "MapEncodable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCodable.swift",
+      "line": 20,
+      "symbol": "MapDecodable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCodable.swift",
+      "line": 30,
+      "symbol": "MapCodable",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 10,
+      "symbol": "MapKey",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 11,
+      "symbol": "MapKey.rawValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 12,
+      "symbol": "MapKey.parseKeyParts()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 15,
+      "symbol": "KeyPart",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 16,
+      "symbol": "KeyPart.object(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 17,
+      "symbol": "KeyPart.array(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 19,
+      "symbol": "KeyPart.key",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 28,
+      "symbol": "KeyPart.rawValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 37,
+      "symbol": "KeyPart.parseKeyParts()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 46,
+      "symbol": "String.parseKeyParts()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 61,
+      "symbol": "String.rawValue",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
+      "line": 65,
+      "symbol": "String.parseKeyPart()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapPrimitive.swift",
+      "line": 10,
+      "symbol": "MapPrimitive",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 10,
+      "symbol": "MapDecoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 11,
+      "symbol": "MapDecoder.Primitive",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 12,
+      "symbol": "MapDecoder.Object",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 14,
+      "symbol": "MapDecoder.fromMap(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 17,
+      "symbol": "MapEncoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 18,
+      "symbol": "MapEncoder.Primitive",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 19,
+      "symbol": "MapEncoder.Object",
+      "symbol_kind": "source.lang.swift.decl.associatedtype",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 21,
+      "symbol": "MapEncoder.toMap(value:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapTransform.swift",
+      "line": 24,
+      "symbol": "MapCoder",
+      "symbol_kind": "source.lang.swift.decl.protocol",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MappingError.swift",
+      "line": 10,
+      "symbol": "MappingError",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MappingError.swift",
+      "line": 11,
+      "symbol": "MappingError.valueNotFound(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MappingError.swift",
+      "line": 12,
+      "symbol": "MappingError.failedToDecode(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MappingError.swift",
+      "line": 13,
+      "symbol": "MappingError.invalidType(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MappingError.swift",
+      "line": 14,
+      "symbol": "MappingError.invalidKey(key:)",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit"
+}

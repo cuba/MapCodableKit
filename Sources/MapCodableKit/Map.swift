@@ -133,7 +133,7 @@ public class Map {
      - parameter value: The value that will be stored in the map
      - parameter key: The key that will be used to store this value and that can be used to later retrive this value
      */
-    private func add(_ value: Any?, forKey key: MapKey) throws {
+    public func add(_ value: Any?, forKey key: MapKey) throws {
         var parts = try key.parseKeyParts()
         
         guard parts.count > 0 else {
@@ -158,7 +158,7 @@ public class Map {
      - parameter key: The key that that is used to store this value in the map.
      - returns: The stored object.
      */
-    private func value(fromKey key: MapKey) throws -> Any? {
+    public func value(fromKey key: MapKey) throws -> Any? {
         let parts = try key.parseKeyParts()
         var currentValue: Any? = tree
         

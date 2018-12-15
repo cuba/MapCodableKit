@@ -23,4 +23,4 @@ extension UInt32: MapPrimitive {}
 extension UInt64: MapPrimitive {}
 extension Bool: MapPrimitive {}
 extension Array: MapPrimitive where Element: MapPrimitive {}
-extension Dictionary: MapPrimitive where Key: StringProtocol, Value: MapPrimitive {}
+extension Dictionary: MapPrimitive where Value: MapPrimitive {}

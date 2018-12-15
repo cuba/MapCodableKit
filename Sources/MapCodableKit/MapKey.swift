@@ -40,8 +40,8 @@ public enum KeyPart: MapKey {
 }
 
 extension String: MapKey {
-    private static let arrayPattern = "^(\\w+)\\[(0)\\]$"
-    private static let objectPattern = "^(\\w+)$"
+    private static let arrayPattern = "^([\\w[^\\[\\]]]+)\\[(0)\\]$"
+    private static let objectPattern = "^([\\w[^\\[\\]]]+)$"
     
     public func parseKeyParts() throws -> [KeyPart] {
         let partStrings = self.split(separator: ".").map({ String($0) })

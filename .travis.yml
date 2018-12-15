@@ -1,3 +1,5 @@
 language: swift
-xcode_project: MapCodableKit.xcodeproj
-xcode_scheme: MapCodableKit Project
+os: osx
+script:
+- swift --version
+- swift test

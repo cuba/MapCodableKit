@@ -18,12 +18,12 @@ public enum MapDecodingError: Error, CustomStringConvertible {
     case valueNotFound(key: MapKey)
     
     /**
-     Thrown when the JSON object could not be decoded to the specified object.
+     Thrown when the JSON object could not be decoded to the specified object for the given key. For example, you're expecting the object to parse to a specific `MapCodable` object, but the JSON structure is not valid for that object. Can also be thrown for invalid enum types.
      */
     case failedToDecode(key: MapKey)
     
     /**
-     Thrown when the JSON value is different from the expected type. For example if you're expecting a string but an Int is returned instead.
+     Thrown when the JSON value for the key provided is different from the expected type. For example if you're expecting a `String` but the JSON dictionary contains an `Int`.
      */
     case unexpectedType(key: MapKey)
     

@@ -31,7 +31,7 @@ class MapCodableKitTests: XCTestCase {
             XCTAssertEqual(id, "123")
             XCTAssertEqual(name, "Kevin Malone")
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
     
@@ -49,7 +49,7 @@ class MapCodableKitTests: XCTestCase {
         do {
             // When
             let _ = try Map(jsonString: jsonString)
-            XCTFail("Should have failed to map json")
+            XCTFail("Should have failed to map JSON")
         } catch {
             // Success
         }

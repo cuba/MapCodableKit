@@ -232,7 +232,7 @@ class MapCodableTests: XCTestCase {
         do {
             // When
             guard let jsonString = try testModel.jsonString(options: [.prettyPrinted], encoding: .utf8) else {
-                XCTFail("Should have succeeded to create json")
+                XCTFail("Should have succeeded to create JSON")
                 return
             }
             
@@ -240,7 +240,7 @@ class MapCodableTests: XCTestCase {
             let result = try GiantCodableTestModel(jsonString: jsonString, encoding: .utf8)
             XCTAssertEqual(testModel, result)
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
     
@@ -261,7 +261,7 @@ class MapCodableTests: XCTestCase {
             XCTAssertEqual(object.id, "123")
             XCTAssertEqual(object.name, "Jim Halpert")
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
     
@@ -283,7 +283,7 @@ class MapCodableTests: XCTestCase {
             // Then
             XCTAssertEqual(profiles.count, 1)
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
 }

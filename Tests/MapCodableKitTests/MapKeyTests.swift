@@ -98,7 +98,7 @@ class MapKeyTests: XCTestCase {
             XCTAssertEqual(id, idResult)
             XCTAssertEqual(name, nameResult)
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
     
@@ -124,7 +124,7 @@ class MapKeyTests: XCTestCase {
             // Then
             XCTAssertEqual(id, "123")
         } catch {
-            XCTFail("Should have succeeded to create json")
+            XCTFail("Should have succeeded to create JSON")
         }
     }
 }

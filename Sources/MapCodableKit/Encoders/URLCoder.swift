@@ -15,10 +15,16 @@ public class URLCoder: MapCoder {
     
     public init() {}
     
+    /**
+     Converts a `URL` into a `String` value using its `absoluteString` property.
+     */
     public func toMap(value: URL) -> String? {
         return value.absoluteString
     }
     
+    /**
+     Attempts to convert a `String` into a `URL` using its `init(string:String)` initializer.
+     */
     public func fromMap(value: String) throws -> URL? {
         return URL(string: value)
     }

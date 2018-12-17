@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- A protocol that adds support of complex objects to be serialized into a json object.
+ A protocol that adds support of complex objects to be serialized into a JSON object.
  */
 public protocol MapEncodable {
     
@@ -21,7 +21,7 @@ public protocol MapEncodable {
 }
 
 /**
- A protocol that adds support of complex objects to be deserialized from a json object.
+ A protocol that adds support of complex objects to be deserialized from a JSON object.
  */
 public protocol MapDecodable {
     
@@ -102,7 +102,7 @@ public extension MapDecodable {
      Initialize this object from a JSON `String`
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public init(jsonString: String, encoding: String.Encoding = .utf8) throws {
         let map = try Map(jsonString: jsonString, encoding: encoding)
@@ -113,7 +113,7 @@ public extension MapDecodable {
      Initialize this object from a JSON `String`
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let map = try Map(jsonData: jsonData, encoding: encoding)
@@ -124,7 +124,7 @@ public extension MapDecodable {
      Initialize this object from a JSON Object
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public init(json: [String: Any?]) throws {
         let map = Map(json: json)
@@ -136,7 +136,7 @@ public extension MapDecodable {
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
      - parameter failOnError: When true, throws an exception if any object fails to parse. Otherwise the object is just removedfrom the list.
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     static func parseArray(jsonString: String, encoding: String.Encoding = .utf8, failOnError: Bool = false) throws -> [Self] {
         let maps = try Map.parseArray(jsonString: jsonString, encoding: encoding)
@@ -157,7 +157,7 @@ public extension MapDecodable {
      Initialize an array of this object from a JSON `Data`
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     static func parseArray(jsonData: Data, failOnError: Bool = false) throws -> [Self]{
         let maps = try Map.parseArray(jsonData: jsonData)
@@ -178,7 +178,7 @@ public extension MapDecodable {
      Initialize an array of this object from a JSON `Data`
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     static func parseArray(json: [[String: Any?]], failOnError: Bool = false) throws -> [Self]{
         let maps = json.map({ Map(json: $0) })

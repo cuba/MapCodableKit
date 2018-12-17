@@ -8,11 +8,11 @@
 import Foundation
 
 /**
- A wrapper around a json object that conveniently returns parsed objects or adds complex objects into the json object.
+ A wrapper around a JSON object that conveniently returns parsed objects or adds complex objects into the JSON object.
  
  Basic example of returning objects:
  ```
- let jsonString = // Source of json string
+ let jsonString = // Source of JSON string
  let map = Map(jsonString: jsonString, encoding: .utf8)
  
  let string: String = try map.value("some_key")
@@ -48,7 +48,7 @@ public class Map {
      
      - parameter jsonString: The JSON `String` that will be deserialized.
      - parameter encoding: The encoding used on the string.
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public convenience init(jsonString: String, encoding: String.Encoding = .utf8) throws {
         guard let data = jsonString.data(using: encoding) else {
@@ -70,7 +70,7 @@ public class Map {
      
      - parameter jsonString: The JSON `String` that will be deserialized.
      - parameter encoding: The encoding used on the string.
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public convenience init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [])
@@ -87,7 +87,7 @@ public class Map {
      
      - parameter jsonString: The JSON `String` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public static func parseArray(jsonString: String, encoding: String.Encoding = .utf8) throws -> [Map] {
         guard let data = jsonString.data(using: encoding) else {
@@ -102,7 +102,7 @@ public class Map {
      
      - parameter jsonData: The JSON `Data` that will be deserialized
      - parameter encoding: The encoding used on the string
-     - throws: Throws an error if the json string cannot be deserialized.
+     - throws: Throws an error if the JSON string cannot be deserialized.
      */
     public static func parseArray(jsonData: Data) throws -> [Map] {
         let jsonObject = try JSONSerialization.jsonObject(with: jsonData, options: [.allowFragments])
@@ -231,7 +231,7 @@ public extension Sequence where Iterator.Element == Map {
     }
     
     /**
-     Serializes this set into a json data object.
+     Serializes this set into a JSON data object.
      
      - parameter options: The writing options.
      - throws: Throws an error if this object failed to serialize.
@@ -429,7 +429,7 @@ extension Map {
     }
     
     /**
-     Add a value to the map. The object will be converted to a json primative.
+     Add a value to the map. The object will be converted to a JSON primative.
      
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
      - parameter key: The JSON key that will be used for the JSON object.

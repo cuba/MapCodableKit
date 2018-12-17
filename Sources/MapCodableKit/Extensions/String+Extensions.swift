@@ -55,13 +55,13 @@ extension String {
  
  ```json
  {
- "first": {
- "second": [
- {
- "third": "My Value"
- }
- ]
- }
+    "first": {
+        "second": [
+            {
+                "third": "My Value"
+            }
+        ]
+    }
  }
  ```
  
@@ -90,14 +90,14 @@ extension String: MapKey {
     }
     
     /**
-     Returns the string itself.
+     Returns itself.
      */
     public var rawValue: String {
         return self
     }
     
     /**
-     Parses the string into a KeyPart. Throws an error if the string is badly formatted.
+     Parses the string into a single KeyPart. Throws an error if the string is badly formatted. It assumes you already split the string up by its key delimiter (`.`).
      */
     func parseKeyPart() throws -> KeyPart? {
         if let part = try self.parseObjectPart() {

@@ -24,7 +24,7 @@ class MapCodableKitTests: XCTestCase {
         do {
             // When
             let map = try Map(jsonString: jsonString)
-            let id: String = try map.value(fromKey: "profile.id")
+            let id: String = try map.value(fromKey: [KeyPart.object(key: "profile"), KeyPart.object(key: "id")])
             let name: String = try map.value(fromKey: "profile.name")
             
             // Then

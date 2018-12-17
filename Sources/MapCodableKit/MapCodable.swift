@@ -7,6 +7,9 @@
 
 import Foundation
 
+/**
+ A protocol that adds support of complex objects to be serialized into a json object.
+ */
 public protocol MapEncodable {
     
     /**
@@ -17,6 +20,9 @@ public protocol MapEncodable {
     func fill(map: Map) throws
 }
 
+/**
+ A protocol that adds support of complex objects to be deserialized from a json object.
+ */
 public protocol MapDecodable {
     
     /**
@@ -27,9 +33,15 @@ public protocol MapDecodable {
     init(map: Map) throws
 }
 
+/**
+ A wrapper protocol that reqires both `MapEncodable` and `MapDecodable` protocols.
+ */
 public protocol MapCodable: MapEncodable, MapDecodable {
 }
 
+/**
+ Convenience extension for `MapEncodable` objects.
+ */
 public extension MapEncodable {
     
     /**
@@ -81,6 +93,9 @@ public extension MapEncodable {
     }
 }
 
+/**
+ Convenience extension for `MapDecodable` objects.
+ */
 public extension MapDecodable {
     
     /**

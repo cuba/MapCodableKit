@@ -96,7 +96,7 @@ class MapBoolTests: XCTestCase {
             try map.add(value, forKey: "value")
             
             // Then
-            let _: String = try map.value(fromKey: "value")
+            let _: String = try map.value(fromKey: KeyPart.object(key: "value"))
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {

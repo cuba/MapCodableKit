@@ -11,6 +11,9 @@ import Foundation
  An error that is returned when attempting to add an object to a `Map`.
  */
 public enum MapEncodingError: Error, CustomStringConvertible {
+    /**
+     Thrown when the key provided when trying to add a value to a map could not be parsed.
+     */
     case invalidKey(key: MapKey)
     
     public var description: String {

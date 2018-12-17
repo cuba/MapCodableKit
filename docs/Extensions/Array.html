@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>MapDecoder Protocol Reference</title>
+    <title>Array Extension Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/swift/Protocol/MapDecoder" class="dashAnchor"></a>
-    <a title="MapDecoder Protocol Reference"></a>
+    <a name="//apple_ref/swift/Extension/Array" class="dashAnchor"></a>
+    <a title="Array Extension Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">MapCodableKit Docs</a> (88% documented)</p>
@@ -22,7 +22,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">MapCodableKit Reference</a>
         <img id="carat" src="../img/carat.png" />
-        MapDecoder Protocol Reference
+        Array Extension Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -101,15 +101,14 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>MapDecoder</h1>
+            <h1>Array</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapDecoder</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">struct</span> <span class="kt">Array</span><span class="o">&lt;</span><span class="kt">Element</span><span class="o">&gt;</span> <span class="p">:</span> <span class="n">_DestructorSafeContainer</span></code></pre>
 
                 </div>
               </div>
-            <p>A protocol that allows you to transform a <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> (JSON) value to another value. This protocol is used to add more type sypport to the <code><a href="../Classes/Map.html">Map</a></code> class.</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -117,9 +116,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A7DecoderP9PrimitiveQa"></a>
-                    <a name="//apple_ref/swift/Alias/Primitive" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A7DecoderP9PrimitiveQa">Primitive</a>
+                    <a name="/s:Sa13MapCodableKitAA0A3KeyRzlE8rawValueSSvp"></a>
+                    <a name="//apple_ref/swift/Property/rawValue" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa13MapCodableKitAA0A3KeyRzlE8rawValueSSvp">rawValue</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -127,14 +126,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns a string (human readable) representation of these keys.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Primitive</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="k">var</span> <span class="nv">rawValue</span><span class="p">:</span> <span class="kt">String</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -144,9 +143,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A7DecoderP6ObjectQa"></a>
-                    <a name="//apple_ref/swift/Alias/Object" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A7DecoderP6ObjectQa">Object</a>
+                    <a name="/s:Sa13MapCodableKitAA0A3KeyRzlE05parseD5PartsSayAA0D4PartOGyKF"></a>
+                    <a name="//apple_ref/swift/Method/parseKeyParts()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:Sa13MapCodableKitAA0A3KeyRzlE05parseD5PartsSayAA0D4PartOGyKF">parseKeyParts()</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -154,41 +153,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns iteslf.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">associatedtype</span> <span class="kt">Object</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13MapCodableKit0A7DecoderP04fromA05value6ObjectQzSg9PrimitiveQz_tKF"></a>
-                    <a name="//apple_ref/swift/Method/fromMap(value:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A7DecoderP04fromA05value6ObjectQzSg9PrimitiveQz_tKF">fromMap(value:)</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">fromMap</span><span class="p">(</span><span class="nv">value</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecoder.html#/s:13MapCodableKit0A7DecoderP9PrimitiveQa">Primitive</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt"><a href="../Protocols/MapDecoder.html#/s:13MapCodableKit0A7DecoderP6ObjectQa">Object</a></span><span class="p">?</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">parseKeyParts</span><span class="p">()</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt"><a href="../Enums/KeyPart.html">KeyPart</a></span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>

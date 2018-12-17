@@ -14,7 +14,7 @@
     <a title="Protocols  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">MapCodableKit Docs</a> (53% documented)</p>
+        <p><a href="index.html">MapCodableKit Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/cuba/MapCodableKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -46,13 +46,19 @@
                 <a href="Enums/KeyPart.html">KeyPart</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/MappingError.html">MappingError</a>
+                <a href="Enums/MapDecodingError.html">MapDecodingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/MapEncodingError.html">MapEncodingError</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Extensions/Sequence.html">Sequence</a>
               </li>
@@ -115,7 +121,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A protocol that adds support of complex objects to be serialized into a json object.</p>
 
                         <a href="Protocols/MapEncodable.html" class="slightly-smaller">See more</a>
                       </div>
@@ -143,7 +149,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A protocol that adds support of complex objects to be deserialized from a json object.</p>
 
                         <a href="Protocols/MapDecodable.html" class="slightly-smaller">See more</a>
                       </div>
@@ -171,7 +177,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A wrapper protocol that reqires both <code><a href="Protocols/MapEncodable.html">MapEncodable</a></code> and <code><a href="Protocols/MapDecodable.html">MapDecodable</a></code> protocols.</p>
 
                       </div>
                       <div class="declaration">
@@ -179,6 +185,93 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapCodable</span> <span class="p">:</span> <span class="kt"><a href="Protocols/MapDecodable.html">MapDecodable</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A7DecoderP"></a>
+                    <a name="//apple_ref/swift/Protocol/MapDecoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A7DecoderP">MapDecoder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A protocol that allows you to transform a <code><a href="Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> (JSON) value to another value. This protocol is used to add more type sypport to the <code><a href="Classes/Map.html">Map</a></code> class.</p>
+
+                        <a href="Protocols/MapDecoder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapDecoder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A7EncoderP"></a>
+                    <a name="//apple_ref/swift/Protocol/MapEncoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A7EncoderP">MapEncoder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A protocol that allows you to transform a value into a <code><a href="Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> (JSON) value. This protocol is used to add more type support to the <code><a href="Classes/Map.html">Map</a></code> class.</p>
+
+                        <a href="Protocols/MapEncoder.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapEncoder</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A5CoderP"></a>
+                    <a name="//apple_ref/swift/Protocol/MapCoder" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A5CoderP">MapCoder</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A protocol combining both <code><a href="Protocols/MapEncoder.html">MapEncoder</a></code> and <code><a href="Protocols/MapDecoder.html">MapDecoder</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapCoder</span> <span class="p">:</span> <span class="kt"><a href="Protocols/MapDecoder.html">MapDecoder</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/MapEncoder.html">MapEncoder</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Object</span> <span class="o">==</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Object</span><span class="p">,</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Primitive</span> <span class="o">==</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Primitive</span></code></pre>
 
                         </div>
                       </div>
@@ -202,7 +295,44 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A MapKey is a protocol that provides a parsing mechanism for converting any object (such as a <code>String</code>) into key parts (an array of <code><a href="Enums/KeyPart.html">KeyPart</a></code> objects). Key parts individually represent a key in a json dictionary or position in an array. When combined, key parts represent the nesting structure of a JSON dictionary for a specific value, object or array. The order of key parts matter as they coencide with the nesting order in a dictionary.</p>
+
+<p>For example, lets say we are given the following key parts:
+1 <code>KeyPart.object(&quot;first&quot;)</code>
+2 <code>KeyPart.array(&quot;second&quot;)</code>
+3 <code>KeyPart.object(&quot;first&quot;)</code></p>
+
+<p>This can be used to return the value <q>My Value</q>, from <code>first</code> in the following json dictionary:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"second"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Value"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+       </span><span class="p">]</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+
+<p>Using this key when storing a value in the map will, on the other hand, create the above dictionary. JSON dictionaries created using key parts are merged when the key part does not represent a leaf in a json dictionary.</p>
+
+<p>For example, if I were to add the value <q>My other value</q> to the above json using the following key parts:
+1 <code>KeyPart.object(&quot;first&quot;)</code>
+2 <code>KeyPart.array(&quot;second&quot;)</code>
+3 <code>KeyPart.object(&quot;second&quot;)</code></p>
+
+<p>Then i will end up with the following result:</p>
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+   </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+       </span><span class="s2">"second"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+           </span><span class="p">{</span><span class="w">
+               </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My Value"</span><span class="w">
+               </span><span class="s2">"second"</span><span class="p">:</span><span class="w"> </span><span class="s2">"My other Value"</span><span class="w">
+           </span><span class="p">}</span><span class="w">
+       </span><span class="p">],</span><span class="w">
+   </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
 
                         <a href="Protocols/MapKey.html" class="slightly-smaller">See more</a>
                       </div>
@@ -234,7 +364,9 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A protocol that represents json primatives as well as arrays and dictionaries of map primatives.</p>
+
+<p>WARNING: This protocol should NEVER be used directly as it only adds a form of tagging to primitive variables supported by the <code><a href="Classes/Map.html">Map</a></code> class. All objects in the map are converted to and from a <code>MapPrimitive</code> object. Adding this protocol to any other object will result in crashes.</p>
 
                       </div>
                       <div class="declaration">
@@ -250,97 +382,10 @@
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13MapCodableKit0A7DecoderP"></a>
-                    <a name="//apple_ref/swift/Protocol/MapDecoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A7DecoderP">MapDecoder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/MapDecoder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapDecoder</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13MapCodableKit0A7EncoderP"></a>
-                    <a name="//apple_ref/swift/Protocol/MapEncoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A7EncoderP">MapEncoder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Protocols/MapEncoder.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapEncoder</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13MapCodableKit0A5CoderP"></a>
-                    <a name="//apple_ref/swift/Protocol/MapCoder" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A5CoderP">MapCoder</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">protocol</span> <span class="kt">MapCoder</span> <span class="p">:</span> <span class="kt"><a href="Protocols/MapDecoder.html">MapDecoder</a></span><span class="p">,</span> <span class="kt"><a href="Protocols/MapEncoder.html">MapEncoder</a></span> <span class="k">where</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Object</span> <span class="o">==</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Object</span><span class="p">,</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Primitive</span> <span class="o">==</span> <span class="k">Self</span><span class="o">.</span><span class="kt">Primitive</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-04)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

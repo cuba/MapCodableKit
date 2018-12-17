@@ -14,7 +14,7 @@
     <a title="Map Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MapCodableKit Docs</a> (53% documented)</p>
+        <p><a href="../index.html">MapCodableKit Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/cuba/MapCodableKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -46,13 +46,19 @@
                 <a href="../Enums/KeyPart.html">KeyPart</a>
               </li>
               <li class="nav-group-task">
-                <a href="../Enums/MappingError.html">MappingError</a>
+                <a href="../Enums/MapDecodingError.html">MapDecodingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/MapEncodingError.html">MapEncodingError</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="../Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/Array.html">Array</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Extensions/Sequence.html">Sequence</a>
               </li>
@@ -102,7 +108,20 @@
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>A wrapper around a json object that conveniently returns parsed objects or adds complex objects into the json object.</p>
+
+<p>Basic example of returning objects:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">jsonString</span> <span class="o">=</span> <span class="c1">// Source of json string</span>
+<span class="k">let</span> <span class="nv">map</span> <span class="o">=</span> <span class="kt">Map</span><span class="p">(</span><span class="nv">jsonString</span><span class="p">:</span> <span class="n">jsonString</span><span class="p">,</span> <span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+
+<span class="k">let</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span> <span class="o">=</span> <span class="k">try</span> <span class="n">map</span><span class="o">.</span><span class="nf">value</span><span class="p">(</span><span class="s">"some_key"</span><span class="p">)</span>
+</code></pre>
+
+<p>Basic example of adding objects:</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">map</span> <span class="o">=</span> <span class="kt">Map</span><span class="p">()</span>
+<span class="n">map</span><span class="o">.</span><span class="nf">add</span><span class="p">(</span><span class="s">"some string"</span><span class="p">,</span> <span class="nv">for</span><span class="p">:</span> <span class="s">"some_key"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">jsonString</span> <span class="o">=</span> <span class="n">map</span><span class="o">.</span><span class="nf">jsonString</span><span class="p">(</span><span class="nv">encoding</span><span class="p">:</span> <span class="o">.</span><span class="n">utf8</span><span class="p">)</span>
+</code></pre>
 
           </section>
           <section class="section task-group-section">
@@ -121,7 +140,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize this map from a dictionary</p>
+                        <p>Initialize this map from a JSON dictionary. You should only pass <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> (JSON) values in this dictionary.</p>
 
                       </div>
                       <div class="declaration">
@@ -175,7 +194,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize this object from a JSON <code>String</code></p>
+                        <p>Initialize this object from a JSON <code>String</code>.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the json string cannot be deserialized.
@@ -203,7 +222,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                  <p>The JSON <code>String</code> that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -215,7 +234,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The encoding used on the string</p>
+                                  <p>The encoding used on the string.</p>
                                 </div>
                               </td>
                             </tr>
@@ -238,7 +257,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Initialize this object from a JSON <code>String</code></p>
+                        <p>Initialize this object from a JSON <code>String</code>.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the json string cannot be deserialized.
@@ -266,7 +285,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The JSON <code>String</code> that will be deserialized</p>
+                                  <p>The JSON <code>String</code> that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -278,7 +297,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The encoding used on the string</p>
+                                  <p>The encoding used on the string.</p>
                                 </div>
                               </td>
                             </tr>
@@ -427,7 +446,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the dictionary representation of this map</p>
+                        <p>Returns the JSON dictionary representation of this map.</p>
 
                       </div>
                       <div class="declaration">
@@ -458,7 +477,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Serializes this object into a JSON <code>Data</code> object</p>
+                        <p>Serializes this object into a JSON <code>Data</code> object.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if this object failed to serialize.
@@ -513,7 +532,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Serializes this object into a JSON <code>String</code></p>
+                        <p>Serializes this object into a JSON <code>String</code>.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if this object failed to serialize.
@@ -567,23 +586,12 @@
                     </section>
                   </div>
                 </li>
-              </ul>
-            </div>
-            <div class="task-group">
-              <div class="task-name-container">
-                <a name="/MapEncodable"></a>
-                <a name="//apple_ref/swift/Section/MapEncodable" class="dashAnchor"></a>
-                <a href="#/MapEncodable">
-                  <h3 class="section-name">MapEncodable</h3>
-                </a>
-              </div>
-              <ul>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKey5usingy6ObjectQzSg_AA0aF0_pxtKAA0A7EncoderRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:using:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKey5usingy6ObjectQzSg_AA0aF0_pxtKAA0A7EncoderRzlF">add(_:forKey:using:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3foryypSg_AA0A3Key_ptKF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3foryypSg_AA0A3Key_ptKF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -591,14 +599,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map using a transform</p>
+                        <p>Add a value to the map. The object added should always be a <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> (JSON value) otherwise parsing this object into JSON will result in a runtime exception.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncoder.html">MapEncoder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">add</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Any</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span></code></pre>
 
                         </div>
                       </div>
@@ -614,7 +622,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The value that will be stored in the map</p>
+                                  <p>The value that will be stored in the map.</p>
                                 </div>
                               </td>
                             </tr>
@@ -626,19 +634,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>encoder</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>The transform that will be used to serialize the object.</p>
+                                  <p>The key that will be used to store this value and that can be used to retrive this value.</p>
                                 </div>
                               </td>
                             </tr>
@@ -651,9 +647,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKey5using6ObjectQzAA0aF0_p_xtKAA0A7DecoderRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:using:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey5using6ObjectQzAA0aF0_p_xtKAA0A7DecoderRzlF">value(fromKey:using:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromypSgAA0A3Key_p_tKF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromypSgAA0A3Key_p_tKF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -661,19 +657,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map. The object will be converted by using its mapping function.</p>
-<div class="aside aside-throws">
-    <p class="aside-title">Throws</p>
-    Throws an error if the value could not be deserialized or if it is nil.
-
-</div>
+                        <p>Returns a value from the map. All values returned will always conform to <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> unless the add method was used incorrectly.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecoder.html">MapDecoder</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">value</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="p">?</span></code></pre>
 
                         </div>
                       </div>
@@ -690,6 +681,142 @@
                               <td>
                                 <div>
                                   <p>The key that that is used to store this value in the map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>The stored object.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/MapEncodable"></a>
+                <a name="//apple_ref/swift/Section/MapEncodable" class="dashAnchor"></a>
+                <a href="#/MapEncodable">
+                  <h3 class="section-name">MapEncodable</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C3add_3for5usingy6ObjectQzSg_AA0A3Key_pxtKAA0A7EncoderRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3for5usingy6ObjectQzSg_AA0A3Key_pxtKAA0A7EncoderRzlF">add(_:for:using:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Add a value to the map encoding it using the provided <code><a href="../Protocols/MapEncoder.html">MapEncoder</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">encoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncoder.html">MapEncoder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The value that will be stored in this map.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON key that will be used for the JSON object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>encoder</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The encoder that will be used to serialize the object.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A0C5value4from5using6ObjectQzAA0A3Key_p_xtKAA0A7DecoderRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:using:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4from5using6ObjectQzAA0A3Key_p_xtKAA0A7DecoderRzlF">value(from:using:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a value from the map. The value will be decoded it using the provided <code><a href="../Protocols/MapDecoder.html">MapDecoder</a></code>.</p>
+<div class="aside aside-throws">
+    <p class="aside-title">Throws</p>
+    Throws an error if the value could not be deserialized or if it is nil.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="n">using</span> <span class="nv">decoder</span><span class="p">:</span> <span class="kt">T</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span><span class="o">.</span><span class="kt">Object</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecoder.html">MapDecoder</a></span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>key</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The JSON key for the object that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -717,9 +844,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9PrimitiveRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9PrimitiveRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKAA0A9PrimitiveRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKAA0A9PrimitiveRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -727,14 +854,15 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a MapPrimitive value to the map. MapPrimitive values includes:</p>
+                        <p>Add a <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> value to the map. A <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> is any value supported by a JSON object. <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> values includes (but not limited to):</p>
 
 <ul>
 <li><code>String</code></li>
 <li><code>Int</code></li>
 <li><code>Bool</code></li>
 <li><code>Double</code></li>
-<li><p><code>[T]</code> where T also conforms to <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code></p></li>
+<li><code>[T]</code> where T also conforms to <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code></li>
+<li><p><code>[String: T]</code> where T also conforms to <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code></p></li>
 </ul>
 
                       </div>
@@ -742,7 +870,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
 
                         </div>
                       </div>
@@ -758,7 +886,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The value that will be stored in the map</p>
+                                  <p>The value that will be stored in the map.</p>
                                 </div>
                               </td>
                             </tr>
@@ -770,7 +898,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -783,9 +911,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9PrimitiveRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9PrimitiveRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKAA0A9PrimitiveRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKAA0A9PrimitiveRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -793,7 +921,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map.</p>
+                        <p>Returns a value from the map if it conforms to the specified <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> type.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value could not be deserialized or it is nil.
@@ -805,7 +933,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span></code></pre>
 
                         </div>
                       </div>
@@ -821,7 +949,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the primitive that will be returned.</p>
                                 </div>
                               </td>
                             </tr>
@@ -838,9 +966,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKAA0A9PrimitiveRzSHRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKAA0A9PrimitiveRzSHRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromShyxGAA0A3Key_p_tKAA0A9PrimitiveRzSHRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromShyxGAA0A3Key_p_tKAA0A9PrimitiveRzSHRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -848,7 +976,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map.</p>
+                        <p>Returns a set of values from the map if they all conform to the specified <code><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></code> type.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value could not be deserialized or it is nil.
@@ -860,7 +988,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols.html#/s:13MapCodableKit0A9PrimitiveP">MapPrimitive</a></span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span></code></pre>
 
                         </div>
                       </div>
@@ -876,7 +1004,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the array that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -904,9 +1032,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKSYRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -914,14 +1042,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map</p>
+                        <p>Add a value to the map. The object will be converted to its raw type.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -937,7 +1065,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The value that will be stored in the map. Will be converted to its RawType.</p>
+                                  <p>The value that will be stored in the map.</p>
                                 </div>
                               </td>
                             </tr>
@@ -949,7 +1077,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -962,9 +1090,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKSYRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -972,10 +1100,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map</p>
+                        <p>Returns a value from the map. The object will be converted from its RawType into the .</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    Throws an error if the value could not be deserialized or it is nil.
+    Throws an error if the value could not be converted to the specified type or it is nil.
 
 </div>
 
@@ -984,7 +1112,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1000,7 +1128,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the object that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1017,9 +1145,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySayxGSg_AA0aF0_ptKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySayxGSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3forySayxGSg_AA0A3Key_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3forySayxGSg_AA0A3Key_ptKSYRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1034,7 +1162,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">]?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">]?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1062,7 +1190,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1075,9 +1203,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeySayxGAA0aF0_p_tKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeySayxGAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromSayxGAA0A3Key_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromSayxGAA0A3Key_p_tKSYRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1097,7 +1225,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1113,7 +1241,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the array that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1130,9 +1258,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySDySSxGSg_AA0aF0_ptKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySDySSxGSg_AA0aF0_ptKSYRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3forySDySSxGSg_AA0A3Key_ptKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3forySDySSxGSg_AA0A3Key_ptKSYRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1140,14 +1268,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map</p>
+                        <p>Add a dictionary of the RawRepresentable types converted to JSON primatives.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1175,7 +1303,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1188,9 +1316,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeySDySSxGAA0aF0_p_tKSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeySDySSxGAA0aF0_p_tKSYRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromSDySSxGAA0A3Key_p_tKSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromSDySSxGAA0A3Key_p_tKSYRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1198,7 +1326,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map</p>
+                        <p>Returns a dictionary of the specified <code>RawRepresentable</code> types.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value is invalid or it is nil. Filters out any enums that don&rsquo;t serialize properly instead of failing.
@@ -1210,7 +1338,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">]</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1226,7 +1354,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the dictionary that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1243,9 +1371,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyShyxGSg_AA0aF0_ptKSHRzSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyShyxGSg_AA0aF0_ptKSHRzSYRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3foryShyxGSg_AA0A3Key_ptKSHRzSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3foryShyxGSg_AA0A3Key_ptKSHRzSYRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1253,14 +1381,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map</p>
+                        <p>Add a value to the map. The object will be converted to a json primative.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1288,7 +1416,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1301,9 +1429,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKSHRzSYRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyShyxGAA0aF0_p_tKSHRzSYRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromShyxGAA0A3Key_p_tKSHRzSYRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromShyxGAA0A3Key_p_tKSHRzSYRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1311,7 +1439,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map</p>
+                        <p>Returns a set of objects converted to the specified RawRepresentable type.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value is invalid or it is nil. Filters out any enums that don&rsquo;t serialize properly instead of failing.
@@ -1323,7 +1451,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">Set</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Hashable</span><span class="p">,</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">RawRepresentable</span></code></pre>
 
                         </div>
                       </div>
@@ -1339,7 +1467,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the array that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1367,9 +1495,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add9encodable6forKeyyxSg_AA0aG0_ptKSERzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(encodable:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add9encodable6forKeyyxSg_AA0aG0_ptKSERzlF">add(encodable:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add9encodable3foryxSg_AA0A3Key_ptKSERzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(encodable:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add9encodable3foryxSg_AA0A3Key_ptKSERzlF">add(encodable:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1377,14 +1505,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map. The object will be converted by using its mapping function.</p>
+                        <p>Add a value to the map.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Encodable</span></code></pre>
 
                         </div>
                       </div>
@@ -1400,7 +1528,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>the nested <code><a href="../Protocols/MapEncodable.html">MapEncodable</a></code> object that will be stored in the map.</p>
+                                  <p>the nested <code>Encodable</code> object that will be serialized to JSON be stored in the map.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1412,7 +1540,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1425,9 +1553,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C9decodable7fromKeyxAA0aF0_p_tKSeRzlF"></a>
-                    <a name="//apple_ref/swift/Method/decodable(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C9decodable7fromKeyxAA0aF0_p_tKSeRzlF">decodable(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C9decodable4fromxAA0A3Key_p_tKSeRzlF"></a>
+                    <a name="//apple_ref/swift/Method/decodable(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C9decodable4fromxAA0A3Key_p_tKSeRzlF">decodable(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1447,7 +1575,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">decodable</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">decodable</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt">Decodable</span></code></pre>
 
                         </div>
                       </div>
@@ -1463,7 +1591,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the object that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1491,9 +1619,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9EncodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyyxSg_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3foryxSg_AA0A3Key_ptKAA0A9EncodableRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1501,14 +1629,14 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Add a value to the map. The object will be converted by using its mapping function.</p>
+                        <p>Add a value to the map. The object will be serialized to JSON.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodable</span><span class="p">:</span> <span class="kt">T</span><span class="p">?,</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1536,7 +1664,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1549,9 +1677,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9DecodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKeyxAA0aF0_p_tKAA0A9DecodableRzlF">value(fromKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4fromxAA0A3Key_p_tKAA0A9DecodableRzlF">value(from:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1559,7 +1687,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map. The object will be converted by using its mapping function.</p>
+                        <p>Returns a value from the map. The object will be converted from JSON..</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value could not be deserialized or if it is nil.
@@ -1571,7 +1699,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="kt">T</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1587,7 +1715,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the object that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1604,9 +1732,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySayxG_AA0aF0_ptKAA0A9EncodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySayxG_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3forySayxG_AA0A3Key_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3forySayxG_AA0A3Key_ptKAA0A9EncodableRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1621,7 +1749,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodableArray</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">encodableArray</span><span class="p">:</span> <span class="p">[</span><span class="kt">T</span><span class="p">],</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1649,7 +1777,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1662,9 +1790,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSayxGAA0aF0_p_SbtKAA0A9DecodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:stopOnFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSayxGAA0aF0_p_SbtKAA0A9DecodableRzlF">value(fromKey:stopOnFailure:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4from13stopOnFailureSayxGAA0A3Key_p_SbtKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:stopOnFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4from13stopOnFailureSayxGAA0A3Key_p_SbtKAA0A9DecodableRzlF">value(from:stopOnFailure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1672,7 +1800,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map. Deserializes the object from <code>[[String: Any]]</code>, <code>String</code> or <code>[String]</code>. The object will be converted by using its mapping function.</p>
+                        <p>Returns a value from the map. Deserializes the object from <code>[[String: Any?]]</code>`. The object will be converted by using its mapping function.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
     Throws an error if the value could not be deserialized or it is nil and no default value was specified.
@@ -1684,7 +1812,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">T</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -1700,7 +1828,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the array of objects that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1717,9 +1845,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C3add_6forKeyySDySSxG_AA0aF0_ptKAA0A9EncodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/add(_:forKey:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C3add_6forKeyySDySSxG_AA0aF0_ptKAA0A9EncodableRzlF">add(_:forKey:)</a>
+                    <a name="/s:13MapCodableKit0A0C3add_3forySDySSxG_AA0A3Key_ptKAA0A9EncodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/add(_:for:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C3add_3forySDySSxG_AA0A3Key_ptKAA0A9EncodableRzlF">add(_:for:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1734,7 +1862,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">],</span> <span class="n">forKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">add</span><span class="o">&lt;</span><span class="kt">T</span><span class="o">&gt;</span><span class="p">(</span><span class="n">_</span> <span class="nv">values</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">T</span><span class="p">],</span> <span class="k">for</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">)</span> <span class="k">throws</span> <span class="k">where</span> <span class="kt">T</span> <span class="p">:</span> <span class="kt"><a href="../Protocols/MapEncodable.html">MapEncodable</a></span></code></pre>
 
                         </div>
                       </div>
@@ -1762,7 +1890,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that will be used to store this value and that can be used to later retrive this value</p>
+                                  <p>The JSON key that will be used for the JSON object.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1775,9 +1903,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSDySSxGAA0aF0_p_SbtKAA0A9DecodableRzlF"></a>
-                    <a name="//apple_ref/swift/Method/value(fromKey:stopOnFailure:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit0A0C5value7fromKey13stopOnFailureSDySSxGAA0aF0_p_SbtKAA0A9DecodableRzlF">value(fromKey:stopOnFailure:)</a>
+                    <a name="/s:13MapCodableKit0A0C5value4from13stopOnFailureSDySSxGAA0A3Key_p_SbtKAA0A9DecodableRzlF"></a>
+                    <a name="//apple_ref/swift/Method/value(from:stopOnFailure:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A0C5value4from13stopOnFailureSDySSxGAA0A3Key_p_SbtKAA0A9DecodableRzlF">value(from:stopOnFailure:)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1785,10 +1913,10 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns a value from the map. Deserializes the object from <code>[[String: Any]]</code>, <code>String</code> or <code>[String]</code>. The object will be converted by using its mapping function.</p>
+                        <p>Returns a value from the map. Deserializes the object from <code>[String: [String: Any?]]</code>. The object will be converted by using its mapping function.</p>
 <div class="aside aside-throws">
     <p class="aside-title">Throws</p>
-    Throws an error if the value could not be deserialized or it is nil and no default value was specified.
+    Throws an error if the value could not be deserialized or it is nil.
 
 </div>
 
@@ -1797,7 +1925,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">fromKey</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">T</span><span class="p">]</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="n">value</span><span class="o">&lt;</span><span class="kt">T</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapDecodable.html">MapDecodable</a></span><span class="o">&gt;</span><span class="p">(</span><span class="n">from</span> <span class="nv">key</span><span class="p">:</span> <span class="kt"><a href="../Protocols/MapKey.html">MapKey</a></span><span class="p">,</span> <span class="nv">stopOnFailure</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="kc">false</span><span class="p">)</span> <span class="k">throws</span> <span class="o">-&gt;</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">T</span><span class="p">]</span></code></pre>
 
                         </div>
                       </div>
@@ -1813,7 +1941,7 @@
                               </td>
                               <td>
                                 <div>
-                                  <p>The key that that is used to store this value in the map.</p>
+                                  <p>The JSON key for the dictionary of objects that will be deserialized.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1832,7 +1960,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-04)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

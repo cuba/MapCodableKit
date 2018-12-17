@@ -14,7 +14,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">MapCodableKit Docs</a> (53% documented)</p>
+        <p><a href="index.html">MapCodableKit Docs</a> (88% documented)</p>
         <p class="header-right"><a href="https://github.com/cuba/MapCodableKit"><img src="img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -46,13 +46,19 @@
                 <a href="Enums/KeyPart.html">KeyPart</a>
               </li>
               <li class="nav-group-task">
-                <a href="Enums/MappingError.html">MappingError</a>
+                <a href="Enums/MapDecodingError.html">MapDecodingError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/MapEncodingError.html">MapEncodingError</a>
               </li>
             </ul>
           </li>
           <li class="nav-group-name">
             <a href="Extensions.html">Extensions</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/Array.html">Array</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Extensions/Sequence.html">Sequence</a>
               </li>
@@ -105,6 +111,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/s:13MapCodableKit0A13DecodingErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/MapDecodingError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A13DecodingErrorO">MapDecodingError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An error that is returned when attempting to return an object from a <code><a href="Classes/Map.html">Map</a></code>.</p>
+
+                        <a href="Enums/MapDecodingError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MapDecodingError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:13MapCodableKit0A13EncodingErrorO"></a>
+                    <a name="//apple_ref/swift/Enum/MapEncodingError" class="dashAnchor"></a>
+                    <a class="token" href="#/s:13MapCodableKit0A13EncodingErrorO">MapEncodingError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>An error that is returned when attempting to add an object to a <code><a href="Classes/Map.html">Map</a></code>.</p>
+
+                        <a href="Enums/MapEncodingError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MapEncodingError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/s:13MapCodableKit7KeyPartO"></a>
                     <a name="//apple_ref/swift/Enum/KeyPart" class="dashAnchor"></a>
                     <a class="token" href="#/s:13MapCodableKit7KeyPartO">KeyPart</a>
@@ -115,7 +185,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A key that represents a value or object in a dictionary. A <code>KeyPart</code> also conforms to a <code><a href="Protocols/MapKey.html">MapKey</a></code>.</p>
 
                         <a href="Enums/KeyPart.html" class="slightly-smaller">See more</a>
                       </div>
@@ -132,42 +202,10 @@
                 </li>
               </ul>
             </div>
-            <div class="task-group">
-              <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/s:13MapCodableKit12MappingErrorO"></a>
-                    <a name="//apple_ref/swift/Enum/MappingError" class="dashAnchor"></a>
-                    <a class="token" href="#/s:13MapCodableKit12MappingErrorO">MappingError</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                        <a href="Enums/MappingError.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">enum</span> <span class="kt">MappingError</span> <span class="p">:</span> <span class="kt">Error</span><span class="p">,</span> <span class="kt">CustomStringConvertible</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-              </ul>
-            </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-04)</p>
+          <p>&copy; 2018 <a class="link" href="" target="_blank" rel="external">Jacob Sikorski</a>. All rights reserved. (Last updated: 2018-12-17)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

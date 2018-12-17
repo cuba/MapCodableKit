@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- An error that is returned when attempting to return an object from a map.
+ An error that is returned when attempting to return an object from a `Map`.
  */
 public enum MapDecodingError: Error, CustomStringConvertible {
     case valueNotFound(key: MapKey)

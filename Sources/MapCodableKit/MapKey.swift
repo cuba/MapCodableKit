@@ -12,9 +12,9 @@ import Foundation
  A MapKey is a protocol that provides a parsing mechanism for converting any object (such as a `String`) into key parts (an array of `KeyPart` objects). Key parts individually represent a key in a json dictionary or position in an array. When combined, key parts represent the nesting structure of a JSON dictionary for a specific value, object or array. The order of key parts matter as they coencide with the nesting order in a dictionary.
  
  For example, lets say we are given the following key parts:
- # `KeyPart.object("first")`
- # `KeyPart.array("second")`
- # `KeyPart.object("first")`
+ 1 `KeyPart.object("first")`
+ 2 `KeyPart.array("second")`
+ 3 `KeyPart.object("first")`
  
  This can be used to return the value "My Value", from `first` in the following json dictionary:
  
@@ -33,9 +33,9 @@ import Foundation
  Using this key when storing a value in the map will, on the other hand, create the above dictionary. JSON dictionaries created using key parts are merged when the key part does not represent a leaf in a json dictionary.
  
  For example, if I were to add the value "My other value" to the above json using the following key parts:
- # `KeyPart.object("first")`
- # `KeyPart.array("second")`
- # `KeyPart.object("second")`
+ 1 `KeyPart.object("first")`
+ 2 `KeyPart.array("second")`
+ 3 `KeyPart.object("second")`
  
  Then i will end up with the following result:
  ```json
@@ -58,7 +58,7 @@ public protocol MapKey {
 }
 
 /**
- A key that represents a value or object in a dictionary. A KeyPart also conforms to a MapKey.
+ A key that represents a value or object in a dictionary. A `KeyPart` also conforms to a `MapKey`.
  */
 public enum KeyPart: MapKey {
     
@@ -108,9 +108,9 @@ public enum KeyPart: MapKey {
  Adds MapKey support to strings. The string will be parsed into a MapKey by pulling out all key parts in the string. Key parts are seperated using `.`.
  
  For example, the string `first.second[].third` will be converted to the following key parts:
- # `KeyPart.object("first")`
- # `KeyPart.array("second")`
- # `KeyPart.object("third")`
+ 1 `KeyPart.object("first")`
+ 2 `KeyPart.array("second")`
+ 3 `KeyPart.object("third")`
  
  This key can be used to return the value "My Value", from `third` in the following json dictionary:
  
@@ -132,6 +132,9 @@ extension String: MapKey {
     private static let arrayPattern = "^([\\w[^\\[\\]]]+)\\[(0)\\]$"
     private static let objectPattern = "^([\\w[^\\[\\]]]+)$"
     
+    /**
+     Parses the string into key parts seperated by a `.`. Throws an error if the string is badly formatted.
+     */
     public func parseKeyParts() throws -> [KeyPart] {
         let partStrings = self.split(separator: ".").map({ String($0) })
         var parts: [KeyPart] = []
@@ -147,10 +150,16 @@ extension String: MapKey {
         return parts
     }
     
+    /**
+     Returns the string itself.
+     */
     public var rawValue: String {
         return self
     }
     
+    /**
+     Parses the string into a KeyPart. Throws an error if the string is badly formatted.
+     */
     func parseKeyPart() throws -> KeyPart? {
         if let part = try self.parseObjectPart() {
             return part
@@ -186,10 +195,17 @@ extension String: MapKey {
 
 extension Array: MapKey where Element: MapKey {
     
+    /**
+     Returns a string (human readable) representation of these keys.
+     */
     public var rawValue: String {
         return self.map({ $0.rawValue }).joined(separator: ".")
     }
     
+    
+    /**
+     Returns iteslf.
+     */
     public func parseKeyParts() throws -> [KeyPart] {
         return self as! [KeyPart]
     }

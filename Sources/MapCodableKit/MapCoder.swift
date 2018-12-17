@@ -28,7 +28,7 @@ public protocol MapEncoder {
 }
 
 /**
- A protocol combining both MapEncoder and MapDecoder.
+ A protocol combining both `MapEncoder` and `MapDecoder`.
  */
 public protocol MapCoder: MapEncoder, MapDecoder {
 }

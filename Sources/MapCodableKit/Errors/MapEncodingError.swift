@@ -8,7 +8,7 @@
 import Foundation
 
 /**
- An error that is returned when attempting to return an object from a map.
+ An error that is returned when attempting to add an object to a `Map`.
  */
 public enum MapEncodingError: Error, CustomStringConvertible {
     case invalidKey(key: MapKey)

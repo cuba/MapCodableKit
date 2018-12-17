@@ -19,13 +19,13 @@ class MapCodableTests: XCTestCase {
         }
         
         init(map: Map) throws {
-            self.id     = try map.value(fromKey: "id")
-            self.name   = try map.value(fromKey: "name")
+            self.id     = try map.value(from: "id")
+            self.name   = try map.value(from: "name")
         }
         
         func fill(map: Map) throws {
-            try map.add(id, forKey: "id")
-            try map.add(name, forKey: "name")
+            try map.add(id, for: "id")
+            try map.add(name, for: "name")
         }
         
         public static func == (lhs: MockUser, rhs: MockUser) -> Bool {
@@ -71,42 +71,42 @@ class MapCodableTests: XCTestCase {
         }
         
         init(map: Map) throws {
-            string      = try map.value(fromKey: "string")
-            int         = try map.value(fromKey: "int")
-            bool        = try map.value(fromKey: "bool")
-            double      = try map.value(fromKey: "double")
+            string      = try map.value(from: "string")
+            int         = try map.value(from: "int")
+            bool        = try map.value(from: "bool")
+            double      = try map.value(from: "double")
             
-            strings     = try map.value(fromKey: "strings")
-            ints        = try map.value(fromKey: "ints")
-            bools       = try map.value(fromKey: "bools")
-            doubles     = try map.value(fromKey: "doubles")
+            strings     = try map.value(from: "strings")
+            ints        = try map.value(from: "ints")
+            bools       = try map.value(from: "bools")
+            doubles     = try map.value(from: "doubles")
             
-            stringsDictionary     = try map.value(fromKey: "strings_dictionary")
+            stringsDictionary     = try map.value(from: "strings_dictionary")
             
-            codable     = try map.decodable(fromKey: "codable")
-            mapCodable  = try map.value(fromKey: "map_codable")
-            mapCodables = try map.value(fromKey: "map_codables")
+            codable     = try map.decodable(from: "codable")
+            mapCodable  = try map.value(from: "map_codable")
+            mapCodables = try map.value(from: "map_codables")
             
-            url         = try map.value(fromKey: "url", using: URLCoder())
+            url         = try map.value(from: "url", using: URLCoder())
         }
         
         func fill(map: Map) throws {
-            try map.add(string, forKey: "string")
-            try map.add(int, forKey: "int")
-            try map.add(bool, forKey: "bool")
-            try map.add(double, forKey: "double")
+            try map.add(string, for: "string")
+            try map.add(int, for: "int")
+            try map.add(bool, for: "bool")
+            try map.add(double, for: "double")
             
-            try map.add(strings, forKey: "strings")
-            try map.add(ints, forKey: "ints")
-            try map.add(bools, forKey: "bools")
-            try map.add(doubles, forKey: "doubles")
+            try map.add(strings, for: "strings")
+            try map.add(ints, for: "ints")
+            try map.add(bools, for: "bools")
+            try map.add(doubles, for: "doubles")
             
-            try map.add(stringsDictionary, forKey: "strings_dictionary")
+            try map.add(stringsDictionary, for: "strings_dictionary")
             
-            try map.add(encodable: codable, forKey: "codable")
-            try map.add(mapCodable, forKey: "map_codable")
-            try map.add(mapCodables, forKey: "map_codables")
-            try map.add(url, forKey: "url", using: URLCoder())
+            try map.add(encodable: codable, for: "codable")
+            try map.add(mapCodable, for: "map_codable")
+            try map.add(mapCodables, for: "map_codables")
+            try map.add(url, for: "url", using: URLCoder())
         }
         
         public static func == (lhs: GiantCodableTestModel, rhs: GiantCodableTestModel) -> Bool {
@@ -136,11 +136,11 @@ class MapCodableTests: XCTestCase {
         let value = MockUser(id: "123")
         
         // When
-        try! map.add(value, forKey: "value")
+        try! map.add(value, for: "value")
         
         // Then
         do {
-            let result: MockUser = try map.value(fromKey: "value")
+            let result: MockUser = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -152,11 +152,11 @@ class MapCodableTests: XCTestCase {
         let value = [MockUser(id: "123"), MockUser(id: "234")]
         
         // When
-        try! map.add(value, forKey: "value")
+        try! map.add(value, for: "value")
         
         // Then
         do {
-            let result: [MockUser] = try map.value(fromKey: "value")
+            let result: [MockUser] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -168,11 +168,11 @@ class MapCodableTests: XCTestCase {
         let value = ["first": MockUser(id: "123"), "second": MockUser(id: "234")]
         
         // When
-        try! map.add(value, forKey: "value")
+        try! map.add(value, for: "value")
         
         // Then
         do {
-            let result: [String: MockUser] = try map.value(fromKey: "value")
+            let result: [String: MockUser] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -184,11 +184,11 @@ class MapCodableTests: XCTestCase {
         let value = MockUser(id: "123")
         
         // When
-        try! map.add(value, forKey: "value")
+        try! map.add(value, for: "value")
         
         // Then
         do {
-            let _: MockUser = try map.value(fromKey: "not_value")
+            let _: MockUser = try map.value(from: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {
@@ -208,10 +208,10 @@ class MapCodableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let _: String = try map.value(fromKey: "value")
+            let _: String = try map.value(from: "value")
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {

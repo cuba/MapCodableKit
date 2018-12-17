@@ -22,10 +22,10 @@ class MapBoolTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: Bool = try map.value(fromKey: "value")
+            let result: Bool = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -38,10 +38,10 @@ class MapBoolTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: [Bool] = try map.value(fromKey: "value")
+            let result: [Bool] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -54,10 +54,10 @@ class MapBoolTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: [String: Bool] = try map.value(fromKey: "value")
+            let result: [String: Bool] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -70,10 +70,10 @@ class MapBoolTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let _: Bool = try map.value(fromKey: "not_value")
+            let _: Bool = try map.value(from: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {
@@ -93,10 +93,10 @@ class MapBoolTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let _: String = try map.value(fromKey: KeyPart.object(key: "value"))
+            let _: String = try map.value(from: KeyPart.object(key: "value"))
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {

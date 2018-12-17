@@ -26,10 +26,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: TestEnum = try map.value(fromKey: "value")
+            let result: TestEnum = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -42,10 +42,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: Int = try map.value(fromKey: "value")
+            let result: Int = try map.value(from: "value")
             XCTAssertEqual(value.rawValue, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -58,10 +58,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: [TestEnum] = try map.value(fromKey: "value")
+            let result: [TestEnum] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -75,10 +75,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(set, forKey: "value")
+            try map.add(set, for: "value")
             
             // Then
-            let result: Set<TestEnum> = try map.value(fromKey: "value")
+            let result: Set<TestEnum> = try map.value(from: "value")
             XCTAssertEqual(set, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -91,10 +91,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let result: [String: TestEnum] = try map.value(fromKey: "value")
+            let result: [String: TestEnum] = try map.value(from: "value")
             XCTAssertEqual(value, result)
         } catch {
             XCTFail("Did not get value for the correct key")
@@ -107,10 +107,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let _: TestEnum = try map.value(fromKey: "not_value")
+            let _: TestEnum = try map.value(from: "not_value")
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {
@@ -130,10 +130,10 @@ class MapRawRepresentableTests: XCTestCase {
         
         do {
             // When
-            try map.add(value, forKey: "value")
+            try map.add(value, for: "value")
             
             // Then
-            let _: String = try map.value(fromKey: "value")
+            let _: String = try map.value(from: "value")
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {

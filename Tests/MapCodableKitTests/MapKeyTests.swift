@@ -89,10 +89,10 @@ class MapKeyTests: XCTestCase {
         
         do {
             // When
-            try map.add(id, forKey: "profile.id")
-            try map.add(name, forKey: "profile.name")
-            let idResult: String = try map.value(fromKey: "profile.id")
-            let nameResult: String = try map.value(fromKey: "profile.name")
+            try map.add(id, for: "profile.id")
+            try map.add(name, for: "profile.name")
+            let idResult: String = try map.value(from: "profile.id")
+            let nameResult: String = try map.value(from: "profile.name")
             
             // Then
             XCTAssertEqual(id, idResult)
@@ -119,7 +119,7 @@ class MapKeyTests: XCTestCase {
             // When
             let map = try Map(jsonString: jsonString)
             let idKey = TestMapKey(parts: [.array(key: "profiles"), .object(key: "id")])
-            let id: String = try map.value(fromKey: idKey)
+            let id: String = try map.value(from: idKey)
             
             // Then
             XCTAssertEqual(id, "123")

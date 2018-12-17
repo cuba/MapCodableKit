@@ -29,17 +29,3 @@ public enum MapDecodingError: Error, CustomStringConvertible {
         }
     }
 }
-
-/**
- An error that is returned when attempting to return an object from a map.
- */
-public enum MapEncodingError: Error, CustomStringConvertible {
-    case invalidKey(key: MapKey)
-    
-    public var description: String {
-        switch self {
-        case .invalidKey(let key):
-            return "Could not add value to map because the key `\(key.rawValue)` is invalid or uses unsupported characters."
-        }
-    }
-}

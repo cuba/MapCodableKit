@@ -126,7 +126,7 @@ public extension MapDecodable {
      - parameter encoding: The encoding used on the string
      - throws: Throws an error if the json string cannot be deserialized.
      */
-    public init(json: [String: Any]) throws {
+    public init(json: [String: Any?]) throws {
         let map = Map(json: json)
         try self.init(map: map)
     }
@@ -180,7 +180,7 @@ public extension MapDecodable {
      - parameter encoding: The encoding used on the string
      - throws: Throws an error if the json string cannot be deserialized.
      */
-    static func parseArray(json: [[String: Any]], failOnError: Bool = false) throws -> [Self]{
+    static func parseArray(json: [[String: Any?]], failOnError: Bool = false) throws -> [Self]{
         let maps = json.map({ Map(json: $0) })
         
         let result: [Self] = try maps.compactMap() {

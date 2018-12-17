@@ -14,7 +14,7 @@
     <a title="MapKey Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MapCodableKit Docs</a> (88% documented)</p>
+        <p><a href="../index.html">MapCodableKit Docs</a> (92% documented)</p>
         <p class="header-right"><a href="https://github.com/cuba/MapCodableKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -108,14 +108,14 @@
 
                 </div>
               </div>
-            <p>A MapKey is a protocol that provides a parsing mechanism for converting any object (such as a <code>String</code>) into key parts (an array of <code><a href="../Enums/KeyPart.html">KeyPart</a></code> objects). Key parts individually represent a key in a json dictionary or position in an array. When combined, key parts represent the nesting structure of a JSON dictionary for a specific value, object or array. The order of key parts matter as they coencide with the nesting order in a dictionary.</p>
+            <p>A MapKey is a protocol that provides a parsing mechanism for converting any object (such as a <code>String</code>) into key parts (an array of <code><a href="../Enums/KeyPart.html">KeyPart</a></code> objects). Key parts individually represent a key in a JSON dictionary or position in a JSON array. When combined, key parts represent the nesting structure of a JSON dictionary for a specific value, object or array. The order of key parts matter as they coencide with the nesting order in a dictionary.</p>
 
 <p>For example, lets say we are given the following key parts:
 1 <code>KeyPart.object(&quot;first&quot;)</code>
 2 <code>KeyPart.array(&quot;second&quot;)</code>
 3 <code>KeyPart.object(&quot;first&quot;)</code></p>
 
-<p>This can be used to return the value <q>My Value</q>, from <code>first</code> in the following json dictionary:</p>
+<p>This can be used to return the value <q>My Value</q> from the nested key <code>first</code> in the following JSON dictionary:</p>
 <pre class="highlight json"><code><span class="p">{</span><span class="w">
    </span><span class="s2">"first"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
        </span><span class="s2">"second"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
@@ -127,9 +127,11 @@
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 
-<p>Using this key when storing a value in the map will, on the other hand, create the above dictionary. JSON dictionaries created using key parts are merged when the key part does not represent a leaf in a json dictionary.</p>
+<p>Using this key when storing a value in the map will, on the other hand, create the above JSON dictionary.</p>
 
-<p>For example, if I were to add the value <q>My other value</q> to the above json using the following key parts:
+<p>JSON dictionaries created using key parts are merged when the key part does not represent a leaf in a JSON dictionary.</p>
+
+<p>For example, if I were to add the value <q>My other value</q> to the above JSON using the following key parts:
 1 <code>KeyPart.object(&quot;first&quot;)</code>
 2 <code>KeyPart.array(&quot;second&quot;)</code>
 3 <code>KeyPart.object(&quot;second&quot;)</code></p>
@@ -164,7 +166,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Returns the raw representation (human readable <code>String</code>) of the <code>MapKey</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -191,7 +193,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A method that parses the object into key parts (an array of <code><a href="../Enums/KeyPart.html">KeyPart</a></code>)</p>
 
                       </div>
                       <div class="declaration">

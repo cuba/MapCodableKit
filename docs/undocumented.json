@@ -8,20 +8,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
-      "line": 18,
-      "symbol": "URLCoder.toMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
-      "line": 22,
-      "symbol": "URLCoder.fromMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCoder.swift",
       "line": 14,
       "symbol": "MapDecoder.Primitive",
@@ -60,20 +46,6 @@
       "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCoder.swift",
       "line": 27,
       "symbol": "MapEncoder.toMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
-      "line": 56,
-      "symbol": "MapKey.rawValue",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
-      "line": 57,
-      "symbol": "MapKey.parseKeyParts()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }

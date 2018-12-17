@@ -14,7 +14,7 @@
     <a title="MapDecodingError Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">MapCodableKit Docs</a> (88% documented)</p>
+        <p><a href="../index.html">MapCodableKit Docs</a> (92% documented)</p>
         <p class="header-right"><a href="https://github.com/cuba/MapCodableKit"><img src="../img/gh.png"/>View on GitHub</a></p>
       </div>
     </header>
@@ -154,7 +154,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Thrown when the JSON object could not be decoded to the specified object.</p>
+                        <p>Thrown when the JSON object could not be decoded to the specified object for the given key. For example, you&rsquo;re expecting the object to parse to a specific <code><a href="../Protocols.html#/s:13MapCodableKit0aB0P">MapCodable</a></code> object, but the JSON structure is not valid for that object. Can also be thrown for invalid enum types.</p>
 
                       </div>
                       <div class="declaration">
@@ -181,7 +181,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Thrown when the JSON value is different from the expected type. For example if you&rsquo;re expecting a string but an Int is returned instead.</p>
+                        <p>Thrown when the JSON value for the key provided is different from the expected type. For example if you&rsquo;re expecting a <code>String</code> but the JSON dictionary contains an <code>Int</code>.</p>
 
                       </div>
                       <div class="declaration">

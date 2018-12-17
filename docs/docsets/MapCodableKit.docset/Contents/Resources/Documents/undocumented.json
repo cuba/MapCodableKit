@@ -8,55 +8,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
-      "line": 18,
-      "symbol": "URLCoder.toMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Encoders/URLCoder.swift",
-      "line": 22,
-      "symbol": "URLCoder.fromMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Errors/MapDecodingError.swift",
-      "line": 14,
-      "symbol": "MapDecodingError.valueNotFound(key:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Errors/MapDecodingError.swift",
-      "line": 15,
-      "symbol": "MapDecodingError.failedToDecode(key:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Errors/MapDecodingError.swift",
-      "line": 16,
-      "symbol": "MapDecodingError.unexpectedType(key:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Errors/MapDecodingError.swift",
-      "line": 17,
-      "symbol": "MapDecodingError.invalidKey(key:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/Errors/MapEncodingError.swift",
-      "line": 14,
-      "symbol": "MapEncodingError.invalidKey(key:)",
-      "symbol_kind": "source.lang.swift.decl.enumelement",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCoder.swift",
       "line": 14,
       "symbol": "MapDecoder.Primitive",
@@ -95,20 +46,6 @@
       "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapCoder.swift",
       "line": 27,
       "symbol": "MapEncoder.toMap(value:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
-      "line": 56,
-      "symbol": "MapKey.rawValue",
-      "symbol_kind": "source.lang.swift.decl.var.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/jacob.sikorski/Developer/jacob/MapCodableKit/Sources/MapCodableKit/MapKey.swift",
-      "line": 57,
-      "symbol": "MapKey.parseKeyParts()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     }

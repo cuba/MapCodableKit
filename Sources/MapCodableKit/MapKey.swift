@@ -49,7 +49,7 @@ extension String: MapKey {
         
         for partString in partStrings {
             guard let part = try partString.parseKeyPart() else {
-                throw MappingError.invalidKey(key: self)
+                throw MapDecodingError.invalidKey(key: self)
             }
             
             parts.append(part)

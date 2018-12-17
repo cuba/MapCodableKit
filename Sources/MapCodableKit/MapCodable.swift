@@ -35,7 +35,7 @@ public extension MapEncodable {
     /**
      Returns a map filled with the contents of this object
      
-     - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MappingError` but since this method is implemented by the user, it may throw any error.
+     - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MapDecodingError` but since this method is implemented by the user, it may throw any error.
      - returns: The filled map.
      */
     func filledMap() throws -> Map {
@@ -47,7 +47,7 @@ public extension MapEncodable {
     /**
      Returns a map filled with the contents of this object
      
-     - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MappingError` but since this method is implemented by the user, it may throw any error.
+     - throws: Throws an error if this object fails to initalize. This will mostly likely throw a `MapDecodingError` but since this method is implemented by the user, it may throw any error.
      - returns: The filled map.
      */
     func json() throws -> [String: Any?] {

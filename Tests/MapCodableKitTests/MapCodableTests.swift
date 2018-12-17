@@ -190,12 +190,12 @@ class MapCodableTests: XCTestCase {
         do {
             let _: MockUser = try map.value(fromKey: "not_value")
             XCTFail("Should have failed to map value")
-        } catch let error as MappingError {
+        } catch let error as MapDecodingError {
             switch error {
             case .valueNotFound(let key):
                 XCTAssertEqual("not_value", key.rawValue)
             default:
-                XCTFail("Invalid MappingError type thrown")
+                XCTFail("Invalid MapDecodingError type thrown")
             }
         } catch {
             XCTFail("Invalid error thown")
@@ -213,12 +213,12 @@ class MapCodableTests: XCTestCase {
             // Then
             let _: String = try map.value(fromKey: "value")
             XCTFail("Should have failed to map value")
-        } catch let error as MappingError {
+        } catch let error as MapDecodingError {
             switch error {
-            case .invalidType(let key):
+            case .unexpectedType(let key):
                 XCTAssertEqual("value", key.rawValue)
             default:
-                XCTFail("Invalid MappingError type thrown")
+                XCTFail("Invalid MapDecodingError type thrown")
             }
         } catch {
             XCTFail("Invalid error thown")

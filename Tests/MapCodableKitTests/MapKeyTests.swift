@@ -69,12 +69,12 @@ class MapKeyTests: XCTestCase {
         do {
             let _ = try string.parseKeyParts()
             XCTFail("Should have failed to parse parts")
-        } catch let error as MappingError {
+        } catch let error as MapDecodingError {
             switch error {
             case .invalidKey(let key):
                 XCTAssertEqual("abc .def[]", key.rawValue)
             default:
-                XCTFail("Invalid MappingError type thrown")
+                XCTFail("Invalid MapDecodingError type thrown")
             }
         } catch {
             XCTFail("Invalid error thrown")

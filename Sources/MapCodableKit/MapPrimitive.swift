@@ -7,6 +7,11 @@
 
 import Foundation
 
+/**
+ A protocol that represents json primatives as well as arrays and dictionaries of map primatives.
+ 
+ WARNING: This protocol should NEVER be used directly as it only adds a form of tagging to primitive variables supported by the `Map` class. All objects in the map are converted to and from a `MapPrimitive` object. Adding this protocol to any other object will result in crashes.
+ */
 public protocol MapPrimitive {}
 
 extension String: MapPrimitive {}

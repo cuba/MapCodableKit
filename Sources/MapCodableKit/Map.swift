@@ -7,6 +7,16 @@
 
 import Foundation
 
+/**
+ A wrapper around json data that conveniently returns parsed objects
+ 
+ ```
+ let jsonString = // Source of json string
+ let map = Map(jsonString: jsonString, encoding: .utf8)
+ 
+ let string: String = try map.value("some_key")
+ ```
+ */
 public class Map {
     private var tree: [String: Any?]
     
@@ -137,7 +147,7 @@ public class Map {
         var parts = try key.parseKeyParts()
         
         guard parts.count > 0 else {
-            throw MappingError.invalidKey(key: key)
+            throw MapEncodingError.invalidKey(key: key)
         }
         
         let firstPart = parts.removeFirst()
@@ -261,11 +271,11 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecoder>(fromKey key: MapKey, using decoder: T) throws -> T.Object {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let element = value as? T.Primitive else { throw MappingError.invalidType(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let element = value as? T.Primitive else { throw MapDecodingError.unexpectedType(key: key) }
         
         guard let object = try decoder.fromMap(value: element) else {
-            throw MappingError.failedToDecode(key: key)
+            throw MapDecodingError.failedToDecode(key: key)
         }
         
         return object
@@ -300,8 +310,8 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? T else { throw MappingError.invalidType(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let object = value as? T else { throw MapDecodingError.unexpectedType(key: key) }
         return object
     }
     
@@ -313,8 +323,8 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(fromKey key: MapKey) throws -> Set<T> {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let object = value as? [T] else { throw MappingError.invalidType(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let object = value as? [T] else { throw MapDecodingError.unexpectedType(key: key) }
         return Set(object)
     }
 }
@@ -342,9 +352,9 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let rawValue = value as? T.RawValue else { throw MappingError.invalidType(key: key) }
-        guard let object = T(rawValue: rawValue) else { throw MappingError.failedToDecode(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let rawValue = value as? T.RawValue else { throw MapDecodingError.unexpectedType(key: key) }
+        guard let object = T(rawValue: rawValue) else { throw MapDecodingError.failedToDecode(key: key) }
         return object
     }
     
@@ -368,8 +378,8 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> [T] {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let rawValues = value as? [T.RawValue] else { throw MappingError.invalidType(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let rawValues = value as? [T.RawValue] else { throw MapDecodingError.unexpectedType(key: key) }
         let objects = rawValues.compactMap({ T(rawValue: $0) })
         return objects
     }
@@ -395,8 +405,8 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(fromKey key: MapKey) throws -> [String: T] {
-        guard let values: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
-        guard let rawValues = values as? [String: T.RawValue] else { throw MappingError.invalidType(key: key) }
+        guard let values: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
+        guard let rawValues = values as? [String: T.RawValue] else { throw MapDecodingError.unexpectedType(key: key) }
         var result: [String: T] = [:]
         
         for (key, rawValue) in rawValues {
@@ -457,7 +467,7 @@ extension Map {
      - returns: The decoded object.
      */
     public func decodable<T: Decodable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
         let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
         return try JSONDecoder().decode(T.self, from: data)
     }
@@ -487,12 +497,12 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey) throws -> T {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
         
         if let json = value as? [String: Any] {
             return try T(json: json)
         } else {
-            throw MappingError.invalidType(key: key)
+            throw MapDecodingError.unexpectedType(key: key)
         }
     }
     
@@ -519,7 +529,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey, stopOnFailure: Bool = false) throws -> [T] {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
         
         if let paramsArray = value as? [[String: Any]] {
             return try paramsArray.compactMap({
@@ -531,7 +541,7 @@ extension Map {
                 }
             })
         } else {
-            throw MappingError.invalidType(key: key)
+            throw MapDecodingError.unexpectedType(key: key)
         }
     }
     
@@ -560,7 +570,7 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapDecodable>(fromKey key: MapKey, stopOnFailure: Bool = false) throws -> [String: T] {
-        guard let value: Any = try self.value(fromKey: key) else { throw MappingError.valueNotFound(key: key) }
+        guard let value: Any = try self.value(fromKey: key) else { throw MapDecodingError.valueNotFound(key: key) }
         
         if let jsonDictionary = value as? [String: [String: Any]] {
             var results: [String: T] = [:]
@@ -577,7 +587,7 @@ extension Map {
             
             return results
         } else {
-            throw MappingError.invalidType(key: key)
+            throw MapDecodingError.unexpectedType(key: key)
         }
     }
 }

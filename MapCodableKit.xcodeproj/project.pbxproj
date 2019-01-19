@@ -36,6 +36,10 @@
 		DA77AA9221C8234700DE50B5 /* MapEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77AA9121C8234700DE50B5 /* MapEncodingError.swift */; };
 		DA7E1BD921E06F6D00CCB7E0 /* MapEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77AA9121C8234700DE50B5 /* MapEncodingError.swift */; };
 		DA7E1BDA21E06F6F00CCB7E0 /* MapDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MapDecodingError.swift */; };
+		DAB8D07D21F3871B009A33CF /* MapCodableCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8D07C21F3871B009A33CF /* MapCodableCoder.swift */; };
+		DAB8D07F21F39AA2009A33CF /* EncodableCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8D07E21F39AA2009A33CF /* EncodableCoder.swift */; };
+		DAB8D08121F39C7E009A33CF /* RawRepresentableCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8D08021F39C7E009A33CF /* RawRepresentableCoder.swift */; };
+		DAB8D08321F3A37F009A33CF /* MapPrimitiveCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB8D08221F3A37F009A33CF /* MapPrimitiveCoder.swift */; };
 		OBJ_32 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
 		OBJ_33 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
 		OBJ_34 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
@@ -78,6 +82,10 @@
 		DA3E509721B4F5AF001450EC /* String+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extensions.swift"; sourceTree = "<group>"; };
 		DA3E509A21B4FB63001450EC /* MapKeyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapKeyTests.swift; sourceTree = "<group>"; };
 		DA77AA9121C8234700DE50B5 /* MapEncodingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapEncodingError.swift; sourceTree = "<group>"; };
+		DAB8D07C21F3871B009A33CF /* MapCodableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableCoder.swift; sourceTree = "<group>"; };
+		DAB8D07E21F39AA2009A33CF /* EncodableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableCoder.swift; sourceTree = "<group>"; };
+		DAB8D08021F39C7E009A33CF /* RawRepresentableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableCoder.swift; sourceTree = "<group>"; };
+		DAB8D08221F3A37F009A33CF /* MapPrimitiveCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapPrimitiveCoder.swift; sourceTree = "<group>"; };
 		"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
@@ -218,6 +226,10 @@
 			isa = PBXGroup;
 			children = (
 				OBJ_10 /* URLCoder.swift */,
+				DAB8D07C21F3871B009A33CF /* MapCodableCoder.swift */,
+				DAB8D07E21F39AA2009A33CF /* EncodableCoder.swift */,
+				DAB8D08021F39C7E009A33CF /* RawRepresentableCoder.swift */,
+				DAB8D08221F3A37F009A33CF /* MapPrimitiveCoder.swift */,
 			);
 			path = Encoders;
 			sourceTree = "<group>";
@@ -369,6 +381,8 @@
 			buildActionMask = 0;
 			files = (
 				OBJ_32 /* URLCoder.swift in Sources */,
+				DAB8D08121F39C7E009A33CF /* RawRepresentableCoder.swift in Sources */,
+				DAB8D08321F3A37F009A33CF /* MapPrimitiveCoder.swift in Sources */,
 				OBJ_33 /* Map.swift in Sources */,
 				OBJ_34 /* MapCodable.swift in Sources */,
 				OBJ_35 /* MapPrimitive.swift in Sources */,
@@ -377,6 +391,8 @@
 				OBJ_36 /* MapCoder.swift in Sources */,
 				OBJ_37 /* MapDecodingError.swift in Sources */,
 				DA3E508C21B4BDFD001450EC /* MapKey.swift in Sources */,
+				DAB8D07F21F39AA2009A33CF /* EncodableCoder.swift in Sources */,
+				DAB8D07D21F3871B009A33CF /* MapCodableCoder.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

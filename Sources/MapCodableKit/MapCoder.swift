@@ -11,7 +11,7 @@ import Foundation
  A protocol that allows you to transform a `MapPrimitive` (JSON) value to another value. This protocol is used to add more type sypport to the `Map` class.
  */
 public protocol MapDecoder {
-    associatedtype Primitive: MapPrimitive
+    associatedtype Primitive
     associatedtype Object
     
     func fromMap(value: Primitive) throws -> Object?
@@ -21,7 +21,7 @@ public protocol MapDecoder {
  A protocol that allows you to transform a value into a `MapPrimitive` (JSON) value. This protocol is used to add more type support to the `Map` class.
  */
 public protocol MapEncoder {
-    associatedtype Primitive: MapPrimitive
+    associatedtype Primitive
     associatedtype Object
     
     func toMap(value: Object) throws -> Primitive?

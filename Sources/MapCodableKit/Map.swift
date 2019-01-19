@@ -550,18 +550,12 @@ extension Map {
      - parameter key: The JSON key that will be used for the JSON object.
      */
     public func add<T: MapPrimitive>(_ value: T?, for key: MapKey) throws {
-        try add(value, for: key, using: MapPrimitiveEncoder())
-    }
-    
-    /**
-     Returns a value from the map if it conforms to the specified `MapPrimitive` type.
-     
-     - parameter key: The JSON key for the primitive that will be returned.
-     - throws: Throws an error if the value could not be deserialized or it is nil.
-     - returns: The deserialized object.
-     */
-    public func value<T: MapPrimitive>(from key: MapKey) throws -> T {
-        return try value(from: key, using: MapPrimitiveDecoder())
+        guard let value = value else {
+            try self.add(nil, for: key)
+            return
+        }
+        
+        try self.add(value as Any, for: key)
     }
     
     /**
@@ -572,18 +566,30 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(from key: MapKey) throws -> T? {
-        return try value(from: key, using: MapPrimitiveDecoder())
+        guard let value: Any = try self.value(from: key) else { return nil }
+        
+        guard let object = value as? T else {
+            throw MapDecodingError.unexpectedType(key: key, expected: T.self, received: type(of: value).self)
+        }
+        
+        return object
     }
     
     /**
-     Returns a set of values from the map if they all conform to the specified `MapPrimitive` type.
+     Returns a value from the map if it conforms to the specified `MapPrimitive` type.
      
-     - parameter key: The JSON key for the array that will be deserialized.
+     - parameter key: The JSON key for the primitive that will be returned.
      - throws: Throws an error if the value could not be deserialized or it is nil.
      - returns: The deserialized object.
      */
-    public func value<T: MapPrimitive>(from key: MapKey) throws -> Set<T> {
-        return try value(from: key, using: MapPrimitiveDecoder())
+    public func value<T: MapPrimitive>(from key: MapKey) throws -> T {
+        let value: T? = try self.value(from: key)
+        
+        if let value = value {
+            return value
+        } else {
+            throw MapDecodingError.valueNotFound(key: key)
+        }
     }
 }
 

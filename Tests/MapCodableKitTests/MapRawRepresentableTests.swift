@@ -146,4 +146,32 @@ class MapRawRepresentableTests: XCTestCase {
             XCTFail("Invalid error thown")
         }
     }
+    
+    func testGivenMap_WhenRetrievingNonOptionalRawRepresentable_ThrowsError() {
+        do {
+            // When
+            let _: TestEnum = try map.value(from: "value")
+            XCTFail("Should have failed to map value")
+        } catch let error as MapDecodingError {
+            switch error {
+            case .valueNotFound(let key):
+                // Then
+                XCTAssertEqual("value", key.rawValue)
+            default:
+                XCTFail("Invalid MapDecodingError type thrown")
+            }
+        } catch {
+            XCTFail("Invalid error thown")
+        }
+    }
+    
+    func testGivenMap_WhenRetrievingOptionalRawRepresentable_DoesNotThrowError() {
+        do {
+            // When
+            let test: TestEnum? = try map.value(from: "value")
+            XCTAssertNil(test)
+        } catch {
+            XCTFail("Invalid error thown")
+        }
+    }
 }

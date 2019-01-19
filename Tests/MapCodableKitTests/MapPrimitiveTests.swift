@@ -32,6 +32,49 @@ class MapBoolTests: XCTestCase {
         }
     }
     
+    func testGivenMap_WhenAddingOptionalBool_ReturnsValue() {
+        // Given
+        let value: Bool? = true
+        
+        do {
+            // When
+            try map.add(value, for: "value")
+            
+            // Then
+            let result: Bool? = try map.value(from: "value")
+            XCTAssertEqual(value, result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenRetrievingOptionalMissingValue_DoesNotThrowError() {
+        do {
+            // Then
+            let result: Bool? = try map.value(from: "value")
+            XCTAssertNil(result)
+        } catch {
+            XCTFail("Did not get value for the correct key")
+        }
+    }
+    
+    func testGivenMap_WhenRetrievingNonOptionalMissingValue_ThrowsError() {
+        do {
+            // Then
+            let _: Bool = try map.value(from: "value")
+            XCTFail("Should have thrown error")
+        } catch let error as MapDecodingError {
+            switch error {
+            case .valueNotFound(let key):
+                XCTAssertEqual("value", key.rawValue)
+            default:
+                XCTFail("Invalid MapDecodingError type thrown")
+            }
+        } catch {
+            XCTFail("Invalid error thown")
+        }
+    }
+    
     func testGivenMap_WhenAddingBoolArray_ReturnsValue() {
         // Given
         let value = [true, false, true]

@@ -44,6 +44,5 @@ extension UInt8: MapPrimitive {}
 extension UInt16: MapPrimitive {}
 extension UInt32: MapPrimitive {}
 extension UInt64: MapPrimitive {}
-extension Optional: MapPrimitive where Wrapped: MapPrimitive {}
 extension Array: MapPrimitive where Element: MapPrimitive {}
 extension Dictionary: MapPrimitive where Value: MapPrimitive {}

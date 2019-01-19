@@ -198,6 +198,31 @@ public class Map {
         return currentValue
     }
     
+    public func has(key: MapKey) throws -> Bool {
+        let parts = try key.parseKeyParts()
+        var currentValue: Any? = tree
+        
+        for (index, part) in parts.enumerated() {
+            guard let dictionary = currentValue as? [String: Any?] else { return false }
+            guard dictionary.keys.contains(part.key) else { return false }
+            
+            // If we are at the end of the key, we don't have to check anything else. We're done
+            guard index < (parts.count - 1) else { return true }
+            
+            // Since we are not at the end of the key, we should have another value
+            switch part {
+            case .object:
+                guard let value = dictionary[part.key] else { return false }
+                currentValue = value
+            case .array:
+                guard let array = dictionary[part.key] as? [[String: Any?]] else { return false }
+                currentValue = array.first
+            }
+        }
+        
+        return true
+    }
+    
     private func wrap(_ value: Any?, in existingDictionary: [String: Any?]?, with parts: [KeyPart]) -> Any? {
         var parts = parts
         

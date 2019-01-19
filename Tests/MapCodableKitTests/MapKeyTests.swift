@@ -127,4 +127,56 @@ class MapKeyTests: XCTestCase {
             XCTFail("Should have succeeded to create JSON")
         }
     }
+    
+    func testGivenValidJson_HasKey_ReturnsTrue() {
+        // Given
+        let jsonString = """
+            {
+                "profiles": [
+                    {
+                        "id": "123",
+                        "name": "Kevin Malone"
+                    }
+                ]
+            }
+        """
+        
+        do {
+            // When
+            let map = try Map(jsonString: jsonString)
+            let idKey = TestMapKey(parts: [.array(key: "profiles"), .object(key: "id")])
+            let result = try map.has(key: idKey)
+            
+            // Then
+            XCTAssertTrue(result)
+        } catch {
+            XCTFail("Should have succeeded to create JSON")
+        }
+    }
+    
+    func testGivenValidJson_WhenDoesNotHaveKey_ReturnsFalse() {
+        // Given
+        let jsonString = """
+            {
+                "profiles": [
+                    {
+                        "id": "123",
+                        "name": "Kevin Malone"
+                    }
+                ]
+            }
+        """
+        
+        do {
+            // When
+            let map = try Map(jsonString: jsonString)
+            
+            // Then
+            XCTAssertFalse(try map.has(key: "profiles[0].id.invalid"))
+            XCTAssertFalse(try map.has(key: "profiles[0].invalid"))
+            XCTAssertFalse(try map.has(key: "profiles.id"))
+        } catch {
+            XCTFail("Should have succeeded to create JSON")
+        }
+    }
 }

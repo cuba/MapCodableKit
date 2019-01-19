@@ -34,6 +34,8 @@
 		DA3E509921B4F5AF001450EC /* String+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E509721B4F5AF001450EC /* String+Extensions.swift */; };
 		DA3E509B21B4FB63001450EC /* MapKeyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E509A21B4FB63001450EC /* MapKeyTests.swift */; };
 		DA77AA9221C8234700DE50B5 /* MapEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77AA9121C8234700DE50B5 /* MapEncodingError.swift */; };
+		DA7E1BD921E06F6D00CCB7E0 /* MapEncodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA77AA9121C8234700DE50B5 /* MapEncodingError.swift */; };
+		DA7E1BDA21E06F6F00CCB7E0 /* MapDecodingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_15 /* MapDecodingError.swift */; };
 		OBJ_32 /* URLCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_10 /* URLCoder.swift */; };
 		OBJ_33 /* Map.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_11 /* Map.swift */; };
 		OBJ_34 /* MapCodable.swift in Sources */ = {isa = PBXBuildFile; fileRef = OBJ_12 /* MapCodable.swift */; };
@@ -350,6 +352,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA7E1BD921E06F6D00CCB7E0 /* MapEncodingError.swift in Sources */,
+				DA7E1BDA21E06F6F00CCB7E0 /* MapDecodingError.swift in Sources */,
 				DA3E509421B4BEAC001450EC /* MapPrimitive.swift in Sources */,
 				DA3E509321B4BEAA001450EC /* MapCoder.swift in Sources */,
 				DA3E509021B4BEA3001450EC /* Map.swift in Sources */,

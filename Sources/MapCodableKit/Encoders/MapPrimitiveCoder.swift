@@ -37,7 +37,7 @@ public class MapPrimitiveDecoder<T: MapPrimitive>: MapDecoder {
     /// - Parameter value: A `MapPrimitive` object
     /// - Returns: The same `MapPrimitive` object passed in value.
     /// - Throws: Throws no errors.
-    func fromMap(value: T) throws -> T? {
+    public func fromMap(value: T) throws -> T? {
         return value
     }
 }

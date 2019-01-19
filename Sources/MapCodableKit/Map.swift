@@ -281,18 +281,35 @@ extension Map {
      Returns a value from the map. The value will be decoded it using the provided `MapDecoder`.
      
      - parameter key: The JSON key for the object that will be deserialized.
-     - throws: Throws an error if the value could not be deserialized or if it is nil.
+     - throws: Throws an error if the value could not be deserialized.
      - returns: The deserialized object.
      */
-    public func value<T: MapDecoder>(from key: MapKey, using decoder: T) throws -> T.Object {
-        guard let value: Any = try self.value(from: key) else { throw MapDecodingError.valueNotFound(key: key) }
-        guard let element = value as? T.Primitive else { throw MapDecodingError.unexpectedType(key: key) }
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T) throws -> T.Object? {
+        guard let value: Any = try self.value(from: key) else { return nil }
+        guard let element = value as? T.Primitive else { throw MapDecodingError.unexpectedType(key: key, expected: T.self, received: type(of: value).self) }
         
         guard let object = try decoder.fromMap(value: element) else {
             throw MapDecodingError.failedToDecode(key: key)
         }
         
         return object
+    }
+    
+    /**
+     Returns a value from the map. The value will be decoded it using the provided `MapDecoder`.
+     
+     - parameter key: The JSON key for the object that will be deserialized.
+     - throws: Throws an error if the value could not be deserialized or if it is nil.
+     - returns: The deserialized object.
+     */
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T) throws -> T.Object {
+        let value: T.Object? = try self.value(from: key, using: decoder)
+        
+        if let value = value {
+            return value
+        } else {
+            throw MapDecodingError.valueNotFound(key: key)
+        }
     }
     
     
@@ -319,7 +336,6 @@ extension Map {
         try self.add(encodedValues as Any, for: key)
     }
     
-    
     /// Adds an set of values using the specified encoder. If the encoder returns nil, nil values will be added to the array
     ///
     /// - Parameters:
@@ -339,12 +355,12 @@ extension Map {
     ///   - decoder: The decoder that performs the transformation.
     ///   - stopOnFailure: If this is enabled, any exceptions thrown in the decoder will stop the whole operation. Otherwise the value is just filtered out of the array.
     /// - Returns: An array of objects created without filtering out any nil values returned by the decoder.
-    /// - Throws: Throws if the value is not found, the type is incorrect or any errors encountered by the decoder.
-    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [T.Object?] {
-        guard let array: Any = try self.value(from: key) else { throw MapDecodingError.valueNotFound(key: key) }
+    /// - Throws: Throws the type is incorrect or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [T.Object?]? {
+        guard let array: Any = try self.value(from: key) else { return nil }
         
         guard let paramsArray = array as? [T.Primitive?] else {
-            throw MapDecodingError.unexpectedType(key: key)
+            throw MapDecodingError.unexpectedType(key: key, expected: T.self, received: type(of: value).self)
         }
         
         return try paramsArray.map({
@@ -357,6 +373,37 @@ extension Map {
                 throw error
             }
         })
+    }
+    
+    /// Returns an array from the map using the decoder specified to do the conversion.
+    ///
+    /// - Parameters:
+    ///   - key: The json key that this object is stored under.
+    ///   - decoder: The decoder that performs the transformation.
+    ///   - stopOnFailure: If this is enabled, any exceptions thrown in the decoder will stop the whole operation. Otherwise the value is just filtered out of the array.
+    /// - Returns: An array of objects created filtering out any nil values returned by the decoder.
+    /// - Throws: Throws if the type is incorrect or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [T.Object]? {
+        let values: [T.Object?]? = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
+        return values?.compactMap({ $0 })
+    }
+    
+    /// Returns an array from the map using the decoder specified to do the conversion.
+    ///
+    /// - Parameters:
+    ///   - key: The json key that this object is stored under.
+    ///   - decoder: The decoder that performs the transformation.
+    ///   - stopOnFailure: If this is enabled, any exceptions thrown in the decoder will stop the whole operation. Otherwise the value is just filtered out of the array.
+    /// - Returns: An array of objects created without filtering out any nil values returned by the decoder.
+    /// - Throws: Throws if the value is not found, the type is incorrect or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [T.Object?] {
+        let array: [T.Object?]? = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
+        
+        if let array = array {
+            return array
+        } else {
+             throw MapDecodingError.valueNotFound(key: key)
+        }
     }
     
     /// Returns an array from the map using the decoder specified to do the conversion.
@@ -379,10 +426,33 @@ extension Map {
     ///   - decoder: The decoder that performs the transformation.
     ///   - stopOnFailure: If this is enabled, any exceptions thrown in the decoder will stop the whole operation. Otherwise the value is just filtered out of the array.
     /// - Returns: An array of objects created filtering out any nil values returned by the decoder.
+    /// - Throws: Throws the type is incorrect or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> Set<T.Object>? {
+        let values: [T.Object]? = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
+        
+        if let values = values {
+            return Set(values)
+        } else {
+            return nil
+        }
+    }
+    
+    /// Returns an set from the map using the decoder specified to do the conversion.
+    ///
+    /// - Parameters:
+    ///   - key: The json key that this object is stored under.
+    ///   - decoder: The decoder that performs the transformation.
+    ///   - stopOnFailure: If this is enabled, any exceptions thrown in the decoder will stop the whole operation. Otherwise the value is just filtered out of the array.
+    /// - Returns: An array of objects created filtering out any nil values returned by the decoder.
     /// - Throws: Throws if the value is not found, the type is incorrect or any errors encountered by the decoder.
     public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> Set<T.Object> {
-        let values: [T.Object] = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
-        return Set(values)
+        let set: Set<T.Object>? = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
+        
+        if let set = set {
+            return set
+        } else {
+            throw MapDecodingError.valueNotFound(key: key)
+        }
     }
     
     /// Adds the values to the map using the specified encoder.
@@ -416,12 +486,12 @@ extension Map {
     ///   - decoder: The decoder that is used to transform the value into an object.
     ///   - stopOnFailure: If this is set to true, any error encountered will throw an error instead of removing the value from the dictionary.
     /// - Returns: A dictionary of the transformed values.
-    /// - Throws: Throws if the object is not found, if it is of an unexpected type or any errors encountered by the decoder.
-    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [String: T.Object] {
-        guard let value: Any = try self.value(from: key) else { throw MapDecodingError.valueNotFound(key: key) }
+    /// - Throws: Throws if it is of an unexpected type or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [String: T.Object]? {
+        guard let value: Any = try self.value(from: key) else { return nil }
         
         guard let jsonDictionary = value as? [String: T.Primitive?] else {
-            throw MapDecodingError.unexpectedType(key: key)
+            throw MapDecodingError.unexpectedType(key: key, expected: T.self, received: type(of: value).self)
         }
         
         var results: [String: T.Object] = [:]
@@ -441,6 +511,25 @@ extension Map {
         }
         
         return results
+    }
+    
+    
+    /// Returns a value from the map.
+    ///
+    /// - Parameters:
+    ///   - key: The key that references the value.
+    ///   - decoder: The decoder that is used to transform the value into an object.
+    ///   - stopOnFailure: If this is set to true, any error encountered will throw an error instead of removing the value from the dictionary.
+    /// - Returns: A dictionary of the transformed values.
+    /// - Throws: Throws if the object is not found, if it is of an unexpected type or any errors encountered by the decoder.
+    public func value<T: MapDecoder>(from key: MapKey, using decoder: T, stopOnFailure: Bool = false) throws -> [String: T.Object] {
+        let dictionary: [String: T.Object]? = try self.value(from: key, using: decoder, stopOnFailure: stopOnFailure)
+        
+        if let dictionary = dictionary {
+            return dictionary
+        } else {
+            throw MapDecodingError.valueNotFound(key: key)
+        }
     }
 }
 
@@ -472,6 +561,17 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: MapPrimitive>(from key: MapKey) throws -> T {
+        return try value(from: key, using: MapPrimitiveDecoder())
+    }
+    
+    /**
+     Returns a value from the map if it conforms to the specified `MapPrimitive` type.
+     
+     - parameter key: The JSON key for the primitive that will be returned.
+     - throws: Throws an error if the value could not be deserialized.
+     - returns: The deserialized object.
+     */
+    public func value<T: MapPrimitive>(from key: MapKey) throws -> T? {
         return try value(from: key, using: MapPrimitiveDecoder())
     }
     
@@ -513,6 +613,17 @@ extension Map {
     }
     
     /**
+     Returns a value from the map. The object will be converted from its RawType into the .
+     
+     - parameter key: The JSON key for the object that will be deserialized.
+     - throws: Throws an error if the value could not be converted to the specified type.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(from key: MapKey) throws -> T? {
+        return try value(from: key, using: RawRepresentableDecoder())
+    }
+    
+    /**
      Add a value to the map
      
      - parameter value: The value that will be stored in the map. Will be converted to its RawType.
@@ -530,6 +641,17 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(from key: MapKey) throws -> [T] {
+        return try value(from: key, using: RawRepresentableDecoder())
+    }
+    
+    /**
+     Returns a value from the map
+     
+     - parameter key: The JSON key for the array that will be deserialized.
+     - throws: Throws an error if the value is invalid. Filters out any enums that don't serialize properly instead of failing.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(from key: MapKey) throws -> [T]? {
         return try value(from: key, using: RawRepresentableDecoder())
     }
     
@@ -572,6 +694,17 @@ extension Map {
      - returns: The deserialized object.
      */
     public func value<T: RawRepresentable>(from key: MapKey) throws -> Set<T> {
+        return try value(from: key, using: RawRepresentableDecoder())
+    }
+    
+    /**
+     Returns a set of objects converted to the specified RawRepresentable type.
+     
+     - parameter key: The JSON key for the array that will be deserialized.
+     - throws: Throws an error if the value is invalid or it is nil. Filters out any enums that don't serialize properly instead of failing.
+     - returns: The deserialized object.
+     */
+    public func value<T: RawRepresentable>(from key: MapKey) throws -> Set<T>? {
         return try value(from: key, using: RawRepresentableDecoder())
     }
 }

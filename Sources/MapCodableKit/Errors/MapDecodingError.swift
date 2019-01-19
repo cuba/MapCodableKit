@@ -25,7 +25,7 @@ public enum MapDecodingError: Error, CustomStringConvertible {
     /**
      Thrown when the JSON value for the key provided is different from the expected type. For example if you're expecting a `String` but the JSON dictionary contains an `Int`.
      */
-    case unexpectedType(key: MapKey)
+    case unexpectedType(key: MapKey, expected: Any.Type, received: Any.Type)
     
     /**
      Thrown when the key provided when trying to get a value from a map could not be parsed.
@@ -38,8 +38,8 @@ public enum MapDecodingError: Error, CustomStringConvertible {
             return "Could not return value for key `\(key.rawValue)` because it cound not be decoded."
         case .valueNotFound(let key):
             return "Could not return value from map because no value cound not be found for key `\(key.rawValue)`."
-        case .unexpectedType(let key):
-            return "Could not return value for key `\(key.rawValue)` because its type is invalid. "
+        case .unexpectedType(let key, let expected, let received):
+            return "Could not return value for key `\(key.rawValue)` because its type is invalid. Expected to get `\(expected)` but received `\(received)`."
         case .invalidKey(let key):
             return "Could not return value from map because the key `\(key.rawValue)` is invalid or uses unsupported characters."
         }

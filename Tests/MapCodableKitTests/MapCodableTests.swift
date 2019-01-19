@@ -215,7 +215,7 @@ class MapCodableTests: XCTestCase {
             XCTFail("Should have failed to map value")
         } catch let error as MapDecodingError {
             switch error {
-            case .unexpectedType(let key):
+            case .unexpectedType(let key, _, _):
                 XCTAssertEqual("value", key.rawValue)
             default:
                 XCTFail("Invalid MapDecodingError type thrown")

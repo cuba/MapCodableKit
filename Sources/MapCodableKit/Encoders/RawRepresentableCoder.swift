@@ -36,7 +36,7 @@ public class RawRepresentableDecoder<T: RawRepresentable>: MapDecoder {
     /// - Parameter value: The raw value.
     /// - Returns: The `RawRepresentable` object.
     /// - Throws: Throws no errors.
-    func fromMap(value: T.RawValue) throws -> T? {
+    public func fromMap(value: T.RawValue) throws -> T? {
         return T(rawValue: value)
     }
 }

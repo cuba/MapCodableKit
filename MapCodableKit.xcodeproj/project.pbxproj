@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		DA245C902207EE3500A92C1D /* DateCoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA245C8F2207EE3500A92C1D /* DateCoder.swift */; };
 		DA3E508521B4AB70001450EC /* MapCodableKit_iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		DA3E508A21B4AF58001450EC /* MapCodableKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508921B4AF58001450EC /* MapCodableKitTests.swift */; };
 		DA3E508C21B4BDFD001450EC /* MapKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA3E508B21B4BDFD001450EC /* MapKey.swift */; };
@@ -73,6 +74,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		DA245C8F2207EE3500A92C1D /* DateCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCoder.swift; sourceTree = "<group>"; };
 		DA3E508121B4AB70001450EC /* MapCodableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA3E508321B4AB70001450EC /* MapCodableKit_iOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MapCodableKit_iOS.h; sourceTree = "<group>"; };
 		DA3E508421B4AB70001450EC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -221,6 +223,7 @@
 				DAB8D07C21F3871B009A33CF /* MapCodableCoder.swift */,
 				DAB8D07E21F39AA2009A33CF /* EncodableCoder.swift */,
 				DAB8D08021F39C7E009A33CF /* RawRepresentableCoder.swift */,
+				DA245C8F2207EE3500A92C1D /* DateCoder.swift */,
 			);
 			path = Encoders;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				OBJ_35 /* MapPrimitive.swift in Sources */,
 				DA77AA9221C8234700DE50B5 /* MapEncodingError.swift in Sources */,
 				DA3E509821B4F5AF001450EC /* String+Extensions.swift in Sources */,
+				DA245C902207EE3500A92C1D /* DateCoder.swift in Sources */,
 				OBJ_36 /* MapCoder.swift in Sources */,
 				OBJ_37 /* MapDecodingError.swift in Sources */,
 				DA3E508C21B4BDFD001450EC /* MapKey.swift in Sources */,

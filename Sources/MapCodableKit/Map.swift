@@ -311,7 +311,7 @@ extension Map {
      */
     public func value<T: MapDecoder>(from key: MapKey, using decoder: T) throws -> T.Object? {
         guard let value: Any = try self.value(from: key) else { return nil }
-        guard let element = value as? T.Primitive else { throw MapDecodingError.unexpectedType(key: key, expected: T.self, received: type(of: value).self) }
+        guard let element = value as? T.Primitive else { throw MapDecodingError.unexpectedType(key: key, expected: T.Primitive.self, received: type(of: value).self) }
         
         guard let object = try decoder.fromMap(value: element) else {
             throw MapDecodingError.failedToDecode(key: key)
@@ -831,5 +831,14 @@ extension Map {
      */
     public func value<T: MapDecodable>(from key: MapKey, stopOnFailure: Bool = false) throws -> [String: T] {
         return try value(from: key, using: MapDecodableDecoder(), stopOnFailure: stopOnFailure)
+    }
+}
+
+extension Map {
+    
+    func transform(key: MapKey, to newKey: MapKey) throws {
+        let value: Any? = try self.value(from: key)
+        try self.add(value, for: newKey)
+        try self.add(nil, for: key)
     }
 }

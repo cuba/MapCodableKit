@@ -584,6 +584,28 @@ extension Map {
     }
     
     /**
+     Add a `MapPrimitive` set to the map. A `MapPrimitive` is any value supported by a JSON object. `MapPrimitive` values includes (but not limited to):
+     * `String`
+     * `Int`
+     * `Bool`
+     * `Double`
+     * `[T]` where T also conforms to `MapPrimitive`
+     * `[String: T]` where T also conforms to `MapPrimitive`
+     
+     - parameter value: The set that will be stored in the map (as an array).
+     - parameter key: The JSON key that will be used for the JSON object.
+     */
+    public func add<T: MapPrimitive>(_ set: Set<T>?, for key: MapKey) throws {
+        guard let set = set else {
+            try self.add(nil, for: key)
+            return
+        }
+        
+        let array = Array(set)
+        try self.add(array as Any, for: key)
+    }
+    
+    /**
      Returns a value from the map if it conforms to the specified `MapPrimitive` type.
      
      - parameter key: The JSON key for the primitive that will be returned.
@@ -612,6 +634,23 @@ extension Map {
         
         if let value = value {
             return value
+        } else {
+            throw MapDecodingError.valueNotFound(key: key)
+        }
+    }
+    
+    /**
+     Returns a set from the map if it conforms to the specified `MapPrimitive` type.
+     
+     - parameter key: The JSON key for the set that will be returned.
+     - throws: Throws an error if the value could not be deserialized or it is nil.
+     - returns: The deserialized object.
+     */
+    public func value<T: MapPrimitive>(from key: MapKey) throws -> Set<T> {
+        let value: [T]? = try self.value(from: key)
+        
+        if let value = value {
+            return Set(value)
         } else {
             throw MapDecodingError.valueNotFound(key: key)
         }

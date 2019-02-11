@@ -12,20 +12,24 @@ class MapCodableTests: XCTestCase {
     struct MockUser: Codable, MapCodable, Equatable {
         let id: String
         let name: String
+        let dundees: Set<String>
         
         init(id: String) {
             self.id = id
             self.name = "Michael Scott"
+            self.dundees = []
         }
         
         init(map: Map) throws {
-            self.id     = try map.value(from: "id")
-            self.name   = try map.value(from: "name")
+            self.id         = try map.value(from: "id")
+            self.name       = try map.value(from: "name")
+            self.dundees    = try map.value(from: "dundees")
         }
         
         func fill(map: Map) throws {
             try map.add(id, for: "id")
             try map.add(name, for: "name")
+            try map.add(dundees, for: "dundees")
         }
         
         public static func == (lhs: MockUser, rhs: MockUser) -> Bool {
@@ -250,6 +254,7 @@ class MapCodableTests: XCTestCase {
             {
                 "id": "123",
                 "name": "Jim Halpert",
+                "dundees": ["Best boss", "Best salesman"]
             }
         """
         
@@ -271,7 +276,8 @@ class MapCodableTests: XCTestCase {
             [
                 {
                     "id": "123",
-                    "name": "Kevin Malone"
+                    "name": "Kevin Malone",
+                    "dundees": ["Smellies feet"]
                 }
             ]
         """

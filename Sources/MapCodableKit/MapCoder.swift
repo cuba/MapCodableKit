@@ -12,9 +12,9 @@ import Foundation
  */
 public protocol MapDecoder {
     associatedtype Primitive
-    associatedtype Object
+    associatedtype DecodedObject
     
-    func fromMap(value: Primitive) throws -> Object?
+    func fromMap(value: Primitive) throws -> DecodedObject?
 }
 
 /**
@@ -22,9 +22,9 @@ public protocol MapDecoder {
  */
 public protocol MapEncoder {
     associatedtype Primitive
-    associatedtype Object
+    associatedtype EncodedObject
     
-    func toMap(value: Object) throws -> Primitive?
+    func toMap(value: EncodedObject) throws -> Primitive?
 }
 
 /**

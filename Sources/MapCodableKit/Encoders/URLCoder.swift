@@ -11,7 +11,7 @@ import Foundation
  Transforms a `String` to a `URL` using its `URL(string:String)` when getting value from a map.
  Transforms a `URL` back to a `String` using its `absoluteString` variable when adding it to a map.
  */
-public class URLCoder: MapCoder {
+open class URLCoder: MapCoder {
     
     public init() {}
     

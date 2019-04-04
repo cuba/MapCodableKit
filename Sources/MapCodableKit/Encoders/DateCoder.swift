@@ -41,7 +41,7 @@ public enum DateFormat {
 
 
 /// Encodes and decodes RFC3339 strings.
-public class DateCoder: MapCoder {
+open class DateCoder: MapCoder {
     public let format: DateFormat
     
     public init(_ format: DateFormat) {
@@ -52,7 +52,7 @@ public class DateCoder: MapCoder {
     ///
     /// - Parameter value: the date that will be encoded
     /// - Returns: the RFC3339 encoded string
-    public func toMap(value: Date) -> String? {
+    open func toMap(value: Date) -> String? {
         return format.formatter.string(from: value)
     }
     
@@ -61,7 +61,7 @@ public class DateCoder: MapCoder {
     /// - Parameter value: RCF3339 encoded date string
     /// - Returns: A URL that is parsed from the RFC3339 string.
     /// - Throws: does not throw anything. This is just a conformance to the protocol
-    public func fromMap(value: String) throws -> Date? {
+    open func fromMap(value: String) throws -> Date? {
         return format.formatter.date(from: value)
     }
 }

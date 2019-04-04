@@ -8,7 +8,7 @@
 import Foundation
 
 /// This object transforms an `Encodable` object into a JSON dictionary.
-public class EncodableMapEncoder<T: Encodable>: MapEncoder {
+open class EncodableMapEncoder<T: Encodable>: MapEncoder {
     
     /// Initialized the object
     public init() {}
@@ -19,7 +19,7 @@ public class EncodableMapEncoder<T: Encodable>: MapEncoder {
     /// - Parameter value: The `Encodable` object that is to be transformed.
     /// - Returns: The json dictionary that is constructed.
     /// - Throws: Throws any errors the `JSONEncoder` `encode` or `JSONSerialization` `jsonObject` method encounters
-    public func toMap(value: T) throws -> Any? {
+    open func toMap(value: T) throws -> Any? {
         let data = try JSONEncoder().encode(value)
         let serializedObject = try JSONSerialization.jsonObject(with: data, options: .allowFragments)
         return serializedObject
@@ -27,7 +27,7 @@ public class EncodableMapEncoder<T: Encodable>: MapEncoder {
 }
 
 /// This object transforms a json value to a `Decodable` object.
-public class DecodableMapDecoder<T: Decodable>: MapDecoder {
+open class DecodableMapDecoder<T: Decodable>: MapDecoder {
     
     /// Initialized the object
     public init() {}
@@ -38,7 +38,7 @@ public class DecodableMapDecoder<T: Decodable>: MapDecoder {
     /// - Parameter value: The JSON dictionary that is to be transformed.
     /// - Returns: The transformed `Decodable` object.
     /// - Throws: Throws any errors the `JSONDecoder` `decode` or `JSONSerialization` `data` method encounters
-    public func fromMap(value: Any) throws -> T? {
+    open func fromMap(value: Any) throws -> T? {
         let data = try JSONSerialization.data(withJSONObject: value, options: .prettyPrinted)
         return try JSONDecoder().decode(T.self, from: data)
     }

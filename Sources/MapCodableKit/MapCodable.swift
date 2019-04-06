@@ -74,7 +74,7 @@ public extension MapEncodable {
      - throws: Throws an error if this object failed to serialize.
      - returns: The serialized object.
      */
-    public func jsonData(options: JSONSerialization.WritingOptions = []) throws -> Data {
+    func jsonData(options: JSONSerialization.WritingOptions = []) throws -> Data {
         let map = try filledMap()
         return try map.jsonData(options: options)
     }
@@ -87,7 +87,7 @@ public extension MapEncodable {
      - throws: Throws an error if this object failed to serialize.
      - returns: The serialized object.
      */
-    public func jsonString(options: JSONSerialization.WritingOptions = [], encoding: String.Encoding = .utf8) throws -> String? {
+    func jsonString(options: JSONSerialization.WritingOptions = [], encoding: String.Encoding = .utf8) throws -> String? {
         let map = try filledMap()
         return try map.jsonString(options: options, encoding: encoding)
     }
@@ -104,7 +104,7 @@ public extension MapDecodable {
      - parameter encoding: The encoding used on the string
      - throws: Throws an error if the JSON string cannot be deserialized.
      */
-    public init(jsonString: String, encoding: String.Encoding = .utf8) throws {
+    init(jsonString: String, encoding: String.Encoding = .utf8) throws {
         let map = try Map(jsonString: jsonString, encoding: encoding)
         try self.init(map: map)
     }
@@ -115,7 +115,7 @@ public extension MapDecodable {
      - parameter encoding: The encoding used on the string
      - throws: Throws an error if the JSON string cannot be deserialized.
      */
-    public init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
+    init(jsonData: Data, encoding: String.Encoding = .utf8) throws {
         let map = try Map(jsonData: jsonData, encoding: encoding)
         try self.init(map: map)
     }
@@ -126,7 +126,7 @@ public extension MapDecodable {
      - parameter encoding: The encoding used on the string
      - throws: Throws an error if the JSON string cannot be deserialized.
      */
-    public init(json: [String: Any?]) throws {
+    init(json: [String: Any?]) throws {
         let map = Map(json: json)
         try self.init(map: map)
     }

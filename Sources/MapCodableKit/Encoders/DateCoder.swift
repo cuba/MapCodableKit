@@ -8,7 +8,7 @@
 import Foundation
 
 public extension DateFormatter {
-    public static let rfc3339: DateFormatter = {
+    static let rfc3339: DateFormatter = {
         let rfc3339DateFormatter = DateFormatter()
         rfc3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
         rfc3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
@@ -16,7 +16,7 @@ public extension DateFormatter {
         return rfc3339DateFormatter
     }()
     
-    public static let rfc3339WithTimeFragments: DateFormatter = {
+    static let rfc3339WithTimeFragments: DateFormatter = {
         let rfc3339DateFormatter = DateFormatter()
         rfc3339DateFormatter.locale = Locale(identifier: "en_US_POSIX")
         rfc3339DateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZZZZZ"

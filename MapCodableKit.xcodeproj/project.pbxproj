@@ -86,7 +86,7 @@
 		DAB8D07C21F3871B009A33CF /* MapCodableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapCodableCoder.swift; sourceTree = "<group>"; };
 		DAB8D07E21F39AA2009A33CF /* EncodableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EncodableCoder.swift; sourceTree = "<group>"; };
 		DAB8D08021F39C7E009A33CF /* RawRepresentableCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RawRepresentableCoder.swift; sourceTree = "<group>"; };
-		"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		"MapCodableKit::MapCodableKit::Product" /* MapCodableKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = MapCodableKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		"MapCodableKit::MapCodableKitTests::Product" /* MapCodableKitTests.xctest */ = {isa = PBXFileReference; lastKnownFileType = file; path = MapCodableKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		OBJ_10 /* URLCoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLCoder.swift; sourceTree = "<group>"; };
 		OBJ_11 /* Map.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Map.swift; sourceTree = "<group>"; };
@@ -327,6 +327,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				English,
 				en,
 			);
 			mainGroup = OBJ_5;
@@ -573,6 +574,7 @@
 		OBJ_29 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -589,7 +591,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = MapCodableKit;
 			};
 			name = Debug;
@@ -623,6 +625,7 @@
 		OBJ_30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				APPLICATION_EXTENSION_API_ONLY = YES;
 				ENABLE_TESTABILITY = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -639,7 +642,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGET_NAME = MapCodableKit;
 			};
 			name = Release;
